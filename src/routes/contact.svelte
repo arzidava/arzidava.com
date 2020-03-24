@@ -15,7 +15,7 @@
     } 
 </style>
 
-<form name="contact" action="/contacted" method="POST" data-netlify="true">
+<form name="contact" action="/contacted/" method="POST" data-netlify="true">
     <TextField label="What can I call you ?" name="name" required />
     <TextField label="Where can I reach you ?" name="email" required />
     <TextField label="What is this about ?" name="subject" required />
