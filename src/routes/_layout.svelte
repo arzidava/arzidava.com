@@ -12,14 +12,14 @@
         display: flex;
         padding: .5rem 1rem;
     }
-    header > h1 {
+    header > a {
         flex-grow: 1;
         font-size: 2.5rem;
     }
 </style>
 
 <header>
-    <h1>arzidava</h1>
+    <a href="/"><h1>arzidava</h1></a>
     <Nav {segment}/>
 </header>
 

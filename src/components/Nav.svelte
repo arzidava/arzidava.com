@@ -2,13 +2,19 @@
     import { onMount } from 'svelte'
     export let segment
 
+    let hasMarker = false;
     let selected
+
     $: markerTop = (selected && selected.getBoundingClientRect().top) || 0
+    $: hasMarker = selected && !selected.hasAttribute('hidden')
 
     const handleClick = ev => selected = ev.currentTarget
 
     onMount(() => {
         selected = document.querySelector('[aria-current]')
+        if (!selected.hasAttribute('hidden')) {
+            hasMarker = true;
+        }
     })
 </script>
 
@@ -17,8 +23,8 @@
         font-size: 1.25rem;
         position: relative;
     }
-    nav:before,
-    nav:after {
+    nav.hasMarker:before,
+    nav.hasMarker:after {
         background-color: var(--secondary);
         content: '';
         display: block;
@@ -64,40 +70,41 @@
     }
 </style>
 
-<nav style="--markerTop: {markerTop}px">
-    <a 
-        aria-current='{segment === undefined ? "page" : undefined}' 
+<nav style="--markerTop: {markerTop}px" class:hasMarker>
+    <a
+        aria-current='{segment === undefined ? "page" : undefined}'
         href='.'
         on:click="{handleClick}">
         <span>home</span>
     </a>
-    <a 
-        aria-current='{segment === "about" ? "page" : undefined}' 
+    <a
+        aria-current='{segment === "about" ? "page" : undefined}'
         href='/about'
         on:click="{handleClick}">
         <span>about</span>
     </a>
-    <a 
-        aria-current='{segment === "blog" ? "page" : undefined}' 
+    <a
+        aria-current='{segment === "blog" ? "page" : undefined}'
         href='/blog'
         on:click="{handleClick}">
         <span>blog</span>
     </a>
-    <a 
-        aria-current='{segment === "portfolio" ? "page" : undefined}' 
+    <a
+        aria-current='{segment === "portfolio" ? "page" : undefined}'
         href='/portfolio'
         on:click="{handleClick}">
         <span>portfolio</span>
     </a>
-    <a 
-        aria-current='{segment === "contact" ? "page" : undefined}' 
+    <a
+        aria-current='{segment === "contact" ? "page" : undefined}'
         href='/contact'
         on:click="{handleClick}">
         <span>contact</span>
     </a>
     <!-- hidden routes -->
-    <a 
-        aria-current='{segment === "contacted" ? "page" : undefined}' 
+    <a
+        hidden
+        aria-current='{segment === "contacted" ? "page" : undefined}'
         href='/contacted'
         style="display: none;">
     </a>
