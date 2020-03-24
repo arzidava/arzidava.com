@@ -1,22 +1,26 @@
+<script>
+    import Button from '../components/Button.svelte'
+    import TextField from '../components/TextField.svelte'
+</script>
+
+<style>
+    form {
+        margin: auto;
+        max-width: 80ch;
+        padding: 1rem;
+    }
+
+    form > :global(* + *) {
+        margin-top: 1rem;
+    } 
+</style>
+
 <form name="contact" action="/contacted" method="POST" data-netlify="true">
-    <label>
-        <span>Where can I reach you ?</span>
-        <input type="email" name="email" required>
-    </label>
-    <label>
-        <span>What is this about ?</span>
-        <input list="contact-options" name="subject">
-        <datalist id="contact-options">
-            <option>Blabla option 1</option>
-            <option>Blabla option 1</option>
-            <option>Blabla option 1</option>
-        </datalist>
-    </label>
-    <label>
-        <span>Write here your message</span>
-        <textarea name="body"></textarea>
-    </label>
+    <TextField label="What can I call you ?" name="name" required />
+    <TextField label="Where can I reach you ?" name="email" required />
+    <TextField label="What is this about ?" name="subject" required />
+    <TextField label="Here you write your message" name="body" rows="5" type="textarea" required />
     <div>
-        <button type="submit">Send</button>
+        <Button type="submit">Send</Button>
     </div>
 </form>
