@@ -12,5 +12,19 @@
 <body>
     <wrapper>%sapper.html%</wrapper>
     %sapper.scripts%
+
+    <!-- Workaround to get Netlify forms working -->
+    <form
+        aria-hidden="true" 
+        style="display: none;"
+        name="contact"
+        action="/contacted"
+        method="post"
+        data-netlify="true">
+        <input name="name">
+        <input name="email">
+        <input name="subject">
+        <input name="body">
+    </form>
 </body>
 </html>
