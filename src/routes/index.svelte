@@ -1,7 +1,4 @@
 <style>
-    .contact {
-
-    }
 </style>
 
 // Short intro
