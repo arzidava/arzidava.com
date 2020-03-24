@@ -95,4 +95,10 @@
         on:click="{handleClick}">
         <span>contact</span>
     </a>
+    <!-- hidden routes -->
+    <a 
+        aria-current='{segment === "contacted" ? "page" : undefined}' 
+        href='/contacted'
+        style="display: none;">
+    </a>
 </nav>
