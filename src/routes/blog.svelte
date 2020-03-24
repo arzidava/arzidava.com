@@ -1,1 +1,1 @@
-Blog page
+List of blog articles
