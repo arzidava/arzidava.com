@@ -1,4 +1,4 @@
-<form name="contact" method="POST" data-netlify="true">
+<form name="contact" action="/contacted" method="POST" data-netlify="true">
     <label>
         <span>Where can I reach you ?</span>
         <input type="email" name="email" required>
