@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+	%sapper.base%
+	<link rel='stylesheet' href='global.css'>
+	<link rel='icon' type='image/png' href='favicon.png'>
+	%sapper.styles%
+	%sapper.head%
+</head>
+<body>
+	<wrapper>%sapper.html%</wrapper>
+	%sapper.scripts%
+
+	<form name="contact" method="POST" data-netlify="true">
+		<label>
+			<span>Where can I reach you ?</span>
+			<input type="email" name="email" required>
+		</label>
+		<label>
+			<span>What is this about ?</span>
+			<input list="contact-options" name="subject">
+			<datalist id="contact-options">
+				<option>Blabla option 1</option>
+				<option>Blabla option 1</option>
+				<option>Blabla option 1</option>
+			</datalist>
+		</label>
+		<label>
+			<span>Write here your message</span>
+			<textarea name="body"></textarea>
+		</label>
+		<div>
+			<button type="submit">Send</button>
+		</div>
+	</form>
+</body>
+</html>
