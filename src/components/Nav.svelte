@@ -84,18 +84,6 @@
         <span>about</span>
     </a>
     <a
-        aria-current='{segment === "blog" ? "page" : undefined}'
-        href='/blog'
-        on:click="{handleClick}">
-        <span>blog</span>
-    </a>
-    <a
-        aria-current='{segment === "portfolio" ? "page" : undefined}'
-        href='/portfolio'
-        on:click="{handleClick}">
-        <span>portfolio</span>
-    </a>
-    <a
         aria-current='{segment === "contact" ? "page" : undefined}'
         href='/contact'
         on:click="{handleClick}">
