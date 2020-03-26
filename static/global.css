@@ -46,6 +46,19 @@ body {
     background-color: var(--white);
 }
 
+body.home:before {
+    background-attachment: fixed;
+    background-image: url('/lyderhorn.jpg');
+    background-position: center;
+    background-size: cover;
+    content: '';
+    filter: grayscale();
+    min-height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: -1;
+}
+
 wrapper {
     display: flex;
     flex-direction: column;

@@ -672,6 +672,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+svelte-multitoneimage@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/svelte-multitoneimage/-/svelte-multitoneimage-1.1.1.tgz#b30156bb5cdd7a9d26f1b35b92a5a859a917fbcc"
+
 svelte@^3.0.0:
   version "3.20.1"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.20.1.tgz#8417fcd883a2f534b642a0737368272e651cf3ac"

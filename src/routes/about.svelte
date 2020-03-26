@@ -46,7 +46,7 @@
         <h2>Hi!</h2>
         <p>I am Stephane Vanraes, a Bergen based web developer.</p>
         <p>With several years of experience working on a variety of projects I have obtained a solid knowledge of JavaScript, HTML and CSS, the foundation blocks of all frontends.  On the backend I have experience with NodeJS, C# and MySQL (but I prefer doing frontend work).</p>
-        <p>Over the years I have grown passionate about creating a more lightweight, responsive and accessible web, and I hold those values high in every single project I work on.  For the past years I have intensively used <a external href="http://www.svelte.dev">Svelte</a> as my framework of choice as it makes achieving that goal easy</p>
+        <p>Over the years I have grown passionate about creating a more lightweight, responsive and accessible web, and I hold those values high in every single project I work on.  For the past years I have intensively used <a external href="http://www.svelte.dev">Svelte</a> as my framework of choice as it makes achieving that goal easy.</p>
     </div>
 </div>
 <hr/>

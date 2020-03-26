@@ -1,30 +1,23 @@
 <script>
-    import Footer from '../components/Footer.svelte'
-    import Nav from '../components/Nav.svelte'
-
+    import Header from '../components/Header.svelte'
     export let segment
+
+    $: {
+        if (process.browser) {
+            if (segment && document.body.classList.contains('home')) {
+                document.body.classList.remove('home')
+            } else if (!segment) {
+                document.body.classList.add('home')
+            }
+        }
+    }
+
 </script>
 
-<style>
-    header {
-        align-items: center;
-        color: var(--primary);
-        display: flex;
-        padding: .5rem 1rem;
-    }
-    header > a {
-        flex-grow: 1;
-        font-size: 1.5rem;
-    }
-</style>
-
-<header>
-    <a href="/"><h1>arzidava</h1></a>
-    <Nav {segment}/>
-</header>
+{#if segment}
+    <Header {segment} />
+{/if}
 
 <main>
     <slot></slot>
 </main>
-
-<Footer {segment} />

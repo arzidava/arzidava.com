@@ -23,29 +23,19 @@
         font-size: 1.25rem;
         position: relative;
     }
-    nav.hasMarker:before,
     nav.hasMarker:after {
-        background-color: var(--secondary);
+        background-color: var(--white);
         content: '';
         display: block;
+        height: 1ch;
         position: absolute;
         top: var(--markerTop);
+        transform: rotate(45deg) translate(-2.5px,2.5px);
         transition: top 250ms;
-    }
-    nav:before {
-        height: 1.25em;
-        left: 0;
-        transform: translateY(-.4em);
-        width: 2px;
-    }
-    nav:after {
-        height: 1ch;
-        left: calc(-.5ch + 1px);
-        transform: translateY(-.075em) rotate(45deg);
         width: 1ch;
     }
     a {
-        border-color: var(--primary);
+        border-color: var(--white);
         border-style: solid;
         border-width: 0 0 0 2px;
         display: block;
@@ -54,19 +44,19 @@
         transition: color 250ms;
     }
     a:hover {
-        background-color: var(--secondary);
-        border-color: var(--secondary);
+        background-color: var(--primary);
         color: var(--white);
     }
     a[aria-current]:not(:hover) {
-        color: var(--secondary);
+        background-color: var(--white);
+        color: var(--primary);
     }
     a:last-child {
         border-bottom-width: 2px;
         line-height: calc(1.25em - 1px);
     }
     a:last-child[aria-current] {
-        border-bottom-color: var(--secondary);
+        border-bottom-color: var(--primary);
     }
 </style>
 
