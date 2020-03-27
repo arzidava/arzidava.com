@@ -2,57 +2,58 @@
 </script>
 
 <style>
-    nav {
-        position: absolute;
-        bottom: 1em;
-        color: var(--white);
-        font-size: 1.5rem;
-        right: 1em;
+    .title {
+        font-size: 1.25rem;
+        grid-column: 2 / 6;
+        grid-row: 3 / 4;
+        max-width: 350px;
     }
 
-    a {
-        background-color: rgba(0,0,0,.75);
-        display: block;
-        padding: .5em 1em;
-    }
-    a:focus,
-    a:hover {
-        background-color: var(--primary);
-    }
-    a + a {
-        margin-top: .5em;
-    }
-    .title {
-        position: absolute;
+    h1 {
+        font-size: 2em;
         color: var(--white);
-        top: 58px;
-        left: 17px;
-        max-width: 550px;
-        right: 17px;
-    }
-    @media screen and (max-height: 456px) {
-        .title {
-            right: 174px;
-        }
-    }
-    .title > h1 {
-        font-size: 3rem;
-        text-align: center;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black;
     }
-    
-    .presentation {
-        background-color: rgba(0, 0, 0, 0.75);
-        font-size: 1.25rem;
-        padding: 1em 2em;
+    .intro {
+        background-color: var(--primary);
+        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
+        color: var(--white);
+        padding: 1rem;
     }
-
+    @media screen and (min-width: 500px) {
+        .title {
+            margin-left: 100px;
+        }
+    }
+    nav {
+        align-self: end;
+        font-size: 1.25rem;
+        grid-column: 5 / 6;
+        grid-row: 5 / 6;
+    }
+    nav > a {
+        background-color: var(--primary);
+        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
+        color: var(--white);
+        display: block;
+        padding: .5rem 1rem;
+    }
+    nav > a + a {
+        margin-top: .5rem;
+    }
+    nav > a:focus,
+    nav > a:hover {
+        background-color: var(--secondary);
+    }
+    .hiring {
+        background-color: var(--secondary);
+    }
 </style>
 
 <div class="title">
     <h1>arzidava</h1>
-    <div class="presentation">
+    <div class="intro">
         <p>Hi,</p>
         <p>I am Stephane Vanraes, a Bergen based web developer with a passion for lightweight, responsive and accessible websites.</p>
     </div>
@@ -62,4 +63,5 @@
     <!--<a href="/blog">blog</a>
     <a href="/portfolio">portfolio</a>-->
     <a href="/contact">Contact</a>
+    <a class="hiring" href="/services">Hire me</a>
 </nav>

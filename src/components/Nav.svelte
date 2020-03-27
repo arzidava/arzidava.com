@@ -47,7 +47,7 @@
         background-color: var(--primary);
         color: var(--white);
     }
-    a[aria-current]:not(:hover) {
+    a[aria-current] {
         background-color: var(--white);
         color: var(--primary);
     }
@@ -72,6 +72,12 @@
         href='/about'
         on:click="{handleClick}">
         <span>about</span>
+    </a>
+    <a
+        aria-current='{segment === "services" ? "page" : undefined}'
+        href='/services'
+        on:click="{handleClick}">
+        <span>services</span>
     </a>
     <a
         aria-current='{segment === "contact" ? "page" : undefined}'
