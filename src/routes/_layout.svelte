@@ -4,7 +4,6 @@
 
     $: {
         if (process.browser) {
-            console.log(segment);
             if (segment && document.body.classList.contains('home')) {
                 document.body.classList.remove('home')
             } else if (!segment) {

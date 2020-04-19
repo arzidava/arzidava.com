@@ -7,7 +7,7 @@
 <style>
     header {
         align-items: center;
-        background-color: var(--primary);
+        background-color: var(--black);
         color: var(--white);
         display: flex;
         padding: .5rem 1rem;

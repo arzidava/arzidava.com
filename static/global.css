@@ -4,6 +4,7 @@
     --secondary: #BD6004;
     --secondary--light: #FF8F1F;
     --accent: #F4442E;
+    --black: #404040;
     --white: #fcfcfc;
 }
 * {
@@ -75,6 +76,7 @@ footer {
     left: 50%;
     position: relative;
     transform: translateX(-50%);
+    width: 100vw;
 }
 main {
     flex-grow: 1;

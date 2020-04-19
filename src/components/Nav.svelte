@@ -24,7 +24,7 @@
         position: relative;
     }
     nav.hasMarker:after {
-        background-color: var(--white);
+        background-color: var(--primary);
         content: '';
         display: block;
         height: 1ch;
@@ -35,28 +35,17 @@
         width: 1ch;
     }
     a {
-        border-color: var(--white);
-        border-style: solid;
-        border-width: 0 0 0 2px;
         display: block;
         line-height: 1.25em;
-        padding-left: 1rem;
+        margin-left: 1rem;
+        padding: 0 1rem;
         transition: color 250ms;
     }
-    a:hover {
-        background-color: var(--primary);
-        color: var(--white);
+    a:hover:not([aria-current]) {
+        background-color: var(--secondary);
     }
     a[aria-current] {
-        background-color: var(--white);
-        color: var(--primary);
-    }
-    a:last-child {
-        border-bottom-width: 2px;
-        line-height: calc(1.25em - 1px);
-    }
-    a:last-child[aria-current] {
-        border-bottom-color: var(--primary);
+        background-color: var(--primary);
     }
 </style>
 
@@ -74,10 +63,10 @@
         <span>about</span>
     </a>
     <a
-        aria-current='{segment === "services" ? "page" : undefined}'
-        href='/services'
+        aria-current='{segment === "blog" ? "page" : undefined}'
+        href='/blog'
         on:click="{handleClick}">
-        <span>services</span>
+        <span>blog</span>
     </a>
     <a
         aria-current='{segment === "contact" ? "page" : undefined}'

@@ -10,7 +10,7 @@
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 4em;
         color: var(--white);
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black;
@@ -46,7 +46,7 @@
     nav > a:hover {
         background-color: var(--secondary);
     }
-    .hiring {
+    .accent {
         background-color: var(--secondary);
     }
 </style>
@@ -60,8 +60,6 @@
 </div>
 <nav>
     <a href="/about">about</a>
-    <!--<a href="/blog">blog</a>
-    <a href="/portfolio">portfolio</a>-->
-    <a href="/contact">Contact</a>
-    <a class="hiring" href="/services">Hire me</a>
+    <a href="/blog">blog</a>
+    <a class="accent" href="/contact">contact</a>
 </nav>
