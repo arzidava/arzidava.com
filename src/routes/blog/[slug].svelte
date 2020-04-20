@@ -33,7 +33,7 @@
         border-left: 2px solid var(--accent);
         color: var(--accent);
         display: block;
-        overflow-x: scroll;
+        overflow-x: auto;
         padding-left: 12.5px;
         transform: translateY(-4px);
     }
