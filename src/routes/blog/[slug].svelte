@@ -16,27 +16,26 @@
 
 <style>
     article {
-        background: linear-gradient(to bottom, var(--white) 24px, var(--primary--light) 1px);
-        background-size: 100% 25px;
+        background: linear-gradient(to bottom, var(--white) 19px, var(--primary--light) 19px, var(--primary--light) 20px);
+        background-size: 100% 20px;
         border-radius: .5rem;
         display: block;
-        padding: 25px 15px;
+        line-height: 20px;
+        padding: 23px 15px;
     }
-    h1, article :global(h2), article :global(p) {
-        line-height: 25px;
+    article > :global(* + *) {
+        margin-top: 20px;
     }
-    h1, article :global(h2), article :global(p):not(:last-child) {
-        display: block;
-        margin-bottom: 25.5px;
+    article > :global(h1, h2) {
+        transform: translateY(-2px);
     }
-
     article :global(code) {
         border-left: 2px solid var(--accent);
         color: var(--accent);
         display: block;
-        line-height: 25px;
-        margin-bottom: 25.5px;
+        overflow-x: scroll;
         padding-left: 12.5px;
+        transform: translateY(-4px);
     }
 </style>
 

@@ -1,6 +1,7 @@
 ---
 slug: 'svelte-userbased-config'
 title: 'Configuring a Svelte App based on the user'
+date: 20200420
 ---
 
 If you follow the official Svelte template you will notice that you can pass in data to your app during initialization.  The interesting lines are found in _main.js_:
@@ -46,11 +47,4 @@ If you are using stores, it is also a viable approach to read it straight into a
 export const config = readable(document.myapp);
 ```
 
-## Generate the initializer
-
-An alternative, but in all fairness similar, approach would be to not include the initializer in the Svelte app itself but to call it in the rendered HTML:
-
-```html
-<script>
-</script>
-```
+That's all, the actual implementation on how to make valid a valid javascript object to place in your document will depend on your platform of choice.

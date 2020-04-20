@@ -1,3 +1,18 @@
+<script context="module">
+    export function preload() {
+        return this.fetch('/blog.json').then(res => res.json()).then(posts => {
+            console.log(posts);
+            return {
+                lastPost: posts[0]
+            }
+        });
+    }
+</script>
+
+<script>
+    export let lastPost;
+</script>
+
 <style>
     .about {
         background-color: var(--white);
@@ -60,7 +75,7 @@
 <div class="sections">
     <section>
         <h2>Articles</h2>
-        <p>If I get around to do so I write small articles and tutorials about frontend related topics, the latest one can be found here: %%LATEST_ARTICLE%%</p>
+        <p>If I get around to do so I write small articles and tutorials about frontend related topics, the latest one can be found here: <a href={lastPost.slug}>{lastPost.title}</a></p>
     </section>
     <section>
         <h2>What I do</h2>

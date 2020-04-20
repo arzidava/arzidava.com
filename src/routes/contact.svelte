@@ -28,6 +28,8 @@
 
 <style>
     form {
+        background-color: var(--white);
+        border-bottom: 3px solid var(--secondary);
         margin: auto;
         max-width: 80ch;
         padding: 1rem;

@@ -54,6 +54,7 @@ const posts = fs.readdirSync(POSTS_DIR)
     const html = marked(content)
 
     return {
+      date,
       title: title || slug,
       slug,
       html,

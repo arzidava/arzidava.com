@@ -1,4 +1,5 @@
 <script>
+    import Footer from '../components/Footer.svelte'
     import Header from '../components/Header.svelte'
     export let segment
 
@@ -19,3 +20,5 @@
 <main>
     <slot></slot>
 </main>
+
+<Footer {segment} />
