@@ -14,9 +14,7 @@
 
 </script>
 
-{#if segment}
-    <Header {segment} />
-{/if}
+<Header {segment} />
 
 <main>
     <slot></slot>

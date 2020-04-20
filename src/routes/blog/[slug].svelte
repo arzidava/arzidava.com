@@ -1,52 +1,50 @@
 <script context="module">
     export async function preload({ params, query }) {
-      // the `slug` parameter is available because
-      // this file is called [slug].html
-      const res = await this.fetch(`blog/${params.slug}.json`);
-      const data = await res.json();
-      if (res.status === 200) {
-        return { post: data };
-      } else {
-        this.error(res.status, data.message);
-      }
+        const res = await this.fetch(`blog/${params.slug}.json`);
+        const data = await res.json();
+        if (res.status === 200) {
+            return { post: data };
+        } else {
+            this.error(res.status, data.message);
+        }
     }
-  </script>
-  
-  <script>
+</script>
+
+<script>
     export let post
-  </script>
-  
-  <style>
-    header {
-      text-align: center;
+</script>
+
+<style>
+    article {
+        background: linear-gradient(to bottom, var(--white) 24px, var(--primary--light) 1px);
+        background-size: 100% 25px;
+        border-radius: .5rem;
+        display: block;
+        padding: 25px 15px;
     }
-    header h1 {
-      margin-bottom: 0.7em;
+    h1, article :global(h2), article :global(p) {
+        line-height: 25px;
     }
-    header p {
-      color: #AAA;
-      text-transform: uppercase;
-      font-family: Rubik, sans-serif;
-      font-weight: 600;
+    h1, article :global(h2), article :global(p):not(:last-child) {
+        display: block;
+        margin-bottom: 25.5px;
     }
-    header hr {
-      min-width: 100px;
-      width: 30%;
+
+    article :global(code) {
+        border-left: 2px solid var(--accent);
+        color: var(--accent);
+        display: block;
+        line-height: 25px;
+        margin-bottom: 25.5px;
+        padding-left: 12.5px;
     }
-  </style>
-  
-  <svelte:head>
+</style>
+
+<svelte:head>
     <title>{post.title}</title>
-  </svelte:head>
-  
-  <header>
-    <p>{post.printDate} ~ {post.printReadingTime}</p>
+</svelte:head>
+
+<article>
     <h1>{post.title}</h1>
-    <hr />
-  </header>
-  <div class="container">
-    <article class="content">
-      {@html post.html}
-    </article>
-    <hr />
-  </div>
+    {@html post.html}
+</article>

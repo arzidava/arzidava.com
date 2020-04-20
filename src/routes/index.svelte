@@ -1,65 +1,76 @@
-<script>
-</script>
-
 <style>
-    .title {
-        font-size: 1.25rem;
-        grid-column: 2 / 6;
-        grid-row: 3 / 4;
-        max-width: 350px;
-    }
-
-    h1 {
-        font-size: 4em;
-        color: var(--white);
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
-    }
-    .intro {
-        background-color: var(--primary);
-        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
-        color: var(--white);
+    .about {
+        background-color: var(--white);
+        border: 2px solid var(--primary);
+        min-height: 100px;
         padding: 1rem;
     }
-    @media screen and (min-width: 500px) {
-        .title {
-            margin-left: 100px;
+    .about > img {
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        float: left;
+        margin: 0 1rem 1rem 0;
+        max-height: 150px;
+        shape-outside: circle(50%);
+    }
+    .about > div {
+        padding-left: 100px;
+    }
+    @media screen and (max-width: 500px) {
+        .about {
+            min-height: 175px;
         }
+        
     }
-    nav {
-        align-self: end;
-        font-size: 1.25rem;
-        grid-column: 5 / 6;
-        grid-row: 5 / 6;
+    .sections {
+        display: grid;
+        grid-gap: 1rem;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        margin: 1rem 0;
     }
-    nav > a {
-        background-color: var(--primary);
-        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
-        color: var(--white);
-        display: block;
-        padding: .5rem 1rem;
+    section {
+        background-color: var(--white);
+        border: 2px solid var(--primary);
+        padding: 1rem;
     }
-    nav > a + a {
+    p, ul {
         margin-top: .5rem;
     }
-    nav > a:focus,
-    nav > a:hover {
-        background-color: var(--secondary);
+    h2 {
+        color: var(--primary);
+        font-size: 1.125em;
+        font-weight: 600;
     }
-    .accent {
-        background-color: var(--secondary);
+    ul {
+        padding-left: 1rem;
+    }
+    a {
+        color: var(--primary);
     }
 </style>
 
-<div class="title">
-    <h1>arzidava</h1>
-    <div class="intro">
-        <p>Hi,</p>
-        <p>I am Stephane Vanraes, a Bergen based web developer with a passion for lightweight, responsive and accessible websites.</p>
+<div class="about">
+    <img src="/stephane.jpg" alt="Picture of me">
+    <div>
+        <h2>Hi!</h2>
+        <p>I am Stephane Vanraes, a Bergen based web developer with a passion for lightweight, repsonsive and accessible web applications.</p>
     </div>
 </div>
-<nav>
-    <a href="/about">about</a>
-    <a href="/blog">blog</a>
-    <a class="accent" href="/contact">contact</a>
-</nav>
+<div class="sections">
+    <section>
+        <h2>Articles</h2>
+        <p>If I get around to do so I write small articles and tutorials about frontend related topics, the latest one can be found here: %%LATEST_ARTICLE%%</p>
+    </section>
+    <section>
+        <h2>What I do</h2>
+        <p>I have experience and especially enjoy working with</p>
+        <ul>
+            <li>Javascript</li>
+            <li>CSS</li>
+            <li>Svelte / Sapper</li>
+            <li>SCSS</li>
+        </ul>
+        <p>If you want to know more about me just head over to the <a href="/contact">Contact page</a> and send me a message.</p>
+    </section>
+</div>

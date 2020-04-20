@@ -7,14 +7,16 @@
 <style>
     header {
         align-items: center;
-        background-color: var(--black);
-        color: var(--white);
+        background-color: var(--white);
+        border-bottom: 3px solid var(--secondary);
         display: flex;
+        flex-wrap: wrap;
         padding: .5rem 1rem;
     }
 
     header > a {
-        flex-grow: 1;
+        color: var(--primary);
+        flex-grow: 99;
         font-size: 1.5rem;
     }
 </style>

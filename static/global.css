@@ -1,11 +1,14 @@
 :root {
     --primary: #005670;
-    --primary-light: #0491BD;
+    --primary--light: #0491BD;
     --secondary: #BD6004;
     --secondary--light: #FF8F1F;
     --accent: #F4442E;
     --black: #404040;
     --white: #fcfcfc;
+    --yellow: #ff9;
+    --blue: #79f;
+    --pink: #f9f;
 }
 * {
     box-sizing: border-box;
@@ -24,42 +27,11 @@
     margin: 0;
     padding: 0;
 }
-
-a[external] {
-    /* border-color: transparent;
-    border-style: solid;
-    border-width: 2px;
-    color: var(--primary);
-    font-weight: 600;
-    padding: 2px;
-    margin: -2px; */
-}
-
-a[external]:focus {
-    border-color: var(--primary);
-}
-a[external]:hover {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
 body {
-    background-color: var(--white);
-}
-
-body.home main {
     background-attachment: fixed;
-    background-image: url('/lyderhorn.webp');
-    background-position: center;
+    background-image: url('./corkboard.jpg');
     background-size: cover;
-    display: grid;
-    grid-template-columns: 1rem max-content 2fr 1rem max-content 1rem;
-    grid-template-rows: 1rem 1fr max-content 1fr max-content 1rem;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
+    min-height: 100vh;
 }
 
 wrapper {
@@ -70,14 +42,15 @@ wrapper {
     min-height: 100vh;
 }
 
-header,
-footer {
+header {
     display: block;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
     width: 100vw;
 }
+
 main {
     flex-grow: 1;
+    margin: .75rem;
 }

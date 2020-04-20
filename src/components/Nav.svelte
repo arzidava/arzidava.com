@@ -1,77 +1,47 @@
 <script>
-    import { onMount } from 'svelte'
-    export let segment
-
-    let hasMarker = false;
-    let selected
-
-    $: markerTop = (selected && selected.getBoundingClientRect().top) || 0
-    $: hasMarker = selected && !selected.hasAttribute('hidden')
-
-    const handleClick = ev => selected = ev.currentTarget
-
-    onMount(() => {
-        selected = document.querySelector('[aria-current]')
-        if (!selected.hasAttribute('hidden')) {
-            hasMarker = true;
-        }
-    })
+    export let segment;
 </script>
 
 <style>
     nav {
-        font-size: 1.25rem;
-        position: relative;
-    }
-    nav.hasMarker:after {
-        background-color: var(--primary);
-        content: '';
-        display: block;
-        height: 1ch;
-        position: absolute;
-        top: var(--markerTop);
-        transform: rotate(45deg) translate(-2.5px,2.5px);
-        transition: top 250ms;
-        width: 1ch;
+        flex-grow: 1;
+        text-align: right;
     }
     a {
-        display: block;
-        line-height: 1.25em;
-        margin-left: 1rem;
-        padding: 0 1rem;
-        transition: color 250ms;
+        background-color: var(--yellow);
+        box-shadow: 2px 2px 2px var(--black);
+        color: var(--black);
+        display: inline-block;
+        margin: .5rem;
+        padding: .5rem 1rem;
+        position: relative;
+        text-decoration: none;
     }
-    a:hover:not([aria-current]) {
-        background-color: var(--secondary);
+    a:hover,
+    a:focus {
+        background-color: var(--primary);
+        color: var(--white);
     }
     a[aria-current] {
-        background-color: var(--primary);
+        background-color: var(--primary--light);
+        color: var(--white);
     }
 </style>
 
-<nav style="--markerTop: {markerTop}px" class:hasMarker>
+<nav>
     <a
         aria-current='{segment === undefined ? "page" : undefined}'
-        href='.'
-        on:click="{handleClick}">
+        href='.'>
         <span>home</span>
     </a>
     <a
-        aria-current='{segment === "about" ? "page" : undefined}'
-        href='/about'
-        on:click="{handleClick}">
-        <span>about</span>
-    </a>
-    <a
         aria-current='{segment === "blog" ? "page" : undefined}'
-        href='/blog'
-        on:click="{handleClick}">
+        href='/blog'>
         <span>blog</span>
     </a>
     <a
         aria-current='{segment === "contact" ? "page" : undefined}'
-        href='/contact'
-        on:click="{handleClick}">
+        href='/contact'>
         <span>contact</span>
     </a>
     <!-- hidden routes -->
