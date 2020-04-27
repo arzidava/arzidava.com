@@ -1,15 +1,13 @@
 :root {
     --primary: #005670;
-    --primary--light: #0491BD;
+    --primary-light: #0491BD;
     --secondary: #BD6004;
     --secondary--light: #FF8F1F;
     --accent: #F4442E;
     --black: #404040;
     --white: #fcfcfc;
-    --yellow: #ff9;
-    --blue: #79f;
-    --pink: #f9f;
 }
+
 * {
     box-sizing: border-box;
     color: inherit;
@@ -18,39 +16,41 @@
     padding: 0;
     text-decoration: none;
 }
-*:focus {
-    outline: none;
-}
-*:after,
-*:before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 body {
     background-attachment: fixed;
-    background-image: url('./corkboard.jpg');
+    background-image: url(lyderhorn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
 }
 
-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    max-width: 1024px;
-    min-height: 100vh;
-}
-
-header {
-    display: block;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
-    width: 100vw;
+h1 {
+    color: var(--white);
+    font-size: 3rem;
+    padding-left: 1rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 main {
-    flex-grow: 1;
-    margin: .75rem;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 1rem;
+    width: 100%;
+}
+.stack > * + * {
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 400px) {
+    main {
+        padding-bottom: 1rem;
+        min-height: 100vh;
+        overflow: initial;
+        width: calc(100% - 100px);
+    }
 }

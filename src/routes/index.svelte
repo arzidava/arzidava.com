@@ -1,91 +1,77 @@
 <script context="module">
-    export function preload() {
-        return this.fetch('/blog.json').then(res => res.json()).then(posts => {
-            console.log(posts);
-            return {
-                lastPost: posts[0]
-            }
+    export function preload({ params, query }) {
+        return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
+            return { posts: posts.slice(0, 3) };
         });
     }
 </script>
 
 <script>
-    export let lastPost;
+    export let posts;
 </script>
 
 <style>
-    .about {
-        background-color: var(--white);
-        border: 2px solid var(--primary);
-        min-height: 100px;
+    .index {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    section {
+        flex: 1 0 calc(275px);
+        margin: 1rem .5rem 0;
+    }
+    section > div {
+        background-color: var(--black);
+        border: 1px solid var(--white);
+        border-radius: .25rem;
+        color: var(--white);
+        display: flow-root;
         padding: 1rem;
     }
-    .about > img {
-        border: 3px solid var(--primary);
+
+    img {
         border-radius: 50%;
         float: left;
         margin: 0 1rem 1rem 0;
-        max-height: 150px;
         shape-outside: circle(50%);
-    }
-    .about > div {
-        padding-left: 100px;
-    }
-    @media screen and (max-width: 500px) {
-        .about {
-            min-height: 175px;
-        }
-        
-    }
-    .sections {
-        display: grid;
-        grid-gap: 1rem;
-        grid-auto-rows: auto;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        margin: 1rem 0;
-    }
-    section {
-        background-color: var(--white);
-        border: 2px solid var(--primary);
-        padding: 1rem;
-    }
-    p, ul {
-        margin-top: .5rem;
-    }
-    h2 {
-        color: var(--primary);
-        font-size: 1.125em;
-        font-weight: 600;
+        width: 150px;
     }
     ul {
-        padding-left: 1rem;
+        list-style-type: none;
+        margin-top: .5rem;
     }
     a {
-        color: var(--primary);
+        text-decoration: underline;
+    }
+    @media screen and (max-width: 700px) {
+        .index {
+            flex-direction: column;
+        }
+        section {
+            flex: 0 1 0px;
+        }
     }
 </style>
 
-<div class="about">
-    <img src="/stephane.jpg" alt="Picture of me">
+<h1>arzidava</h1>
+<div class="index">
+    <section class="stack">
     <div>
+        <img src="stephane.jpg" alt="Picture of me">
         <h2>Hi!</h2>
-        <p>I am Stephane Vanraes, a Bergen based web developer with a passion for lightweight, repsonsive and accessible web applications.</p>
+        <p>I am Stephane Vanraes, a Bergen based developer specialized in Frontend solutions.</p>
+        <p>When I am not hiking up some mountain, you might find me dabbling around with HTML, CSS and JavaScript at my computer trying to make lightweight, responsive and accessible websites.</p>
     </div>
-</div>
-<div class="sections">
-    <section>
-        <h2>Articles</h2>
-        <p>If I get around to do so I write small articles and tutorials about frontend related topics, the latest one can be found here: <a href={lastPost.slug}>{lastPost.title}</a></p>
     </section>
     <section>
-        <h2>What I do</h2>
-        <p>I have experience and especially enjoy working with</p>
-        <ul>
-            <li>Javascript</li>
-            <li>CSS</li>
-            <li>Svelte / Sapper</li>
-            <li>SCSS</li>
-        </ul>
-        <p>If you want to know more about me just head over to the <a href="/contact">Contact page</a> and send me a message.</p>
+        <div>
+            <h2>Latest Articles</h2>
+            <ul class="stack">
+                {#each posts as post}
+                    <li><a href="/blog/{post.slug}">{post.title}</a></li>
+                {/each}
+            </ul>
+        </div>
     </section>
 </div>

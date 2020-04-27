@@ -16,11 +16,12 @@
 
 <style>
     article {
-        background: linear-gradient(to bottom, var(--white) 19px, var(--primary--light) 19px, var(--primary--light) 20px);
-        background-size: 100% 20px;
+        background: var(--black);
+        color: var(--white);
         border-radius: .5rem;
         display: block;
         line-height: 20px;
+        margin: 1rem 0;
         padding: 23px 15px;
     }
     article > :global(* + *) {
@@ -30,11 +31,12 @@
         transform: translateY(-2px);
     }
     article :global(code) {
+        background-color: var(--white);
         border-left: 2px solid var(--accent);
         color: var(--accent);
         display: block;
         overflow-x: auto;
-        padding-left: 12.5px;
+        padding: .75rem;
         transform: translateY(-4px);
     }
 </style>
@@ -43,7 +45,8 @@
     <title>{post.title}</title>
 </svelte:head>
 
+<h1>{post.title}</h1>
+
 <article>
-    <h1>{post.title}</h1>
     {@html post.html}
 </article>

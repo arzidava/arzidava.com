@@ -1,54 +1,44 @@
 <script>
-    export let segment;
+	export let segment;
 </script>
 
 <style>
-    nav {
-        flex-grow: 1;
-        text-align: right;
-    }
-    a {
-        background-color: var(--yellow);
-        box-shadow: 2px 2px 2px var(--black);
-        color: var(--black);
+	nav {
+		bottom: 1rem;
+		font-size: 1.125rem;
+		position: fixed;
+		text-align: center;
+		width: 100%;
+	}
+	a {
+		background-color: var(--primary);
+        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
+        color: var(--white);
         display: inline-block;
-        margin: .5rem;
         padding: .5rem 1rem;
-        position: relative;
-        text-decoration: none;
-    }
-    a:hover,
-    a:focus {
-        background-color: var(--primary);
-        color: var(--white);
-    }
-    a[aria-current] {
-        background-color: var(--primary--light);
-        color: var(--white);
-    }
+	}
+	a + a {
+        margin-top: .5rem;
+	}
+	a[aria-current],
+    a:focus,
+    a:hover {
+        background-color: var(--secondary);
+	}
+	@media screen and (min-width: 400px) {
+		nav {
+			right: 1rem;
+			width: auto;
+		}
+		a {
+			display: block;
+		}
+	}
 </style>
 
 <nav>
-    <a
-        aria-current='{segment === undefined ? "page" : undefined}'
-        href='.'>
-        <span>home</span>
-    </a>
-    <a
-        aria-current='{segment === "blog" ? "page" : undefined}'
-        href='/blog'>
-        <span>blog</span>
-    </a>
-    <a
-        aria-current='{segment === "contact" ? "page" : undefined}'
-        href='/contact'>
-        <span>contact</span>
-    </a>
-    <!-- hidden routes -->
-    <a
-        hidden
-        aria-current='{segment === "contacted" ? "page" : undefined}'
-        href='/contacted'
-        style="display: none;">
-    </a>
+	<a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a>
+	<!--<a aria-current='{segment === "about" ? "page" : undefined}' href='./about'>about</a>-->
+	<a aria-current='{segment === "blog" ? "page" : undefined}' href='./blog'>blog</a>
+	<a aria-current='{segment === "contact" ? "page" : undefined}' href='./contact'>contact</a>
 </nav>

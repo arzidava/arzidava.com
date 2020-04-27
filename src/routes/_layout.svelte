@@ -1,24 +1,14 @@
 <script>
-    import Footer from '../components/Footer.svelte'
-    import Header from '../components/Header.svelte'
-    export let segment
+	import Nav from '../components/Nav.svelte';
 
-    $: {
-        if (process.browser) {
-            if (segment && document.body.classList.contains('home')) {
-                document.body.classList.remove('home')
-            } else if (!segment) {
-                document.body.classList.add('home')
-            }
-        }
-    }
-
+	export let segment;
 </script>
 
-<Header {segment} />
+<style>
+</style>
+
+<Nav {segment}/>
 
 <main>
-    <slot></slot>
+	<slot></slot>
 </main>
-
-<Footer {segment} />
