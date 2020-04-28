@@ -74,6 +74,11 @@
     }
 </style>
 
+<svelte:head>
+    <title>arzidava</title>
+    <meta name="description" content="The personal website of Stephane Vanraes, with articles on frontend development subjects.">
+</svelte:head>
+
 <h1><span><Logo  /></span>arzidava</h1>
 <div class="index">
     <section>

@@ -25,6 +25,7 @@
     a.secondary,
     button.secondary {
         background-color: var(--secondary);
+        color: var(--xblack);
     }
 
     a:active,

@@ -26,6 +26,11 @@
     }
 </script>
 
+<svelte:head>
+    <title>arzidava - contact</title>
+    <meta name="description" content="The contact page for arzidava.com">
+</svelte:head>
+
 <style>
     .contacted,
     form {        

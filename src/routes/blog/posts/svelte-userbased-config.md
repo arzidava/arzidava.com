@@ -1,7 +1,9 @@
 ---
-slug: 'svelte-userbased-config'
-title: 'Configuring a Svelte App based on the user'
+slug: svelte-userbased-config
+title: Configuring a Svelte App based on the user
 date: 20200420
+summary: Learn some easy ways to pass configuration information from your backend to a Svelte App
+tags: svelte javascript frontend configuration
 ---
 
 If you follow the official Svelte template you will notice that you can pass in data to your app during initialization.  The interesting lines are found in _main.js_:

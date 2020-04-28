@@ -1,7 +1,9 @@
 ---
-slug: 'svelte-functions-on-children'
-title: 'Running functions on child components in Svelte'
+slug: svelte-functions-on-children
+title: Running functions on child components in Svelte
 date: 20200428
+summary: An easy tutorial on how to call a child component function in a Svelte App
+tags: svelte javascript functions
 ---
 
 In Svelte you can easily expose properties using `export let prop` to make them available in your parent.  But nothing stops us from exposing a function in the same way doing `export function fn() { }`, the question now is how do we call this ? This is actually, as so often with Svelte, relatively simple.

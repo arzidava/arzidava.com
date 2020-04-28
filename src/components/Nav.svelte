@@ -11,7 +11,7 @@
 		text-align: center;
 		width: 100%;
 	}
-	li {
+	nav > :global(*) {
 		display: inline-block;
 	}
 	
@@ -20,15 +20,15 @@
 			right: 1rem;
 			width: auto;
 		}
-		li {
+		nav > :global(*) {
 			display: block;
 		}
 	}
 </style>
 
 <nav class="stack">
-	<li><Button href='./' secondary={segment === undefined} shadow>home</Button></li>
-	<li><Button href='./blog' secondary={segment === 'blog'} shadow>blog</Button></li>
-	<li><Button href='./hireme' secondary={segment === 'hireme'} shadow>hire me</Button></li>
-	<li><Button href='./contact' secondary={segment === 'contact'} shadow>contact</Button></li>
+	<Button href='./' secondary={segment === undefined} shadow>home</Button>
+	<Button href='./blog' secondary={segment === 'blog'} shadow>blog</Button>
+	<Button href='./about' secondary={segment === 'about'} shadow>about</Button>
+	<Button href='./contact' secondary={segment === 'contact'} shadow>contact</Button>
 </nav>

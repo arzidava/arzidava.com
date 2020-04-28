@@ -13,7 +13,7 @@
 <style>
     ul {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-auto-rows: 150px;
         list-style-type: none;
         margin-top: 1rem;
@@ -45,6 +45,11 @@
         text-align: center;
     }
 </style>
+
+<svelte:head>
+    <title>arzidava - blog</title>
+    <meta name="description" content="A series of articles written by Stephane Vanraes">
+</svelte:head>
 
 <h1>articles</h1>
 
