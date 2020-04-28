@@ -11,6 +11,7 @@
 </script>
 
 <script>
+    import formatDate from '../../utils/formatDate.js'
     export let post
 </script>
 
@@ -39,6 +40,10 @@
         padding: .75rem;
         transform: translateY(-4px);
     }
+    .pub {
+        color: var(--white);
+        padding: .5rem 1.5rem;
+    }
 </style>
 
 <svelte:head>
@@ -46,6 +51,7 @@
 </svelte:head>
 
 <h1>{post.title}</h1>
+<span class="pub">Published on {formatDate(post.date)}</span>
 
 <article>
     {@html post.html}

@@ -1,13 +1,16 @@
 <script context="module">
     export function preload({ params, query }) {
         return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-            return { posts: posts.slice(0, 3) };
+            console.log(posts);
+            return { posts: posts.slice(0, 10) }
         });
     }
 </script>
 
 <script>
-    export let posts;
+    import ArticleList from '../components/ArticleList.svelte'
+
+    export let posts
 </script>
 
 <style>
@@ -29,20 +32,12 @@
         display: flow-root;
         padding: 1rem;
     }
-
     img {
         border-radius: 50%;
         float: left;
         margin: 0 1rem 1rem 0;
         shape-outside: circle(50%);
         width: 150px;
-    }
-    ul {
-        list-style-type: none;
-        margin-top: .5rem;
-    }
-    a {
-        text-decoration: underline;
     }
     @media screen and (max-width: 700px) {
         .index {
@@ -56,22 +51,18 @@
 
 <h1>arzidava</h1>
 <div class="index">
-    <section class="stack">
-    <div>
-        <img src="stephane.jpg" alt="Picture of me">
-        <h2>Hi!</h2>
-        <p>I am Stephane Vanraes, a Bergen based developer specialized in Frontend solutions.</p>
-        <p>When I am not hiking up some mountain, you might find me dabbling around with HTML, CSS and JavaScript at my computer trying to make lightweight, responsive and accessible websites.</p>
-    </div>
-    </section>
     <section>
         <div>
+            <img src="stephane.jpg" alt="Picture of me">
+            <h2>Hi!</h2>
+            <p>I am Stephane Vanraes, a Bergen based developer specialized in Frontend solutions.</p>
+            <p>When I am not hiking up some mountain, you might find me dabbling around with HTML, CSS and JavaScript at my computer trying to make lightweight, responsive and accessible websites.</p>
+        </div>
+    </section>
+    <section>
+        <div class="stack">
             <h2>Latest Articles</h2>
-            <ul class="stack">
-                {#each posts as post}
-                    <li><a href="/blog/{post.slug}">{post.title}</a></li>
-                {/each}
-            </ul>
+            <ArticleList {posts} />
         </div>
     </section>
 </div>

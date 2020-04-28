@@ -46,7 +46,8 @@
         text-align: center;
     }
     div {
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
     }
 </style>
 
