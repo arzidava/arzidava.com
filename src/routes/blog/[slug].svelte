@@ -33,6 +33,11 @@
     }
     article :global(code) {
         background-color: var(--white);
+        color: var(--primary);
+        padding: 0 .25rem;
+    }
+    article :global(pre) {
+        background-color: var(--white);
         border-left: 2px solid var(--secondary);
         color: var(--primary);
         display: block;
