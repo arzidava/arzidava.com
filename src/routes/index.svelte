@@ -8,6 +8,7 @@
 
 <script>
     import ArticleList from '../components/ArticleList.svelte'
+    import Logo from '../components/Logo.svelte'    
 
     export let posts
 </script>
@@ -18,7 +19,13 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
-    
+    h1 > span {   
+        display: inline-block;     
+        height: 40px;
+        margin-right: 1rem;
+        vertical-align: middle;
+        width: 40px;
+    }
     section {
         flex: 1 0 calc(275px);
         margin: 1rem .5rem 0;
@@ -48,7 +55,7 @@
     }
 </style>
 
-<h1>arzidava</h1>
+<h1><span><Logo  /></span>arzidava</h1>
 <div class="index">
     <section>
         <div>
