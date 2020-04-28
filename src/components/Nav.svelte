@@ -29,5 +29,6 @@
 <nav class="stack">
 	<li><Button href='./' secondary={segment === undefined} shadow>home</Button></li>
 	<li><Button href='./blog' secondary={segment === 'blog'} shadow>blog</Button></li>
+	<li><Button href='./hireme' secondary={segment === 'hireme'} shadow>hire me</Button></li>
 	<li><Button href='./contact' secondary={segment === 'contact'} shadow>contact</Button></li>
 </nav>

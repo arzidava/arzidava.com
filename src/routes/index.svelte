@@ -19,6 +19,11 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
+
+    h2 {
+        margin-top: 0;
+    }
+
     h1 > span {   
         display: inline-block;     
         height: 40px;
@@ -45,6 +50,20 @@
         shape-outside: circle(50%);
         width: 150px;
     }
+    
+    a {
+        color: var(--secondary-light);
+        display: inline-block;
+        margin: 0 -.5ch;
+        padding: 0 .5ch;
+        text-decoration: underline;
+    }
+    a:hover {
+        background-color: var(--secondary);
+        color: var(--white);
+        text-decoration: none;
+    }
+
     @media screen and (max-width: 700px) {
         .index {
             flex-direction: column;
@@ -58,11 +77,13 @@
 <h1><span><Logo  /></span>arzidava</h1>
 <div class="index">
     <section>
-        <div>
+        <div class="stack">
             <img src="stephane.jpg" alt="Picture of me">
             <h2>Hi!</h2>
             <p>I am Stephane Vanraes, a Bergen based developer specialized in Frontend solutions.</p>
             <p>When I am not hiking up some mountain, you might find me dabbling around with HTML, CSS and JavaScript at my computer trying to make lightweight, responsive and accessible websites.</p>
+            <p>Over the years I have learned to appreciate SCSS for styling and Svelte for UI components, in fact this site itself is made using Svelte and Sapper).</p>
+            <p>If you want me to join your team (if I am available) for a while, or need someone to help you with Svelte training or other, have a look at the <a href="./hireme">hire me</a> page to get an idea what I have to offer and how to contact me (hint it's the <a href="./contact">contact</a> page)</p>
         </div>
     </section>
     <section>
