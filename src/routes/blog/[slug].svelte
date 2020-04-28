@@ -32,8 +32,8 @@
     }
     article :global(code) {
         background-color: var(--white);
-        border-left: 2px solid var(--accent);
-        color: var(--accent);
+        border-left: 2px solid var(--secondary);
+        color: var(--primary);
         display: block;
         overflow-x: auto;
         padding: .75rem;

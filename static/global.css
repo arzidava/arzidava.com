@@ -2,7 +2,7 @@
     --primary: #005670;
     --primary-light: #0491BD;
     --secondary: #BD6004;
-    --secondary--light: #FF8F1F;
+    --secondary-light: #FF8F1F;
     --accent: #F4442E;
     --black: #404040;
     --white: #fcfcfc;
@@ -42,6 +42,7 @@ main {
     padding: 1rem;
     width: 100%;
 }
+
 .stack > * + * {
     margin-top: 1rem;
 }
@@ -49,7 +50,7 @@ main {
 @media screen and (min-width: 400px) {
     main {
         padding-bottom: 1rem;
-        min-height: 100vh;
+        min-height: 100%;
         overflow: initial;
         width: calc(100% - 100px);
     }

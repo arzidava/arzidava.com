@@ -1,5 +1,6 @@
 <script>
-	export let segment;
+	import Button from './Button.svelte'
+	export let segment
 </script>
 
 <style>
@@ -10,35 +11,23 @@
 		text-align: center;
 		width: 100%;
 	}
-	a {
-		background-color: var(--primary);
-        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
-        color: var(--white);
-        display: inline-block;
-        padding: .5rem 1rem;
+	li {
+		display: inline-block;
 	}
-	a + a {
-        margin-top: .5rem;
-	}
-	a[aria-current],
-    a:focus,
-    a:hover {
-        background-color: var(--secondary);
-	}
+	
 	@media screen and (min-width: 400px) {
 		nav {
 			right: 1rem;
 			width: auto;
 		}
-		a {
+		li {
 			display: block;
 		}
 	}
 </style>
 
-<nav>
-	<a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a>
-	<!--<a aria-current='{segment === "about" ? "page" : undefined}' href='./about'>about</a>-->
-	<a aria-current='{segment === "blog" ? "page" : undefined}' href='./blog'>blog</a>
-	<a aria-current='{segment === "contact" ? "page" : undefined}' href='./contact'>contact</a>
+<nav class="stack">
+	<li><Button href='./' secondary={segment === undefined} shadow>home</Button></li>
+	<li><Button href='./blog' secondary={segment === 'blog'} shadow>blog</Button></li>
+	<li><Button href='./contact' secondary={segment === 'contact'} shadow>contact</Button></li>
 </nav>
