@@ -88,7 +88,7 @@
             <p>I am Stephane Vanraes, a Bergen based developer specialized in Frontend solutions.</p>
             <p>When I am not hiking up some mountain, you might find me dabbling around with HTML, CSS and JavaScript at my computer trying to make lightweight, responsive and accessible websites.</p>
             <p>Over the years I have learned to appreciate SCSS for styling and Svelte for UI components, in fact this site itself is made using Svelte and Sapper).</p>
-            <p>If you want me to join your team (if I am available) for a while, or need someone to help you with Svelte training or other, have a look at the <a href="./aboutme">about me</a> page to get an idea what I have to offer and how to contact me (hint it's the <a href="./contact">contact</a> page)</p>
+            <!--<p>If you want me to join your team (if I am available) for a while, or need someone to help you with Svelte training or other, have a look at the <a href="./aboutme">about me</a> page to get an idea what I have to offer and how to contact me (hint it's the <a href="./contact">contact</a> page)</p>-->
         </div>
     </section>
     <section>
