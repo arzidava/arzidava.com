@@ -78,9 +78,10 @@
 	{/if}
 </nav>
 
-<div style="visibility: hidden; position: absolute; height: 0; width: 0;">
+<div aria-hidden="true" style="display: none">
 	<a href="./">home</a>
 	<a href="./about">about</a>
 	<a href="./blog">blog</a>
 	<a href="./contact">contact</a>
+	<a href="./404">404</a>
 </div>
