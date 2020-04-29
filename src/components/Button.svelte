@@ -11,6 +11,7 @@
         background-color: var(--primary);
         border: 0;
         color: var(--white);
+        cursor: pointer;
         display: block;
         font-size: 1.125rem;
         outline: none;
