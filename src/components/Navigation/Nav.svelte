@@ -78,10 +78,9 @@
 	{/if}
 </nav>
 
-<!-- hidden navigation for exporting 
-<a href="./"></a>
-<a href="./about"></a>
-<a href="./blog"></a>
-<a href="./contact"></a>
-<a href="./error"></a>
--->
+<div style="visibility: none; position: absolute; height: 0; width: 0;">
+	<a href="./">home</a>
+	<a href="./about">about</a>
+	<a href="./blog">blog</a>
+	<a href="./contact">contact</a>
+</div>
