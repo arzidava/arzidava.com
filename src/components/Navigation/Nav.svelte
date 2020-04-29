@@ -77,3 +77,11 @@
 		</svg>
 	{/if}
 </nav>
+
+<!-- hidden navigation for exporting 
+<a href="./"></a>
+<a href="./about"></a>
+<a href="./blog"></a>
+<a href="./contact"></a>
+<a href="./error"></a>
+-->
