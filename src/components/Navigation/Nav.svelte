@@ -78,7 +78,7 @@
 	{/if}
 </nav>
 
-<div style="visibility: none; position: absolute; height: 0; width: 0;">
+<div style="visibility: hidden; position: absolute; height: 0; width: 0;">
 	<a href="./">home</a>
 	<a href="./about">about</a>
 	<a href="./blog">blog</a>
