@@ -49,6 +49,9 @@
         color: var(--white);
         padding: .5rem 1.5rem;
     }
+    h1 {
+        padding-right: 3.5rem;
+    }
 </style>
 
 <svelte:head>

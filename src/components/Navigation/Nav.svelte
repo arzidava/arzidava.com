@@ -65,13 +65,15 @@
 			<path d="M1,2h8M1,5h8,M1,8h8"  stroke-width="1" stroke-linecap="round"/>
 		</svg>
 	</Button>
-	<svg class="menu" viewBox="0 0 100 100">
-		<g class="arc" style="--rotation: {$rotation}deg">
-			<path d="M 0 0 A 100 100 0 0 0 100 100 v -100 z" />
-			<MenuItem active={segment === undefined} index={0} href="./" label="home" />
-			<MenuItem active={segment === 'about'} index={1} href="./about" label="about" />
-			<MenuItem active={segment === 'blog'} index={2} href="./blog" label="blog" />
-			<MenuItem active={segment === 'contact'} index={3} href="./contact" label="contact" />
-		</g>
-	</svg>
+	{#if open}
+		<svg class="menu" viewBox="0 0 100 100">
+			<g class="arc" style="--rotation: {$rotation}deg">
+				<path d="M 0 0 A 100 100 0 0 0 100 100 v -100 z" />
+				<MenuItem active={segment === undefined} index={0} href="./" label="home" />
+				<MenuItem active={segment === 'about'} index={1} href="./about" label="about" />
+				<MenuItem active={segment === 'blog'} index={2} href="./blog" label="blog" />
+				<MenuItem active={segment === 'contact'} index={3} href="./contact" label="contact" />
+			</g>
+		</svg>
+	{/if}
 </nav>
