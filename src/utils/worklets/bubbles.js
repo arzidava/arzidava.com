@@ -1,4 +1,3 @@
-
 if (process.browser && 'paintWorklet' in CSS) {
     CSS.paintWorklet.addModule(URL.createObjectURL(new Blob([`
     // bubbles.js

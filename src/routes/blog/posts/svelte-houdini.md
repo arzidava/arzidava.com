@@ -14,7 +14,10 @@ In normal circumstance you would create a new file (_path-to-worklet.js_) which 
 
 ```javascript
 CSS.paintWorklet.addModule('path-to-worklet.js');
-registerPaint('worklet-name', WorkletClass)
+// Check for support
+if ('paintWorklet' in CSS) {
+    registerPaint('worklet-name', WorkletClass)
+}
 ```
 
 This does however require that _path-to-worklet.js_ is a seperate file, so it will trigger an additional download. With some imagination (and dirty coding) we can however embed it in our Svelte App itself. To do so we create a new worklet javascript file, create the module as encoded uri and register it:
@@ -28,7 +31,9 @@ This does however require that _path-to-worklet.js_ is a seperate file, so it wi
         }
     }
   
-    registerPaint('my-worklet', Painter)
+    if ('paintWorklet' in CSS) {
+        registerPaint('my-worklet', Painter)
+    }
   `], {type: "application/javascript"})))
 ```
 
@@ -85,4 +90,14 @@ Now _my-worklet_ will run every time _padding_ has changed. Note that this of co
     }
 </style>
 <div style="--bubbleSize: {$bubbleSize}"></div>
+```
+
+## A note on Sapper
+
+This code will not work in SSR because the server does not recognize the CSS Object, just make sure this code only runs on the client
+
+```javascript
+if (process.browser && 'paintWorklet' in CSS) {
+    // Create and register your worklet
+}
 ```
