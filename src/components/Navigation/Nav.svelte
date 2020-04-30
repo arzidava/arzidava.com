@@ -56,6 +56,11 @@
 		fill: var(--primary);
 		opacity: .75;
 	}
+	@media (prefers-reduced-motion: reduce) {
+		.arc {
+			transform: rotate(90deg);
+		}
+	}
 </style>
 
 <svelte:window on:click="{() => open = false}"></svelte:window>
