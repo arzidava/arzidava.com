@@ -7,6 +7,7 @@
 </script>
 
 <script>
+    import Header from '../../components/Header.svelte' 
     export let posts;
 </script>
 
@@ -51,7 +52,7 @@
     <meta name="description" content="A series of articles written by Stephane Vanraes">
 </svelte:head>
 
-<h1>articles</h1>
+<Header>articles</Header>
 
 <ul>
     {#each posts as post}

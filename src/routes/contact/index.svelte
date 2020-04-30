@@ -1,6 +1,7 @@
 <script>
-    import Button from '../components/Button.svelte'
-    import TextField from '../components/TextField.svelte'
+    import Button from '../../components/Button.svelte'
+    import Header from '../../components/Header.svelte'
+    import TextField from '../../components/TextField.svelte'
     
     let msgSend = false
 
@@ -56,7 +57,7 @@
     }
 </style>
 
-<h1>contact me</h1>
+<Header>contact me</Header>
 {#if !msgSend}
     <form class="stack" on:submit|preventDefault="{handleSubmit}">
         <TextField label="Name" name="name" required />

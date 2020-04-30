@@ -11,6 +11,7 @@
 </script>
 
 <script>
+    import Header from '../../components/Header.svelte'
     import formatDate from '../../utils/formatDate.js'
     export let post
 </script>
@@ -49,9 +50,6 @@
         color: var(--white);
         padding: .5rem 1.5rem;
     }
-    h1 {
-        padding-right: 3.5rem;
-    }
 </style>
 
 <svelte:head>
@@ -59,7 +57,7 @@
     <meta name="description" content="{post.summary}">
 </svelte:head>
 
-<h1>{post.title}</h1>
+<Header>{post.title}</Header>
 <span class="pub">Published on {formatDate(post.date)}</span>
 
 <article>
