@@ -40,19 +40,3 @@ main {
 .stack > * + * {
     margin-top: 1rem;
 }
-
-
-    /*
-    a {
-        color: var(--secondary-light);
-        display: inline-block;
-        margin: 0 -.5ch;
-        padding: 0 .5ch;
-        text-decoration: underline;
-    }
-    a:hover {
-        background-color: var(--secondary);
-        color: var(--white);
-        text-decoration: none;
-    }
-    */

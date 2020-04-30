@@ -12,16 +12,13 @@
 
 <script>
     import Header from '../../components/Header.svelte'
+    import Section from '../../components/Section.svelte'
     import formatDate from '../../utils/formatDate.js'
     export let post
 </script>
 
 <style>
     article {
-        background: var(--black);
-        color: var(--white);
-        border-radius: .5rem;
-        display: block;
         line-height: 20px;
         margin: 1rem 0;
         padding: 23px 15px;
@@ -46,9 +43,30 @@
         padding: .75rem;
         transform: translateY(-4px);
     }
+    
+    article :global(a) {
+        color: var(--secondary-light);
+        display: inline-block;
+        margin: 0 -.5ch;
+        padding: 0 .5ch;
+        text-decoration: underline;
+    }
+
+    article :global(a):hover {
+        background-color: var(--secondary);
+        color: var(--white);
+        text-decoration: none;
+    }
+
+    article :global(img) {
+        border: .5rem solid var(--white);
+        border-radius: .25rem;
+        display: block;
+        margin: .5rem;
+    }
     .pub {
         color: var(--white);
-        padding: .5rem 1.5rem;
+        padding: .5rem;
     }
 </style>
 
@@ -60,6 +78,8 @@
 <Header>{post.title}</Header>
 <span class="pub">Published on {formatDate(post.date)}</span>
 
-<article>
-    {@html post.html}
-</article>
+<Section>
+    <article>
+        {@html post.html}
+    </article>
+</Section>
