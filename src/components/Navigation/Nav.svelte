@@ -40,11 +40,12 @@
 		z-index: 5;
 	}
 	.menu {
-		height: 200px;
+		filter: drop-shadow(4px 4px 4px rgba(0,0,0,.75));
+		height: 150px;
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 200px;
+		width: 150px;
 		z-index: 1;
 	}
 	.arc {
@@ -70,9 +71,8 @@
 			<g class="arc" style="--rotation: {$rotation}deg">
 				<path d="M 0 0 A 100 100 0 0 0 100 100 v -100 z" />
 				<MenuItem active={segment === undefined} index={0} href="./" label="home" />
-				<MenuItem active={segment === 'about'} index={1} href="./about" label="about" />
-				<MenuItem active={segment === 'blog'} index={2} href="./blog" label="blog" />
-				<MenuItem active={segment === 'contact'} index={3} href="./contact" label="contact" />
+				<MenuItem active={segment === 'blog'} index={1} href="./blog" label="blog" />
+				<MenuItem active={segment === 'contact'} index={2} href="./contact" label="contact" />
 			</g>
 		</svg>
 	{/if}
@@ -80,8 +80,6 @@
 
 <div aria-hidden="true" style="display: none">
 	<a href="./">home</a>
-	<a href="./about">about</a>
 	<a href="./blog">blog</a>
 	<a href="./contact">contact</a>
-	<a href="./404">404</a>
 </div>

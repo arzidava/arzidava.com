@@ -40,6 +40,8 @@ main {
     flex-direction: column;
     overflow-y: auto;
     padding: 1rem;
+    margin: auto;
+    max-width: 1140px;
     width: 100%;
 }
 
