@@ -16,6 +16,7 @@
         font-size: 1.125rem;
         outline: none;
         padding: .5rem 1rem;
+        text-align: center;
     }
 
     a.shadow,
@@ -26,7 +27,7 @@
     a.secondary,
     button.secondary {
         background-color: var(--secondary);
-        color: var(--xblack);
+        color: var(--white);
     }
 
     a:active,
