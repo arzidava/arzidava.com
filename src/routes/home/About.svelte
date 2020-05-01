@@ -11,9 +11,6 @@
         shape-outside: circle(50%);
         width: 150px;
     }
-    .available {
-        background-color: var(--secondary);
-    }
 </style>
 
 <div class="stack">

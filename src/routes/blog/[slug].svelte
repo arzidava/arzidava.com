@@ -52,9 +52,11 @@
         text-decoration: underline;
     }
 
-    article :global(a):hover {
+    article :global(a):hover,
+    article :global(a):focus {
         background-color: var(--secondary);
         color: var(--white);
+        outline: none;
         text-decoration: none;
     }
 

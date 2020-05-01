@@ -24,12 +24,6 @@
         box-shadow: 4px 4px 4px rgba(0,0,0,.75);
     }
 
-    a.secondary,
-    button.secondary {
-        background-color: var(--secondary);
-        color: var(--white);
-    }
-
     a:active,
     a:focus,
     a:hover,
@@ -37,6 +31,20 @@
     button:focus,
     button:hover {
         background-color: var(--secondary);
+    }
+    
+    a.secondary,
+    button.secondary {
+        background-color: var(--secondary);
+        color: var(--white);
+    }
+    a.secondary:active,
+    a.secondary:focus,
+    a.secondary:hover,
+    button.secondary:active,
+    button.secondary:focus,
+    button.secondary:hover {
+        background-color: var(--primary);
     }
 </style>
 

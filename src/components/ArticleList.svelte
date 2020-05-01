@@ -7,8 +7,20 @@
     ul {
         list-style-type: none;
     }
+    a {        
+        display: block;
+        margin: 0 -.5ch;
+        padding: 0 .5ch;
+    }
     a > span:first-child {
         text-decoration: underline;
+    }
+    a:focus,
+    a:hover {        
+        background-color: var(--secondary);
+        color: var(--white);
+        outline: none;
+        text-decoration: none;
     }
 </style>
 
