@@ -11,5 +11,5 @@
     <meta name="og:image" content="{image}">
     <meta name="og:title" content="{title}">
     <meta name="og:type" content="{content}">
-    <meta name="og:url" content="{url}">
+    <meta name="og:url" content="http://www.arzidava.com/{url}">
 </svelte:head>|
