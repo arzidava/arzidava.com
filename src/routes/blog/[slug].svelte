@@ -13,6 +13,7 @@
 <script>
     import Header from '../../components/Header.svelte'
     import Section from '../../components/Section.svelte'
+    import SocialMediaCard from '../../components/SocialMediaCard.svelte'
     import formatDate from '../../utils/formatDate.js'
     export let post
 </script>
@@ -76,6 +77,8 @@
     <title>arzidava {post.title}</title>
     <meta name="description" content="{post.summary}">
 </svelte:head>
+
+<SocialMediaCard content="article" url="{post.slug}" title="{post.title}" description="{post.summary}" />
 
 <Header>{post.title}</Header>
 <span class="pub">Published on {formatDate(post.date)}</span>
