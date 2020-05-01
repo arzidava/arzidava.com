@@ -2,7 +2,7 @@
     import Button from '../../components/Button.svelte'
     import Header from '../../components/Header.svelte'
     import TextField from '../../components/TextField.svelte'
-    
+
     let msgSend = false
 
     const encode = (data) => {
@@ -14,7 +14,7 @@
         fetch('/', {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ 
+            body: encode({
                 "form-name": "contact",
                 name: ev.target.elements.name.value,
                 email: ev.target.elements.email.value,
@@ -34,8 +34,10 @@
 
 <style>
     .contacted,
-    form {        
+    form {
+        --bubbles-color: var(--white);
         background-color: var(--black);
+        background-image: paint(bubbles);
         border: 1px solid var(--white);
         border-radius: .25rem;
         color: var(--white);
@@ -45,6 +47,9 @@
     }
 
     .contacted {
+        --bubbles-color: var(--white);
+        background-color: var(--black);
+        background-image: paint(bubbles);
         display: flex;
         flex-basis: auto;
         flex-direction: column;
