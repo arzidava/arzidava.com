@@ -1,6 +1,6 @@
 <script>
     export let description;
-    export let image = "./arzidava.png"
+    export let image = "arzidava.png"
     export let title
     export let content
     export let url
