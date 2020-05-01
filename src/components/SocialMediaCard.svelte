@@ -8,7 +8,7 @@
 
 <svelte:head>
     <meta name="og:description" content="{description}">
-    <meta name="og:image" content="{image}">
+    <meta name="og:image" content="http://www.arzidava.com/{image}">
     <meta name="og:title" content="{title}">
     <meta name="og:type" content="{content}">
     <meta name="og:url" content="http://www.arzidava.com/{url}">
