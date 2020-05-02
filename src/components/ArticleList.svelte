@@ -9,8 +9,8 @@
     }
     a {        
         display: block;
-        margin: 0 -.5ch;
-        padding: 0 .5ch;
+        margin: 0 -1rem;
+        padding: 0 1rem;
     }
     a > span:first-child {
         text-decoration: underline;
