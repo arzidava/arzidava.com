@@ -10,7 +10,7 @@
     export let label
     export let index
 
-    const length = str => (PI/6*(r1-5))*(str.length/9)
+    const length = str => (PI/6*(r1-5))*(str.length/9)+(str.length < 5 ? 5 : 0)
 	const tpath = (s) => {
 		let x1 = x + 10 + ((1-cos(s*PI/6)) * (r1-10))
 		let y1 = y + ((sin(s*PI/6)) * (r1-10))
@@ -74,7 +74,7 @@
     <a href="{href}">
         <path d="{path(index)}"/>
         <text style="dominant-baseline: middle;">
-            <textPath xlink:href="#menu-item-path{index}" startOffset="50%" textLength="{length(label)}" spacing="exact">
+            <textPath xlink:href="#menu-item-path{index}" startOffset="{label.length < 5 ? '50%' : '45%'}" textLength="{length(label)}" spacing="exact">
                 {label}
             </textPath>
         </text>
