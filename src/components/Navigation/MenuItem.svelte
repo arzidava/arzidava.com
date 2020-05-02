@@ -62,10 +62,6 @@
     defs {
         display: none;
 	}
-	.red {
-		fill: transparent;
-		stroke: red;
-	}
 </style>
 <g class:active>
     <defs>    

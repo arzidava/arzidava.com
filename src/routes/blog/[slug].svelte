@@ -22,7 +22,6 @@
     article {
         line-height: 20px;
         margin: 1rem 0;
-        padding: 23px 15px;
     }
     article > :global(* + *) {
         margin-top: 20px;
@@ -70,6 +69,11 @@
     .pub {
         color: var(--white);
         padding: .5rem;
+    }
+    article :global(hr) {
+        border-color: var(--white);
+        border-style: solid;
+        border-width: 1px 0 0 0;
     }
 </style>
 
