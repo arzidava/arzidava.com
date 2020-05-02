@@ -7,8 +7,6 @@
         color: var(--white);
         font-size: 3rem;
         padding-right: 3.5rem;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
     }
 
     h1 > span {   
