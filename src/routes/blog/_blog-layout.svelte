@@ -1,21 +1,12 @@
-<script context="module">
-    export async function preload({ params, query }) {
-        const res = await this.fetch(`blog/${params.slug}.json`);
-        const data = await res.json();
-        if (res.status === 200) {
-            return { post: data };
-        } else {
-            this.error(res.status, data.message);
-        }
-    }
-</script>
-
 <script>
+    import formatDate from '../../utils/formatDate'
     import Header from '../../components/Header.svelte'
     import Section from '../../components/Section.svelte'
     import SocialMediaCard from '../../components/SocialMediaCard.svelte'
-    import formatDate from '../../utils/formatDate.js'
-    export let post
+
+    export let slug
+    export let title
+    export let date
 </script>
 
 <style>
@@ -77,18 +68,19 @@
     }
 </style>
 
+
 <svelte:head>
-    <title>arzidava {post.title}</title>
-    <meta name="description" content="{post.summary}">
+    <title>arzidava {title}</title>
+    <meta name="description" content="{title}">
 </svelte:head>
 
-<SocialMediaCard content="article" url="blog/{post.slug}" title="{post.title}" description="{post.summary}" />
+<SocialMediaCard content="article" url="blog/{slug}" title="{title}" description="{title}" />
 
-<Header>{post.title}</Header>
-<span class="pub">Published on {formatDate(post.date)}</span>
+<Header>{title}</Header>
+<span class="pub">Published on {formatDate(date)}</span>
 
 <Section>
     <article>
-        {@html post.html}
+        <slot></slot>
     </article>
 </Section>

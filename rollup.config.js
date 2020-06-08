@@ -4,23 +4,13 @@ import commonjs from '@rollup/plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
-import marked from 'marked';
 import pkg from './package.json';
+import { mdsvex } from "mdsvex";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
-
-const markdown = () => ({
-	transform (md, id) {
-		if (!/\.md$/.test(id)) return null;
-		const data = marked(md);
-		return {
-			code: `export default ${JSON.stringify(data.toString())};`
-		};
-	}
-});
 
 export default {
 	client: {
@@ -34,7 +24,11 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true
+				emitCss: true,
+				extensions: [".svelte", ".svx"],
+				preprocess: mdsvex({
+					layout: "./src/routes/blog/_blog-layout.svelte"
+				})
 			}),
 			resolve({
 				browser: true,
@@ -47,6 +41,7 @@ export default {
 			})
 		],
 
+		preserveEntrySignatures: false,
 		onwarn,
 	},
 
@@ -56,22 +51,26 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': false,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
 			}),
 			svelte({
 				generate: 'ssr',
-				dev
+				dev,
+				extensions: [".svelte", ".svx"],
+				preprocess: mdsvex({
+					layout: "./src/routes/blog/_blog-layout.svelte"
+				})
 			}),
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs(),
-            markdown()
+			commonjs()
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
 		),
 
+		preserveEntrySignatures: 'strict',
 		onwarn,
 	}
 };

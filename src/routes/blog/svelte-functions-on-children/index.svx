@@ -47,7 +47,7 @@ When using this component we can then bind a reference to it to a previously dec
 
 Note that in the above code we cannot use the shorthand `on:click="{child.toggle}"` because initially child is undefined, *always* use the arrow syntax in this case (unless you call a function handler).
 
-## Use within a {#each} loop
+## Use within a `{#each}` loop
 
 If we generate our child components within a loop we can no longer do this, after all the code `bind:this="{mychild}"}` would only bind the very last of those components to _mychild_ leaving all the others unbound.  Luckily this can easily be done by not binding to variable but instead binding to an element in an array instead.
 
