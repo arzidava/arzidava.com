@@ -23,7 +23,8 @@ const contents = JSON.stringify(posts.map(post => {
 	return {
 		title: post.title,
 		slug: post.slug,
-		date: post.date
+		date: post.date,
+		tags: (post.tags || "").split(" ")
 	}
 }))
 

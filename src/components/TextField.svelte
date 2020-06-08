@@ -3,6 +3,7 @@
     export let name
     export let required = false
     export let rows
+    export let value
 </script>
 <style>
     label {
@@ -39,8 +40,8 @@
 <label>
     <span>{label}</span>    
     {#if rows}
-        <textarea {rows} {name} {required}></textarea>
+        <textarea {rows} {name} {required} bind:value></textarea>
     {:else}
-        <input type="text" {name} {required}>
+        <input type="text" {name} {required} bind:value>
     {/if}
 </label>

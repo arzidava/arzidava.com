@@ -4,7 +4,7 @@ title: Calling function in child components with Svelte
 date: 20200428
 revised: 20200502
 summary: A guide to calling functions in child component using Svelte
-tags: svelte javascript functions
+tags: svelte javascript functions 
 ---
 
 See this [Repl](https://svelte.dev/repl/33a7195bf1e9412498fa9e17f1214ef3?version=3.20.1) for a working example of this code

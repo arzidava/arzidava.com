@@ -7,8 +7,18 @@
 </script>
 
 <script>
-    import Header from '../../components/Header.svelte' 
-    export let posts;
+    import Header from '../../components/Header.svelte'
+    import Tags from '../../components/Tags.svelte'
+    import TextField from '../../components/TextField.svelte'
+
+    export let posts = []
+
+    let filter = ""
+    $: filteredPosts = filter.length >= 3 
+        ? posts.filter(p => p.tags.some(t => t.includes(filter.toLowerCase())) || p.title.toLowerCase().includes(filter.toLowerCase()))
+        : posts
+
+    const selectTag = (ev) => filter = ev.detail.tag
 </script>
 
 <style>
@@ -20,22 +30,31 @@
         margin-top: 1rem;
     }
     li {
+        background-color: var(--primary);
         box-shadow: 2px 2px 2px var(--black);
-        margin: 0 1rem  1rem 0;
-        padding: 1rem;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem 1rem 0;
+        padding: 1rem 1rem 0 1rem;
         position: relative;
     }
-    a {
-        background-color: var(--primary);
-        color: var(--white);
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0; 
-    }
-    a:hover {
+    li:focus-within,
+    li:hover {
         background-color: var(--secondary);
+    }
+
+    a {
+        flex: 2 0;
+        position: relative;
+    }
+    
+    a:focus {
+        outline: none;
+    }
+    
+    a + :global(*) {
+        flex: 0 0;
     }
 
     span {
@@ -54,12 +73,15 @@
 
 <Header>articles</Header>
 
+<TextField label="Filter by tag or title" bind:value={filter} />
+
 <ul>
-    {#each posts as post}
+    {#each filteredPosts as post}
     <li>
         <a rel='prefetch' href='blog/{post.slug}'>
             <span>{post.title}</span>
         </a>
+        <Tags on:select="{selectTag}" tags={post.tags} /> 
     </li>
     {/each}
 </ul>
