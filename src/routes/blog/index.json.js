@@ -17,7 +17,7 @@ const posts = fs.readdirSync(route)
 		const post = fs.readFileSync(path.resolve(route, `${file}/index.svx`), 'utf-8')
 		return {...grayMatter(post).data, slug: file}
 	})
-	.sort((a, b) => (a.data > b.date) ? 1 : -1)
+	.sort((a, b) => (a.date < b.date) ? 1 : -1)
 
 const contents = JSON.stringify(posts.map(post => {
 	return {
