@@ -23,13 +23,11 @@ As can be expected this will be pass in _world_ as value for the prop _name_ on 
 
 The most straightforward method to get this data to Svelte is to define it on the document during server rendering:
 
-```html
-<script>
+```javascript
   document.myapp = {
     // Here you can use your chosen backend language to output the correct value
     name: 'Stephane'
   }
-</script>
 ```
 
 And then read this value in your initialization:
