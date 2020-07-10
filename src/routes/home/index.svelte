@@ -24,7 +24,7 @@
     <meta name="description" content="The personal website of Stephane Vanraes, with articles on frontend development subjects.">
 </svelte:head>
 
-<Header>arzidava (dev)</Header>
+<Header>arzidava (staging)</Header>
 
 <div>
     <About />
