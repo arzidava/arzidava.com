@@ -9,12 +9,12 @@
         height: 100vh;
         position: fixed;
         width: 100vw;
+		z-index: -1;
     }
     .wrapper > :global(img) {        
         flex: 1 0 50%;
         object-fit: cover;
 		width: 50%;
-		z-index: -1;
     }
 </style>
 
