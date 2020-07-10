@@ -48,6 +48,10 @@
         text-align: center;
 		width: 100%;
     }
+    p {
+        flex: 0 0 100%;
+        margin-bottom: .5rem;
+    }
     nav {
         display: contents;
     }
@@ -97,6 +101,8 @@
 
 <div class="content">
     <Header>arzidava</Header>
+    <p>web development</p>
+    <p>lightweight &mid; accessible &mid; simple</p>
     <nav>
         <a href="/about">about</a>
         <a href="/contact">contact</a>
