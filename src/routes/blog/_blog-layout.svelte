@@ -76,7 +76,7 @@
     <meta name="description" content="{title}">
 </svelte:head>
 
-<SocialMediaCard content="article" url="blog/{slug}" title="{title}" description="{summary}" />
+<SocialMediaCard content="article" url="blog/{slug}" title="{title}" description="{description}" />
 
 <Header>{title}</Header>
 <span class="pub">Published on {formatDate(date)}</span>
