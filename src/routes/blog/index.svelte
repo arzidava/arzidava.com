@@ -7,6 +7,9 @@
 </script>
 
 <script>
+    import { onMount } from 'svelte'
+    import { background, colours } from '../../stores.js'
+
     import Header from '../../components/Header.svelte'
     import Tags from '../../components/Tags.svelte'
     import TextField from '../../components/TextField.svelte'
@@ -19,6 +22,9 @@
         : posts
 
     const selectTag = (ev) => filter = ev.detail.tag
+
+    
+    onMount(() => background.set($colours.secondaryLight));
 </script>
 
 <style>

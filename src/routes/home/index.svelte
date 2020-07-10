@@ -1,36 +1,13 @@
 <script>
-    import MultitoneImage from 'svelte-multitoneimage'
+    import { onMount } from 'svelte'
+    import { background, colours } from '../../stores.js'
     import Header from '../../components/Header.svelte'
-    import Logo from '../../components/Logo.svelte'
-	const b = '#404040'
-	const w= '¤fcfcfc'
-	const p = '#005670'
-    const pl = '#0491BD'
-	const s = '#BD6004'
-	const sl = '#FF8F1F'
-	const a = '#F4442E'
-	const sp = '#805224'
+
+    onMount(() => background.set($colours.primaryLight));
+
 </script>
 
 <style>
-    .wrapper {
-        display: flex;
-        height: 100vh;
-        position: fixed;
-        width: 100vw;
-    }
-    .wrapper > :global(img) {        
-        flex: 1 0 50%;
-        object-fit: cover;
-		width: 50%;
-		z-index: -1;
-    }
-    .wrapper > :global(img:first-of-type) { 
-        object-position: 100%;
-    }
-    .wrapper > :global(img:last-of-type) { 
-        object-position: 0%;
-    }
     .content {
         color: white;
         display: flex;
@@ -56,7 +33,7 @@
         display: contents;
     }
     a {
-        background-color: black;
+        background-color: var(--secondary-light);
         display: inline-block;
         flex: 1 0 calc(50% - 10px);
         font-size: 1.25rem;
@@ -65,39 +42,16 @@
     }
 
     a:hover {
+        background-color: var(--primary-light);
         box-shadow: 2px 2px black;
     }
 
-    a:nth-child(2n+1) {
-        background-color: var(--secondary-light);
-    }
-    a:nth-child(2n+1):hover {
-        background-color: var(--secondary);
-    }
-    a:nth-child(2n) {
-        background-color: var(--primary-light);
-    }
-    a:nth-child(2n):hover {
-        background-color: var(--primary);
-    }
-
     @media screen and (max-width: 430px) {
-        .wrapper > :global(img:last-of-type) {
-            display: none;
-        }
         a {
             flex: 1 0 100%;
         }
-        a:nth-child(2n) {
-            background-color: var(--secondary-light);
-        }
     }
 </style>
-
-<div class="wrapper">
-	<MultitoneImage src="./lyderhorn1.png" colours={[b,pl,w]} amplitude="1" exponent="1.1"/>
-	<MultitoneImage src="./lyderhorn2.png" colours={[b,sl,w]} amplitude="1" exponent="1.1"/>
-</div>
 
 <div class="content">
     <Header>arzidava</Header>
