@@ -17,7 +17,7 @@ Svelte allows us to expose properties using `export let prop` to make them avail
 
 The first thing we should do is to create a component that exposes a function, this is actually the easiest part since it would be exactly as you expect it to be. In the code below we have a very simple component that will show a given name, with a function that allows us to toggle a css class that will turn that name red.
 
-```html
+```svelte
 <script>
     let marked = false
     
@@ -36,7 +36,7 @@ The first thing we should do is to create a component that exposes a function, t
 
 When using this component we can then bind a reference to it to a previously declared variable using `bind:this` (see also the (Svelte Docs)[https://svelte.dev/docs#bind_element]) and use this variable in a function call.
 
-```html
+```svelte
 <script>
     import Child from './Child.svelte'
     let child
@@ -51,7 +51,7 @@ Note that in the above code we cannot use the shorthand `on:click="{child.toggle
 
 If we generate our child components within a loop we can no longer do this, after all the code `bind:this="{mychild}"}` would only bind the very last of those components to _mychild_ leaving all the others unbound.  Luckily this can easily be done by not binding to variable but instead binding to an element in an array instead.
 
-```html
+```svelte
 <script>
 	import Child from './Child.svelte'
 	let animalNames = ['Rabbit', 'Squirrel', 'Hamster']
@@ -69,7 +69,7 @@ To call a function on one of those components we just refer to the element withi
 
 Ofcourse we are not limited to use arrays, it is very well possible that for some reason you might want to use a JavaScript Object instead (this would then more act like a lookup table), the principle here is the same.
 
-```html
+```svelte
 <script>
 	import Child from './Child.svelte'
 	let animalNames = ['Rabbit', 'Squirrel', 'Hamster']
@@ -87,7 +87,7 @@ In this case you would need the key to get the actual element: `animals['Rabbit'
 
 There can be plenty of reason to want to this, but most often we are trying to do expose a certain behaviour in a _read-only_ manner.  A very simple example would be an stylized input field that we want to be able to focus programmatically from outside the component.
 
-```html
+```svelte
 <script>
     let _input
 
