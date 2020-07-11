@@ -1,18 +1,17 @@
 <script>
     import { stores } from '@sapper/app'
     import { fade } from 'svelte/transition'
-    import { toggleable } from 'svelte-toggleable'
 
     import { background, colours } from '../stores.js'
 
     import Button from './Button.svelte'
 
     const { page } = stores()
-    const open = toggleable(false)
+    let open = false
 
     $: secondary = $background == $colours.secondaryLight
 
-    page.subscribe(open.off)
+    page.subscribe(_ => open = false)
     page.subscribe(({ path }) => console.log(path))
 </script>
 
@@ -71,12 +70,12 @@
 </style>
 
 <nav>
-	<Button on:click="{open.toggle}" shadow>
+	<Button on:click="{_ => open = !open}" shadow>
 		<svg viewBox="0 0 10 10" height="100%" width="100%">
 			<path d="M1,2h8M1,5h8,M1,8h8"  stroke-width="1" stroke-linecap="round"/>
 		</svg>
 	</Button>
-    <ul class:open={$open}>
+    <ul class:open>
         <Button href="/" {secondary} shadow>home</Button>
         <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
         <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>

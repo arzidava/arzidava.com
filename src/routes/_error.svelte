@@ -1,13 +1,12 @@
 <script>
     import { onDestroy, onMount } from 'svelte'
     import { background, colours, pagetitle } from '../stores.js'
-    import { toggleable } from 'svelte-toggleable'
     import Typewriter from 'svelte-typewriter'
 
     import Button from '../components/Button.svelte'
     import Section from '../components/Section.svelte'
 
-    const done = toggleable(false)
+    let done = false
 
     onMount(() => {
         background.set('#FF1493')
@@ -22,8 +21,13 @@
     })
 </script>
 
+<svelte:head>
+    <title>arzidava - 404</title>
+    <meta name="description" content="This page does not exist">
+</svelte:head>
+
 <Section>
-    <Typewriter interval={50} cascade={true} cursor={false} on:done={done.on}>
+    <Typewriter interval={50} cascade={true} cursor={false} on:done="{_ => done = true}">
         <p>Hmm</p>
         <p>Something is not right...</p>
         <p>.....</p>
@@ -52,7 +56,7 @@
         <p>............</p>
         <p>Is this the end ?</p>
     </Typewriter>
-    {#if $done}
+    {#if done}
         <Button secondary shadow href="/">Take me away from here</Button>
     {/if}
 </Section>
