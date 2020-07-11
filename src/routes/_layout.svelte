@@ -19,14 +19,12 @@
 </style>
 
 <div class="wrapper">
-	{#if process.browser}
-		<MultitoneImage 
-			src="./lyderhorn.webp" 
-			colours={['#404040',$background,'#fcfcfc']}
-			amplitude="1" 
-			exponent="1.1"
-		/>
-	{/if}
+	<MultitoneImage 
+		src="./lyderhorn.webp" 
+		colours={['#404040',$background,'#fcfcfc']}
+		amplitude="1" 
+		exponent="1.1"
+	/>
 </div>
 
 <main>
