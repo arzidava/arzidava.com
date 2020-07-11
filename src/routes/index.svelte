@@ -59,6 +59,11 @@
     }
 </style>
 
+<svelte:head>
+    <title>arzidava</title>
+    <meta name="description" content="Personal website of Stephane Vanraes">
+</svelte:head>
+
 <div class="home stack">
     <Header>arzidava</Header>
     <p>web development</p>
