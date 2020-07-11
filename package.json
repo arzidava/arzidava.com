@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev --ext \".svelte .svx\"",
     "build": "sapper build --legacy --ext \".svelte .svx\"",
-    "export": "sapper export --legacy --ext \".svelte .svx\"",
+    "export": "sapper export --legacy --ext \".svelte .svx\" --entry \"/ /404\"",
     "start": "node __sapper__/build"
   },
   "dependencies": {
@@ -26,6 +26,8 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.0",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "svelte-multitoneimage": "^1.1.1",
+    "svelte-typewriter": "^2.1.10"
   }
 }

@@ -1,7 +1,8 @@
-<script>
-    import Button from '../../components/Button.svelte'
-    import Header from '../../components/Header.svelte'
-    import TextField from '../../components/TextField.svelte'
+<script>    
+    import { onMount } from 'svelte'
+    import { background, colours, pagetitle } from '../stores.js'
+    import Button from '../components/Button.svelte'
+    import TextField from '../components/TextField.svelte'
 
     let msgSend = false
 
@@ -25,6 +26,11 @@
         .then(() => msgSend = true)
         .catch(console.log)
     }
+    
+    onMount(() => {
+        background.set($colours.secondaryLight)
+        pagetitle.set('contact')
+    });
 </script>
 
 <svelte:head>
@@ -35,9 +41,7 @@
 <style>
     .contacted,
     form {
-        --bubbles-color: var(--white);
         background-color: var(--black);
-        background-image: paint(bubbles);
         border: 1px solid var(--white);
         border-radius: .25rem;
         color: var(--white);
@@ -47,9 +51,7 @@
     }
 
     .contacted {
-        --bubbles-color: var(--white);
         background-color: var(--black);
-        background-image: paint(bubbles);
         display: flex;
         flex-basis: auto;
         flex-direction: column;
@@ -62,7 +64,6 @@
     }
 </style>
 
-<Header>contact me</Header>
 {#if !msgSend}
     <form class="stack" on:submit|preventDefault="{handleSubmit}">
         <TextField label="Name" name="name" required />
