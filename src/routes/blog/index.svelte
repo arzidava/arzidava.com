@@ -8,9 +8,8 @@
 
 <script>
     import { onMount } from 'svelte'
-    import { background, colours } from '../../stores.js'
+    import { background, colours, pagetitle } from '../../stores.js'
 
-    import Header from '../../components/Header.svelte'
     import Tags from '../../components/Tags.svelte'
     import TextField from '../../components/TextField.svelte'
 
@@ -22,9 +21,11 @@
         : posts
 
     const selectTag = (ev) => filter = ev.detail.tag
-
     
-    onMount(() => background.set($colours.secondaryLight));
+    onMount(() => {
+        background.set($colours.primaryLight)
+        pagetitle.set('articles')
+    })
 </script>
 
 <style>
@@ -70,6 +71,10 @@
         top: 50%;
         text-align: center;
     }
+
+    :global(.articles-search) {
+        margin-right: 1rem;
+    }
 </style>
 
 <svelte:head>
@@ -77,9 +82,7 @@
     <meta name="description" content="A series of articles written by Stephane Vanraes">
 </svelte:head>
 
-<Header>articles</Header>
-
-<TextField label="Filter by tag or title" bind:value={filter} />
+<TextField label="Filter by tag or title" bind:value={filter} class="articles-search" />
 
 <ul>
     {#each filteredPosts as post}

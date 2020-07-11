@@ -1,12 +1,19 @@
 <script>
+    import { onMount } from 'svelte'
+    import { background, colours, pagetitle } from '../../stores.js'
+
     import formatDate from '../../utils/formatDate'
-    import Header from '../../components/Header.svelte'
     import Section from '../../components/Section.svelte'
     import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 
     export let slug
     export let title
     export let date
+
+    onMount(() => {
+        background.set($colours.primaryLight)
+        pagetitle.set('articles')
+    })
 </script>
 
 <style>
@@ -60,7 +67,6 @@
     }
     .pub {
         color: var(--white);
-        padding: .5rem;
     }
     article :global(hr) {
         border-color: var(--white);
@@ -78,10 +84,11 @@
 
 <SocialMediaCard content="article" url="blog/{slug}" title="{title}" description="{title}" />
 
-<Header>{title}</Header>
-<span class="pub">Published on {formatDate(date)}</span>
 
 <Section>
+    <h1>{title}</h1>
+    <span class="pub">Published on {formatDate(date)}</span>
+    <hr />
     <article>
         <slot></slot>
     </article>

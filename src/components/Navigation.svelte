@@ -1,0 +1,86 @@
+<script>
+    import { stores } from '@sapper/app'
+    import { fade } from 'svelte/transition'
+    import { toggleable } from 'svelte-toggleable'
+
+    import { background, colours } from '../stores.js'
+
+    import Button from './Button.svelte'
+
+    const { page } = stores()
+    const open = toggleable(false)
+
+    $: secondary = $background == $colours.secondaryLight
+
+    page.subscribe(open.off)
+    page.subscribe(({ path }) => console.log(path))
+</script>
+
+<style>
+    nav {
+        flex-grow: 1;
+        height: 40px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        text-align: right;
+    }
+    
+    ul > :global(a + a) {
+        margin-left: .5rem;
+    }
+
+    nav > :global(button) {  
+        display: none;      
+		height: 3rem;
+		padding: .25rem;
+		position: absolute;
+		right: 1rem;
+		stroke: var(--white);
+		top: 1rem;
+		width: 3rem;
+		z-index: 5;
+    }
+
+    @media screen and (max-width: 500px) {
+        nav > :global(button) {
+            display: block;
+        }
+
+        ul {
+            transition: right 500ms linear;
+            display: block;
+            position: absolute;
+            right: -7rem;
+            top: 4.25rem;
+            z-index: 100;
+        }
+
+        ul.open {
+            right: 1rem;
+        }
+
+        ul > :global(a + a) {
+            margin: 0;
+        }
+    }
+</style>
+
+<nav>
+	<Button on:click="{open.toggle}" shadow>
+		<svg viewBox="0 0 10 10" height="100%" width="100%">
+			<path d="M1,2h8M1,5h8,M1,8h8"  stroke-width="1" stroke-linecap="round"/>
+		</svg>
+	</Button>
+    <ul class:open={$open}>
+        <Button href="/" {secondary} shadow>home</Button>
+        <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
+        <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
+        <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
+        <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
+    <ul>
+</nav>

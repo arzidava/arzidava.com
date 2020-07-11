@@ -1,6 +1,14 @@
 <script>
+	import { stores } from '@sapper/app'
+	import { background, pagetitle } from '../stores.js'
+
 	import MultitoneImage from 'svelte-multitoneimage'
-	import { background } from '../stores.js'
+
+	import Header from '../components/Header.svelte'
+	import Navigation from '../components/Navigation.svelte'
+
+	const { page } = stores();
+	
 </script>
 
 <style>
@@ -16,6 +24,15 @@
         object-fit: cover;
 		width: 50%;
     }
+	header {
+		padding-left: 1rem;
+	}
+
+	@media screen and (min-width: 1140px) {
+		header {
+			margin-left: calc((100vw - 1140px) / 2);
+		}
+	}
 </style>
 
 <div class="wrapper">
@@ -26,6 +43,13 @@
 		exponent="1.1"
 	/>
 </div>
+
+{#if $page.path != '/'}
+	<header>
+		<Header>{$pagetitle}</Header>
+		<Navigation />
+	</header>
+{/if}
 
 <main>
 	<slot></slot>

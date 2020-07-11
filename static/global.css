@@ -20,6 +20,14 @@
 
 body {
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 main {

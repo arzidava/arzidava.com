@@ -37,7 +37,7 @@
     }
 </style>
 
-<label>
+<label class={$$restProps.class || ''}>
     <span>{label}</span>    
     {#if rows}
         <textarea {rows} {name} {required} bind:value></textarea>
