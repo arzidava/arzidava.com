@@ -45,7 +45,7 @@
 		z-index: 5;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 580px) {
         nav > :global(button) {
             display: block;
         }

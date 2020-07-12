@@ -25,13 +25,7 @@
 		width: 50%;
     }
 	header {
-		padding-left: 1rem;
-	}
-
-	@media screen and (min-width: 1140px) {
-		header {
-			margin-left: calc((100vw - 1140px) / 2);
-		}
+		padding: 0 1rem 1rem 1rem;
 	}
 </style>
 
@@ -44,13 +38,12 @@
 	/>
 </div>
 
-{#if $page.path != '/'}
-	<header>
-		<Header>{$pagetitle}</Header>
-		<Navigation />
-	</header>
-{/if}
-
 <main>
+	{#if $page.path != '/'}
+		<header>
+			<Header>{$pagetitle}</Header>
+			<Navigation />
+		</header>
+	{/if}
 	<slot></slot>
 </main>
