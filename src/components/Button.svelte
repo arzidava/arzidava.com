@@ -1,5 +1,6 @@
 <script>
     export let href;
+    export let inline = false;
     export let type = 'button';
     export let secondary = false;
     export let shadow = false;
@@ -17,6 +18,11 @@
         outline: none;
         padding: .5rem 1rem;
         text-align: center;
+    }
+
+    a.inline,
+    button.inline {
+        display: inline-block;
     }
 
     a.shadow,
@@ -49,11 +55,11 @@
 </style>
 
 {#if href}
-    <a class:secondary class:shadow {href} on:click>
+    <a class:secondary class:inline class:shadow {href} on:click>
         <slot></slot>
     </a>
 {:else}
-    <button class:secondary class:shadow {type} on:click>
+    <button class:secondary class:inline class:shadow {type} on:click>
         <slot></slot>
     </button>
 {/if}

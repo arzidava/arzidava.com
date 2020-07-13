@@ -1,22 +1,21 @@
 <style>
-    div {
+    section {
         background-color: var(--black);
+        border: 1px solid var(--white);
+        border-radius: .25rem;
         color: var(--white);
-        display: flow-root;
         padding: 1rem;
     }
-    div > :global(h2) {
+    section > :global(h2) {
         font-size: 1.15rem;
         margin-top: 0;
     }
 
-    div > :global(* + *) {
+    section > :global(* + *) {
         margin-top: 1rem;
     }
 </style>
 
-<section>
-    <div>
-        <slot></slot>
-    </div>
+<section class={$$restProps.class}>
+    <slot></slot>
 </section>

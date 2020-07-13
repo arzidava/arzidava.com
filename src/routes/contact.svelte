@@ -28,7 +28,7 @@
     }
     
     onMount(() => {
-        background.set($colours.secondaryLight)
+        background.set($colours.secondary)
         pagetitle.set('contact')
     });
 </script>
@@ -46,7 +46,7 @@
         border-radius: .25rem;
         color: var(--white);
         flex: 1 0 calc(275px);
-        margin: 1rem .5rem 0;
+        margin: 1rem;
         padding: 1rem;
     }
 

@@ -2,6 +2,7 @@ import { readable, writable } from 'svelte/store'
 
 export const colours = readable({
     primaryLight: '#0491BD',
+    secondary: '#BD6004',
     secondaryLight: '#FF8F1F',
     grey: '#787878'
 

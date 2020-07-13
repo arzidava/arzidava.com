@@ -9,7 +9,7 @@
     const { page } = stores()
     let open = false
 
-    $: secondary = $background == $colours.secondaryLight
+    $: secondary = $background == $colours.secondary
 
     page.subscribe(_ => open = false)
     page.subscribe(({ path }) => console.log(path))
