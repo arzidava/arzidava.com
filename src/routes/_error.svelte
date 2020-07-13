@@ -17,6 +17,7 @@
 
         return () => {
             clearTimeout(c1)
+            clearTimeout(c2)
         }
     })
 </script>
