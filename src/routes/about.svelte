@@ -37,7 +37,7 @@
         width: 124px;
     }
     :global(.profile > div) {
-        flex: 1 0 300px;
+        flex: 1 1 300px;
         margin-bottom: 1rem;
         margin-top: 0 !important;
     }

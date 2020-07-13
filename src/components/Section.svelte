@@ -1,6 +1,6 @@
 <style>
     section {
-        background-color: var(--black);
+        background-color: var(--grey);
         border: 1px solid var(--white);
         border-radius: .25rem;
         color: var(--white);
