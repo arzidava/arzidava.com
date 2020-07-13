@@ -15,8 +15,14 @@
 </svelte:head>
 
 <style>
+    .wrapper {
+        margin: 0 1rem;
+    }
 </style>
 
-<Section>
-    Coming soon...
-</Section>
+<div class="wrapper">
+    <Section>
+        <p>Concepts, a colletion of experiments and samples</p>
+        <p>Coming soon...</p>
+    </Section>
+</div>
