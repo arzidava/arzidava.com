@@ -42,6 +42,22 @@
         padding: .75rem;
         transform: translateY(-4px);
     }
+    
+    article :global(a) {
+        color: var(--secondary-light);
+        display: inline-block;
+        margin: 0 -.5ch;
+        padding: 0 .5ch;
+        text-decoration: underline;
+    }
+
+    article :global(a):hover,
+    article :global(a):focus {
+        background-color: var(--secondary);
+        color: var(--white);
+        outline: none;
+        text-decoration: none;
+    }
 
     article :global(img) {
         border: .5rem solid var(--white);

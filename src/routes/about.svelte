@@ -20,6 +20,23 @@
     .wrapper {
         margin: 0 1rem;
     }
+    
+    a {
+        color: var(--secondary-light);
+        display: inline-block;
+        margin: 0 -.5ch;
+        padding: 0 .5ch;
+        text-decoration: underline;
+    }
+
+    a:hover,
+    a:focus {
+        background-color: var(--secondary);
+        color: var(--white);
+        outline: none;
+        text-decoration: none;
+    }
+
     :global(.profile) {
         display: flex !important;
         flex-direction: row;
