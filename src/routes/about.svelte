@@ -55,9 +55,7 @@
     <Section>
         <h2>Handcrafted websites</h2>
         <p>Making websites is becoming easier everyday, you can go for the drag-and-drop experience some services offer, or you can code your own website and use popular library like Bootstrap to quickly style it and get something up and running.  The problem with these is that your website quickly starts looking like all the others. (Big image on top, couple of blocks under it, footer with some contact information, ...) To truly get a unique feel you have to go further and get dirty in code.</p>
-        <br />
         <p>The look and feel of all my work is carefully written by hand, making each design truly unique and engaging. Using the latest in the field the websites I make are also lightweight and fast, because every second a visitor has to wait for your site to load is a loss. On top of that, once the work is finished I hand over all code and instructions so you as a client have absolute full control.</p>
-        <br />
         <p>Interested in working with me ? <a href="./contact">Take contact!</a></p>
     </Section>
 
