@@ -37,7 +37,7 @@
         display: none;      
 		height: 3rem;
 		padding: .25rem;
-		position: absolute;
+		position: fixed;
 		right: 1rem;
 		stroke: var(--white);
 		top: 1rem;
@@ -53,7 +53,7 @@
         ul {
             transition: right 500ms linear;
             display: block;
-            position: absolute;
+            position: fixed;
             right: -7rem;
             top: 4.25rem;
             z-index: 100;
@@ -63,6 +63,7 @@
             right: 1rem;
         }
 
+        ul > :global(a),
         ul > :global(a + a) {
             margin: 0;
         }
@@ -76,10 +77,12 @@
 		</svg>
 	</Button>
     <ul class:open>
-        <Button href="/" {secondary} shadow>home</Button>
-        <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
-        <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
-        <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
-        <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
+        {#if open}
+            <Button href="/" {secondary} shadow>home</Button>
+            <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
+            <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
+            <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
+            <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
+        {/if}
     <ul>
 </nav>

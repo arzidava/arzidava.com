@@ -16,7 +16,9 @@
         display: flex;
         height: 100vh;
         position: fixed;
-        width: 100vw;
+		width: 100vw;
+		top: 0;
+		left: 0;
 		z-index: -1;
     }
     .wrapper > :global(img) {        
