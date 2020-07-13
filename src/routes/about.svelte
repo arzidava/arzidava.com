@@ -53,10 +53,11 @@
     </Section>
 
     <Section>
-        <h2>Handcrafted websites</h2>
-        <p>Making websites is becoming easier everyday, you can go for the drag-and-drop experience some services offer, or you can code your own website and use popular library like Bootstrap to quickly style it and get something up and running.  The problem with these is that your website quickly starts looking like all the others. (Big image on top, couple of blocks under it, footer with some contact information, ...) To truly get a unique feel you have to go further and get dirty in code.</p>
-        <p>The look and feel of all my work is carefully written by hand, making each design truly unique and engaging. Using the latest in the field the websites I make are also lightweight and fast, because every second a visitor has to wait for your site to load is a loss. On top of that, once the work is finished I hand over all code and instructions so you as a client have absolute full control.</p>
-        <p>Interested in working with me ? <a href="./contact">Take contact!</a></p>
+        <h2>"Handcrafted" websites</h2>
+        <p>Nowadays there are plenty of services allowing you to drag-and-drop elements to create your personal website.  But somehow this has resulted in most websites looking very generic, being very slow to load and generally 'more of the same'.  While this works very well to quickly create a presence on the internet, it does not help you to make website really standout.</p>
+        <p>All of my designs are carefully implemented by hand, making each site unique.  As an extra I ensure your website is very light, loads fast and works on a wide series of screen sizes and devices.</p>
+        <p>And when the project is finished you will have access to all the code and instructions, no need to remain dependent on me, you will truly <strong>own</strong> your own website.</p>
+        <p>Interested in seeing what I can do ? <a href="./contact">Contact me</a></p>
     </Section>
 
     <Section>
