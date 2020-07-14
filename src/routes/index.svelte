@@ -7,7 +7,7 @@
 </script>
 
 <script>
-    import { background, colours, title } from '..//stores.js'
+    import { background, colours, pagetitle } from '..//stores.js'
 
     import ArticleList from '../components/ArticleList.svelte'
     import Header from '../components/Header.svelte'
@@ -16,7 +16,7 @@
     export let posts = []
 
     background.set($colours.primaryLight)
-    title.set('arzidava')
+    pagetitle.set('arzidava')
 </script>
 
 <style>
