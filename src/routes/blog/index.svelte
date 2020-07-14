@@ -28,6 +28,7 @@
 <style>
     ul {
         display: grid;
+        gap: 1rem;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-auto-rows: 150px;
         list-style-type: none;
@@ -39,13 +40,13 @@
         color: var(--white);
         display: flex;
         flex-direction: column;
-        margin: 0 1rem 1rem 0;
         padding: 1rem 1rem 0 1rem;
         position: relative;
     }
+
     li:focus-within,
     li:hover {
-        background-color: var(--secondary);
+        background-color: var(--secondary-dark);
     }
 
     a {
@@ -67,10 +68,6 @@
         transform: translate(-50%, -50%);
         top: 50%;
         text-align: center;
-    }
-
-    :global(.articles-search) {
-        margin-right: 1rem;
     }
 </style>
 

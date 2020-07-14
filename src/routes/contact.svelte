@@ -43,12 +43,12 @@
         border-radius: .25rem;
         color: var(--white);
         flex: 1 0 calc(275px);
-        margin: 1rem;
         padding: 1rem;
     }
 
     .contacted {
         background-color: var(--black);
+        color: var(--white);
         display: flex;
         flex-basis: auto;
         flex-direction: column;

@@ -25,12 +25,6 @@
         flex: 1 0 50%;
         object-fit: cover;
 		width: 50%;
-    }
-	header {
-		padding: 0 1rem 1rem 1rem;
-	}
-	header > :global(h1) {
-		padding-right: 0 !important;
 	}
 </style>
 
@@ -43,12 +37,13 @@
 	/>
 </div>
 
+{#if $page.path != '/'}
+	<header>
+		<Header>{$pagetitle}</Header>
+		<Navigation />
+	</header>
+{/if}
+
 <main>
-	{#if $page.path != '/'}
-		<header>
-			<Header>{$pagetitle}</Header>
-			<Navigation />
-		</header>
-	{/if}
 	<slot></slot>
 </main>

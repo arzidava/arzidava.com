@@ -36,13 +36,13 @@
     button:active,
     button:focus,
     button:hover {
-        background-color: var(--secondary);
+        background-color: var(--secondary-dark);
     }
     
     a.secondary,
     button.secondary {
         background-color: var(--secondary-light);
-        color: var(--white);
+        color: var(--black);
     }
     a.secondary:active,
     a.secondary:focus,
@@ -50,7 +50,7 @@
     button.secondary:active,
     button.secondary:focus,
     button.secondary:hover {
-        background-color: var(--primary);
+        background-color: var(--primary-xlight);
     }
 </style>
 

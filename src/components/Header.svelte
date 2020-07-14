@@ -6,7 +6,6 @@
     h1 {
         color: var(--white);
         font-size: 3rem;
-        padding-right: 3.5rem;
     }
 
     h1 > span {   

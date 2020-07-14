@@ -18,6 +18,7 @@
     nav {
         flex-grow: 1;
         height: 40px;
+        margin-left: 1rem;
     }
 
     ul {
@@ -38,9 +39,9 @@
 		height: 3rem;
 		padding: .25rem;
 		position: fixed;
-		right: 1rem;
+		right: .5rem;
 		stroke: var(--white);
-		top: 1rem;
+		top: .5rem;
 		width: 3rem;
 		z-index: 5;
     }

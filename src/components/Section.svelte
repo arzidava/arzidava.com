@@ -9,15 +9,20 @@
         border: 1px solid var(--white);
         border-radius: .25rem;
         color: var(--white);
+        display: flex;
+        flex-direction: column;
         padding: 1rem;
+        text-align: left;
     }
 
     section.primary {
-        background-color: var(--primary-light);
+        background-color: var(--primary-xlight);
+        color: var(--black);
     }
 
     section.secondary {
-        background-color: var(--secondary-light);
+        background-color: var(--secondary);
+        color: var(--black);
     }
 
     section > :global(h2) {
@@ -30,6 +35,6 @@
     }
 </style>
 
-<section class={$$restProps.class} class:primary class:secondary>
+<section class:primary class:secondary {...$$restProps}>
     <slot></slot>
 </section>

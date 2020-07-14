@@ -17,7 +17,7 @@
     }
     a:focus,
     a:hover {        
-        background-color: var(--secondary);
+        background-color: var(--secondary-dark);
         color: var(--white);
         outline: none;
         text-decoration: none;

@@ -1,7 +1,7 @@
 :root {
     --primary: #005670;
-    --primary-light: #0491BD;
-    --primary-xlight: #037BA0; 
+    --primary-xlight: #0491BD;
+    --primary-light: #037BA0; 
     --secondary-dark: #B45C04;   
     --secondary: #BD6004;
     --secondary-light: #FF8F1F;
@@ -33,7 +33,6 @@ body {
     display: block;
     min-height: 100vh;
     overflow-x: hidden;
-    width: 100vw;
 }
 
 header {
@@ -41,6 +40,10 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: auto;
+    max-width: 1140px;
+    padding: 0 1rem;
+    width: 100%;
 }
 
 main {
