@@ -29,6 +29,9 @@
 	header {
 		padding: 0 1rem 1rem 1rem;
 	}
+	header > :global(h1) {
+		padding-right: 0 !important;
+	}
 </style>
 
 <div class="wrapper">

@@ -10,9 +10,8 @@
     let open = false
 
     $: secondary = $background == $colours.secondary
-
+    
     page.subscribe(_ => open = false)
-    page.subscribe(({ path }) => console.log(path))
 </script>
 
 <style>
@@ -79,8 +78,8 @@
     <ul class:open>
         <Button href="/" {secondary} shadow>home</Button>
         <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
-        <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
-        <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
+        <Button href="/blog" secondary={$page.path.startsWith('/blog') || secondary} shadow>articles</Button>
+        <Button href="/concepts" secondary={$page.path == '/concepts' || secondary} shadow>concepts</Button>
         <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
     <ul>
 </nav>
