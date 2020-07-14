@@ -1,0 +1,11 @@
+{
+  "name": "arzidava-concepts",
+  "version": "1.0.0",
+  "description": "Concepts branch for arzidava.com",
+  "scripts": {
+    "export": "node update.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
