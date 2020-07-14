@@ -82,5 +82,5 @@
         <li><Button href="/blog" secondary={$page.path.startsWith('/blog') || secondary} shadow>articles</Button></li>
         <li><Button href="/concepts" secondary={$page.path == '/concepts' || secondary} shadow>concepts</Button></li>
         <li><Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button></li>
-    <ul>
+    </ul>
 </nav>

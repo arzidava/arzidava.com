@@ -55,11 +55,11 @@
 </style>
 
 {#if href}
-    <a class:secondary class:inline class:shadow {href} on:click>
+    <a class:secondary class:inline class:shadow {href} on:click {...$$restProps}>
         <slot></slot>
     </a>
 {:else}
-    <button class:secondary class:inline class:shadow {type} on:click>
+    <button class:secondary class:inline class:shadow {type} on:click {...$$restProps}>
         <slot></slot>
     </button>
 {/if}
