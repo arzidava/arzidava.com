@@ -75,7 +75,7 @@
 
 <svelte:head>
     <title>arzidava {title}</title>
-    <link rel="stylesheet" href="./prism.css">
+    <link rel="stylesheet" href="/prism.css">
     <meta name="description" content="{title}">
 </svelte:head>
 
