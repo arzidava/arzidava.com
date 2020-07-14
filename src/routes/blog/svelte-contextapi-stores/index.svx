@@ -6,7 +6,7 @@ summary: How to combine Svelte's Context API with Stores to create some nice eff
 tags: svelte javascript stores contextapi
 ---
 
-See this <a href="https://svelte.dev/repl/7df82f6174b8408285a1ea0735cf2ff0?version=3.24.0" target="_blank">Repl</a> for a working example of this code
+See this <a href="https://svelte.dev/repl/7df82f6174b8408285a1ea0735cf2ff0?version=3.24.0" target="_blank" rel="noopener">Repl</a> for a working example of this code
 
 --- 
 <script>

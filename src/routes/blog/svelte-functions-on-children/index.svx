@@ -7,7 +7,7 @@ summary: A guide to calling functions in child component using Svelte
 tags: svelte javascript functions 
 ---
 
-See this <a href="https://svelte.dev/repl/33a7195bf1e9412498fa9e17f1214ef3?version=3.20.1" target="_blank">Repl</a> for a working example of this code
+See this <a href="https://svelte.dev/repl/33a7195bf1e9412498fa9e17f1214ef3?version=3.20.1" target="_blank" rel="noopener">Repl</a> for a working example of this code
 
 ---
 
