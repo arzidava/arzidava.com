@@ -36,7 +36,7 @@
 
 <div class="wrapper">
 	<MultitoneImage
-		src="./lyderhorn.webp"
+		src="/lyderhorn.webp"
 		colours={['#404040',$background,'#fcfcfc']}
 		amplitude="1"
 		exponent="1.1"
