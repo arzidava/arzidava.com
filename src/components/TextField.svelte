@@ -22,7 +22,6 @@
         border-radius: .25rem;
         border-style: solid;
         border-width: 2px;
-        max-width: 40ch;
         padding: .25rem;
         width: 100%;
     }
