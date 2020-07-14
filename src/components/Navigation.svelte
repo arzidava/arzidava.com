@@ -24,11 +24,12 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        list-style-type: none;
         justify-content: flex-end;
         text-align: right;
     }
-    
-    ul > :global(a + a) {
+
+    ul > li + li {
         margin-left: .5rem;
     }
 
@@ -76,10 +77,10 @@
 		</svg>
 	</Button>
     <ul class:open>
-        <Button href="/" {secondary} shadow>home</Button>
-        <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
-        <Button href="/blog" secondary={$page.path.startsWith('/blog') || secondary} shadow>articles</Button>
-        <Button href="/concepts" secondary={$page.path == '/concepts' || secondary} shadow>concepts</Button>
-        <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
+        <li><Button href="/" {secondary} shadow>home</Button></li>
+        <li><Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button></li>
+        <li><Button href="/blog" secondary={$page.path.startsWith('/blog') || secondary} shadow>articles</Button></li>
+        <li><Button href="/concepts" secondary={$page.path == '/concepts' || secondary} shadow>concepts</Button></li>
+        <li><Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button></li>
     <ul>
 </nav>
