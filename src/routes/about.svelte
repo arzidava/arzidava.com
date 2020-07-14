@@ -65,20 +65,4 @@
             <p>I am Stéphane Vanraes, a Bergen based web developer with a passion for lightweight, accessible and minimal website.  This website is build using <a href="http://www.svelte.dev" target="_blank">Svelte</a> and <a href="http://sapper.svelte.dev" target="_blank">Sapper</a>, two technologies that are really great for achieving these goals.</p>
         </div>
     </Section>
-
-    <Section>
-        <h2>"Handcrafted" websites</h2>
-        <p>Nowadays there are plenty of services allowing you to drag-and-drop elements to create your personal website.  But somehow this has resulted in most websites looking very generic, being very slow to load and generally 'more of the same'.  While this works very well to quickly create a presence on the internet, it does not help you to make website really standout.</p>
-        <p>All of my designs are carefully implemented by hand, making each site unique.  As an extra I ensure your website is very light, loads fast and works on a wide series of screen sizes and devices.</p>
-        <p>And when the project is finished you will have access to all the code and instructions, no need to remain dependent on me, you will truly <strong>own</strong> your own website.</p>
-        <p>Interested in seeing what I can do ? <a href="./contact">Contact me</a></p>
-    </Section>
-
-    <Section>
-        <h2>Svelte Training and Consulting</h2>
-        <p>Are you interested in using Svelte or Sapper for a project, but don't know where to start ?</p>
-        <p>Or need an extra hand helping you out to start out your business, concept or simply curious about the technology in general ?</p>
-        <p>I do consulting, workshops and more related to Svelte and Sapper</p>
-        <p><a href="./contact">Contact</a> me to see if I can help you.</p>
-    </Section>
 </div>
