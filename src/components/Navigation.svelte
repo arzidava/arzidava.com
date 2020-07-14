@@ -77,12 +77,10 @@
 		</svg>
 	</Button>
     <ul class:open>
-        {#if open}
-            <Button href="/" {secondary} shadow>home</Button>
-            <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
-            <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
-            <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
-            <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
-        {/if}
+        <Button href="/" {secondary} shadow>home</Button>
+        <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
+        <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
+        <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
+        <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
     <ul>
 </nav>

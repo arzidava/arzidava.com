@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from 'svelte'
     import { background, colours, pagetitle } from '../../stores.js'
 
     import formatDate from '../../utils/formatDate'
@@ -10,10 +9,8 @@
     export let title
     export let date
 
-    onMount(() => {
-        background.set($colours.primaryLight)
-        pagetitle.set('articles')
-    })
+    background.set($colours.primaryLight)
+    pagetitle.set('articles')
 </script>
 
 <style>
@@ -42,7 +39,7 @@
         padding: .75rem;
         transform: translateY(-4px);
     }
-    
+
     article :global(a) {
         color: var(--secondary-light);
         display: inline-block;

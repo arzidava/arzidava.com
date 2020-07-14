@@ -8,10 +8,10 @@
 
     let done = false
 
-    onMount(() => {
-        background.set('#FF1493')
-        pagetitle.set('critical error')
+    background.set('#FF1493')
+    pagetitle.set('critical error')
 
+    onMount(() => {
         const c1 = setTimeout(() => background.set('#ADFF2F'), 6000)
         const c2 = setTimeout(() => background.set('#FF1493'), 9500)
 

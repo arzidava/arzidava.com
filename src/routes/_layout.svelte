@@ -8,7 +8,7 @@
 	import Navigation from '../components/Navigation.svelte'
 
 	const { page } = stores();
-	
+
 </script>
 
 <style>
@@ -21,7 +21,7 @@
 		left: 0;
 		z-index: -1;
     }
-    .wrapper > :global(img) {        
+    .wrapper > :global(img) {
         flex: 1 0 50%;
         object-fit: cover;
 		width: 50%;
@@ -32,10 +32,10 @@
 </style>
 
 <div class="wrapper">
-	<MultitoneImage 
-		src="./lyderhorn.webp" 
+	<MultitoneImage
+		src="./lyderhorn.webp"
 		colours={['#404040',$background,'#fcfcfc']}
-		amplitude="1" 
+		amplitude="1"
 		exponent="1.1"
 	/>
 </div>

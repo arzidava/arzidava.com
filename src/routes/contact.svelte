@@ -1,5 +1,4 @@
-<script>    
-    import { onMount } from 'svelte'
+<script>
     import { background, colours, pagetitle } from '../stores.js'
     import Button from '../components/Button.svelte'
     import TextField from '../components/TextField.svelte'
@@ -26,11 +25,9 @@
         .then(() => msgSend = true)
         .catch(console.log)
     }
-    
-    onMount(() => {
-        background.set($colours.secondary)
-        pagetitle.set('contact')
-    });
+
+    background.set($colours.secondary)
+    pagetitle.set('contact')
 </script>
 
 <svelte:head>

@@ -7,8 +7,7 @@
 </script>
 
 <script>
-    import { onMount } from 'svelte'
-    import { background, colours } from '..//stores.js'
+    import { background, colours, title } from '..//stores.js'
 
     import ArticleList from '../components/ArticleList.svelte'
     import Header from '../components/Header.svelte'
@@ -16,8 +15,8 @@
 
     export let posts = []
 
-    onMount(() => background.set($colours.primaryLight))
-
+    background.set($colours.primaryLight)
+    title.set('arzidava')
 </script>
 
 <style>
@@ -78,5 +77,5 @@
     <Section>
         <h2>Latest Articles</h2>
         <ArticleList {posts} />
-    </Section>   
+    </Section>
 </div>

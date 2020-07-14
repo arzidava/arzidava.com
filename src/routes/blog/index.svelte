@@ -7,7 +7,6 @@
 </script>
 
 <script>
-    import { onMount } from 'svelte'
     import { background, colours, pagetitle } from '../../stores.js'
 
     import Tags from '../../components/Tags.svelte'
@@ -16,16 +15,14 @@
     export let posts = []
 
     let filter = ""
-    $: filteredPosts = filter.length >= 3 
+    $: filteredPosts = filter.length >= 3
         ? posts.filter(p => p.tags.some(t => t.includes(filter.toLowerCase())) || p.title.toLowerCase().includes(filter.toLowerCase()))
         : posts
 
     const selectTag = (ev) => filter = ev.detail.tag
-    
-    onMount(() => {
-        background.set($colours.primaryLight)
-        pagetitle.set('articles')
-    })
+
+    background.set($colours.primaryLight)
+    pagetitle.set('articles')
 </script>
 
 <style>
@@ -55,11 +52,11 @@
         flex: 2 0;
         position: relative;
     }
-    
+
     a:focus {
         outline: none;
     }
-    
+
     a + :global(*) {
         flex: 0 0;
     }
@@ -90,7 +87,7 @@
         <a rel='prefetch' href='blog/{post.slug}'>
             <span>{post.title}</span>
         </a>
-        <Tags on:select="{selectTag}" tags={post.tags} /> 
+        <Tags on:select="{selectTag}" tags={post.tags} />
     </li>
     {/each}
 </ul>

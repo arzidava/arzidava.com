@@ -1,12 +1,9 @@
-<script>    
-    import { onMount } from 'svelte'
+<script>
     import { background, colours, pagetitle } from '../stores.js'
     import Section from '../components/Section.svelte'
-    
-    onMount(() => {
-        background.set($colours.grey)
-        pagetitle.set('concepts')
-    });
+
+    background.set($colours.grey)
+    pagetitle.set('concepts')
 </script>
 
 <svelte:head>

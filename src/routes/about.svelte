@@ -1,14 +1,11 @@
-<script>    
-    import { onMount } from 'svelte'
+<script>
     import { background, colours, pagetitle } from '../stores.js'
 
     import Button from '../components/Button.svelte'
     import Section from '../components/Section.svelte'
-    
-    onMount(() => {
-        background.set($colours.secondary)
-        pagetitle.set('about')
-    });
+
+    background.set($colours.secondary)
+    pagetitle.set('about')
 </script>
 
 <svelte:head>
@@ -20,7 +17,7 @@
     .wrapper {
         margin: 0 1rem;
     }
-    
+
     a {
         color: var(--secondary-light);
         display: inline-block;
