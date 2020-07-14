@@ -10,6 +10,15 @@
     --white: #fcfcfc;
 }
 
+/* latin */
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Noto Sans'), local('NotoSans'), url(/fonts/NotoSans-Regular.ttf) format('ttf');
+}
+
 * {
     box-sizing: border-box;
     color: inherit;
