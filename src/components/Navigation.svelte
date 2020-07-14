@@ -71,7 +71,7 @@
 </style>
 
 <nav>
-	<Button on:click="{_ => open = !open}" shadow>
+	<Button on:click="{_ => open = !open}" shadow aria-label={open ? "close navigation" : "open navigation"}>
 		<svg viewBox="0 0 10 10" height="100%" width="100%">
 			<path d="M1,2h8M1,5h8,M1,8h8"  stroke-width="1" stroke-linecap="round"/>
 		</svg>
