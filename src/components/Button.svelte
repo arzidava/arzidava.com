@@ -41,7 +41,7 @@
     
     a.secondary,
     button.secondary {
-        background-color: var(--secondary);
+        background-color: var(--secondary-light);
         color: var(--white);
     }
     a.secondary:active,
