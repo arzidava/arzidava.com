@@ -75,7 +75,7 @@
                 <p>Do you want full control over the end product ?</p>
                 <p>I implement your website using state of the art technologies aimed at making a lightweight, fast and good looking website. Best of all? After completion I give you the entire code and instructions so you are not bound to me later on.</p>
             </div>
-            <Button href="./contact">yes! I want a website!</Button>
+            <Button href="./webdesign">yes! I want a website!</Button>
         </Section>    
 
         <Section secondary>
@@ -83,7 +83,7 @@
             <div class="info">
                 <p>I have been using Svelte from the first release back in 2016 and have grown together with the framework, learning about it's strength and weaknesses. now you can also benefit of what I've learned over that time. Take contact to discuss training or mentoring with Svelte.</p>
             </div>
-            <Button href="./contact" secondary>get training</Button>
+            <Button href="./training" secondary>get training</Button>
         </Section>    
 
         <Section primary>
@@ -91,7 +91,7 @@
             <div class="info">
                 <p>I am currently available to work as an independent for short term, small sized projects.  Send me the details of the type of work, and how you want to work (remote, on location) and I'll contact you back.</p>
             </div>
-            <Button href="./contact">let's work together</Button>
+            <Button href="./consulting">let's work together</Button>
         </Section>
 
         <Section>
