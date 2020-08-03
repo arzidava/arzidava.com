@@ -1,5 +1,5 @@
 <script context="module">
-    export function preload({ params, query }) {
+    export function preload() {
         return this.fetch(`../blog.json`).then(r => r.json()).then(posts => {
             return { posts: posts.slice(0, 10) }
         });
@@ -7,96 +7,101 @@
 </script>
 
 <script>
-    import { background, colours, pagetitle } from '..//stores.js'
+	import Button from '../components/Button.svelte'
+	import formatDate from '../utils/formatDate.js'
+	import { backdropColour, pagetitle } from '../store.js'
+	
+	export let posts = []
 
-    import ArticleList from '../components/ArticleList.svelte'
-    import Button from '../components/Button.svelte'
-    import Flexer from '../components/Flexer.svelte'
-    import Header from '../components/Header.svelte'
-    import Section from '../components/Section.svelte'
-
-    export let posts = []
-
-    background.set($colours.primaryLight)
-    pagetitle.set('arzidava')
+	backdropColour.set('blue')
+	pagetitle.set('')
 </script>
 
 <style>
-    .home {
-        color: white;
-        text-align: center;
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		min-height: calc(100vh - 3rem);
+		padding: 1rem;
+	}
+	.home {
+		align-items: center;
+		color: var(--black);
+		flex: 0 100%;
+		font-size: 1.125rem;
+		min-height: 200px;
+		text-align: center;
+	}
+ 	h1 > span {
+		display: inline-block;
+		height: 40px;
+		margin-right: 1rem;
+		vertical-align: middle;
+		width: 40px;
     }
 
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 315px;
+  	.articles {
+		align-self: flex-start;
+		background-color: var(--secondary-light);
+		color: var(--black);
+		flex: 1 0 300px;
+		list-style-type: none;
+		margin-bottom: 1rem;
+		text-align: left;
+	}
+    .articles > li {
+      	display: block;
     }
+	.articles > li > a {
+		display: block;
+		padding: .25rem 1rem;
+		width: 100%;
+	}
+	.articles > li > a:active,
+	.articles > li > a:focus,
+	.articles > li > a:hover {
+		background-color: var(--primary-light);
+	}
+	.articles > li > a > span {
+		color: var(--white);
+		display: block;
+		font-size: .875rem;
+		margin-bottom: .25rem;
+		margin-left: .25rem;
+	}
+  	.buttons {
+		align-self: flex-end;
+		flex: 1 0 300px;
+		list-style-type: none;
+	}
+    .buttons > li {
+		display: block;
+		margin-left: auto;
+		width: 20ch;
+    }
+	.buttons > li > :global(button) {
+		width: 100%;
+	}
 
-    nav > :global(a) {
-        flex: 0 0 100%;
-        margin: 5px;
-    }
-
-    .info {
-        flex: 1 0;
-    }
-    
-    @media screen and (min-width: 430px) {
-        nav > :global(a) {
-            flex: 1 0 calc(50% - 10px);
-        }
-    }
 </style>
 
-<svelte:head>
-    <title>arzidava</title>
-    <meta name="description" content="Personal website of Stephane Vanraes">
-</svelte:head>
-
-<div class="home stack">
-    <Header>arzidava</Header>
+<div class="wrapper">
+  <div class="home">
+    <h1><span class="svelte-ymced8"><svg class="svelte-vl2ttn" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 10 82.5 A 49 49 0 1 1 90 82.5 H 85 A 45 45 0 1 0 15 82.5 Z M 24 82.5 V 55 H 34 V 82.5 Z M 38 82.5 V 39 H 48 V 82.5 Z M 52 82.5 V 39 H 62 V 82.5 Z M 66 82.5 V 55 H 76 V 82.5 Z" fill="currentColor"></path>
+        </svg></span>arzidava</h1>
     <p>web development</p>
-    <p>lightweight &mid; accessible &mid; simple</p>
-    <nav>
-        <Button href="/about" shadow secondary>about</Button>
-        <Button href="/contact" shadow secondary>contact</Button>
-        <Button href="/concepts" shadow secondary>concepts</Button>
-        <Button href="/blog" shadow secondary>articles</Button>
-    </nav>
-
-    <Flexer margin="0.5rem" size="300px">
-        <Section primary>
-            <h2>Web design</h2>
-            <div class="info">
-                <p>Do you want a lightweight, unique website that does not look all the others ?</p>
-                <p>Do you want full control over the end product ?</p>
-                <p>I implement your website using state of the art technologies aimed at making a lightweight, fast and good looking website. Best of all? After completion I give you the entire code and instructions so you are not bound to me later on.</p>
-            </div>
-            <Button href="./webdesign">yes! I want a website!</Button>
-        </Section>    
-
-        <Section secondary>
-            <h2>Svelte Training & Mentoring</h2>
-            <div class="info">
-                <p>I have been using Svelte from the first release back in 2016 and have grown together with the framework, learning about it's strength and weaknesses. now you can also benefit of what I've learned over that time. Take contact to discuss training or mentoring with Svelte.</p>
-            </div>
-            <Button href="./training" secondary>get training</Button>
-        </Section>    
-
-        <Section primary>
-            <h2>Consulting</h2>
-            <div class="info">
-                <p>I am currently available to work as an independent for short term, small sized projects.  Send me the details of the type of work, and how you want to work (remote, on location) and I'll contact you back.</p>
-            </div>
-            <Button href="./consulting">let's work together</Button>
-        </Section>
-
-        <Section>
-            <h2>Latest Articles</h2>
-            <ArticleList {posts} />
-        </Section>
-    </Flexer>
+    <p>lightweight ∣ accessible ∣ simple</p>
+  </div>
+  <ul class="articles shadow">
+	{#each posts as { date, slug, title }}
+		<li><a href="/blog/{slug}"><span>[{formatDate(date)}]</span>{title}</a></li>
+	{/each}
+  </ul>
+  <ul class="buttons stack">
+    <li><Button href="/services" shadow>Services</Button></li>
+    <li><Button href="/blog" shadow>Articles</Button></li>
+    <li><Button href="/about" shadow>About</Button></li>
+    <li><Button href="/contact" shadow>Contact</Button></li>
+  </ul>
 </div>

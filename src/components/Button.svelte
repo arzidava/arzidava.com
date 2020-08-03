@@ -9,9 +9,9 @@
 <style>
     a,
     button {
-        background-color: var(--primary);
+        background-color: var(--secondary-light);
         border: 0;
-        color: var(--white);
+        color: var(--black);
         cursor: pointer;
         display: block;
         font-size: 1.125rem;
@@ -25,24 +25,18 @@
         display: inline-block;
     }
 
-    a.shadow,
-    button.shadow {        
-        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
-    }
-
     a:active,
     a:focus,
     a:hover,
     button:active,
     button:focus,
     button:hover {
-        background-color: var(--secondary-dark);
+        background-color: var(--primary-xlight);
     }
     
     a.secondary,
     button.secondary {
-        background-color: var(--secondary-light);
-        color: var(--black);
+        background-color: var(--primary-xlight);
     }
     a.secondary:active,
     a.secondary:focus,
@@ -50,7 +44,7 @@
     button.secondary:active,
     button.secondary:focus,
     button.secondary:hover {
-        background-color: var(--primary-xlight);
+        background-color: var(--secondary-light);
     }
 </style>
 

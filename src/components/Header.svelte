@@ -1,20 +1,36 @@
 <script>
+    import { slide } from 'svelte/transition'
     import Logo from './Logo.svelte'
+    import Navigation from './Navigation.svelte'
+
+    import { pagetitle } from '../store.js'
 </script>
 
 <style>
-    h1 {
-        color: var(--white);
-        font-size: 3rem;
+    header {
+        align-items: center;
+        background-color: var(--secondary-light);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .75);
+        color: var(--black);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 3rem;
+        padding: .25rem .5rem;
     }
 
-    h1 > span {   
-        display: inline-block;     
-        height: 40px;
-        margin-right: 1rem;
-        vertical-align: middle;
-        width: 40px;
+    header > :global(svg) {
+        height: 2rem;
+        margin-right: 1ch;
+    }
+
+    h1 {
+        flex: 1 0;
     }
 </style>
 
-<h1><span><Logo/></span><slot></slot></h1>
+<header transition:slide>
+    <Logo />
+    <h1>{$pagetitle}</h1>
+    <Navigation />
+</header>
