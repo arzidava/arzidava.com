@@ -9,7 +9,7 @@ export const backdropColour = (() => {
         red: '#FF0800'
     }
 
-    const { set, subscribe } = writable(colours.grey)
+    const { set, subscribe } = writable(colours.blue)
 
     return {
         set: colour => colours.hasOwnProperty(colour) && set(colours[colour]),
