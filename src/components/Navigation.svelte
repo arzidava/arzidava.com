@@ -1,94 +1,81 @@
 <script>
     import { stores } from '@sapper/app'
-    
+    import { fly } from 'svelte/transition'
+
+    import Button from './Button.svelte'
+
+    const { page } = stores()
+
+    let nav
     let open = false
 
-    const { page } = stores()    
-    page.subscribe(_ => open = false)
+    const attemptClose = ev => nav.contains(ev.target) ? true : (open = false)
 
+    page.subscribe(() => open = false)
 </script>
 
 <style>
     nav {
-        flex: 1 0;
+        flex: 0 0;
     }
-    nav > div {
-        display: flex;
-        flex-direction: row;
-    }
-
-    a,
-    button {
-        background-color: #ff8f1f;
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
-        flex: 1 0;
-        text-align: center;
-        margin: 0 0.25rem;
-    }
-
-    a {
-        padding: 0.5rem 1rem;
-    }
-    a[active] {
-        background-color: #bd6004;
-        color: white;
-    }
-
-    button:active,
-    button:hover,
-    button:focus,
-    a:active,
-    a:focus,
-    a:hover:not([active]) {
-        background-color: #0491BD;
-        outline: none;
-    }
-
-    button {
-        border: none;
-        display: none;
+    nav > :global(button) {
         height: 2.5rem;
-        position: absolute;
-        right: 1rem;
-        stroke: currentColor;
-        top: 1rem;
+        padding: .25rem;
         width: 2.5rem;
     }
-
-    @media screen and (max-width: 482px) {
-    a {
-        display: block;
-        margin: .5rem .25rem;
-    }
-    button {
-        display: block;
-        padding: .25rem;
-    }
-    nav > div  {
-        display: block;
+    ul {
+        list-style-type: none;
         position: absolute;
-        right: calc(-15ch);
-        top: 3.5rem;   
-        transition: right ease-in 200ms;
-        width: 15ch;
+        right: .5rem;
+        top: 3.5rem;
+        width: 150px;
         z-index: 100;
     }
-    nav.open > div {
-        right: 1rem;
-    }
+    li {
+        margin-bottom: .5rem;
     }
 </style>
-<nav class:open>
-  <button type="button" on:click="{_ => open = !open}" aria-label={open ? "close navigation" : "open navigation"}>
-		<svg viewBox="0 0 10 10" height="100%" width="100%">
-			<path d="M1,2h8M1,5h8,M1,8h8" stroke-width="1" stroke-linecap="round" stroke="white" />
+
+<svelte:window on:click="{attemptClose}"></svelte:window>
+
+<nav bind:this="{nav}">
+    <Button aria-label="Open menu" on:click="{() => open = !open}">
+        <svg viewBox="0 0 10 10" height="100%" width="100%">
+			<path d="M1,2h8M1,5h8,M1,8h8" stroke-width="1" stroke-linecap="round" stroke="currentColor" />
 		</svg>
-  </button>
-  <div>
-    <a href="/">Home</a>
-    <a href="/blog" active="{$page.path.startsWith('/blog')}">Articles</a>
-    <a href="/training" active="{$page.path.startsWith('/training')}">Training</a>
-    <a href="/about" active="{$page.path.startsWith('/about')}">About</a>
-    <a href="/contact" active="{$page.path.startsWith('/about')}">Contact</a>
-  <div>
+    </Button>
+    {#if open}
+        <ul>
+            <li in:fly="{{ x: 300, duration: 250, delay: 0 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 125 }}">
+                <Button href="/" shadow secondary="{$page.path == '/'}">
+                    Home
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 50 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 75 }}">
+                <Button href="/blog" shadow secondary="{$page.path.startsWith('/blog')}">
+                    Articles
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 75 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 50 }}">
+                <Button href="/services" shadow secondary="{$page.path.startsWith('/services')}">
+                    Services
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 100 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 25 }}">
+                <Button href="/about" shadow secondary="{$page.path.startsWith('/about')}">
+                    About
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 125 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 0 }}">
+                <Button href="/contact" shadow secondary="{$page.path.startsWith('/contact')}">
+                    Contact
+                </Button>
+            </li>
+        </ul>
+    {/if}
 </nav>

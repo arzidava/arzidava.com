@@ -1,6 +1,6 @@
 <style>
     svg {
-        display: block;
+        display: inline-block;
         height: 100%;
     }
 </style>
