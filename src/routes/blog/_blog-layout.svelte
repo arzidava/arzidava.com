@@ -1,95 +1,56 @@
 <script>
-    import { onMount } from 'svelte'
-    import { background, colours, pagetitle } from '../../stores.js'
+	import { backdropColour, pagetitle } from '../../store.js'
 
     import formatDate from '../../utils/formatDate'
-    import Section from '../../components/Section.svelte'
-    import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 
-    export let slug
+    //export let slug
     export let title
     export let date
 
-    onMount(() => {
-        background.set($colours.primaryLight)
-        pagetitle.set('articles')
-    })
+	backdropColour.set('blue')
+    pagetitle.set('articles')    
 </script>
 
 <style>
     article {
-        line-height: 20px;
-        margin: 1rem 0;
-    }
-    article > :global(* + *) {
-        margin-top: 20px;
-    }
-    article > :global(h1, h2) {
-        transform: translateY(-2px);
-    }
-    article :global(code) {
         background-color: var(--white);
-        color: var(--primary);
-        padding: 0 .25rem;
-    }
-    article :global(pre) {
-        background-color: var(--white);
-        border-left: 2px solid var(--secondary);
-        color: var(--primary);
-        display: block;
-        overflow-x: auto;
-        margin-top: 20px;
-        padding: .75rem;
-        transform: translateY(-4px);
+        border: 2px solid var(--black);
+        border-radius: .5rem;
+        color: var(--black);
+        padding: .5rem 1rem;
     }
     
-    article :global(a) {
-        color: var(--secondary-light);
-        display: inline-block;
-        margin: 0 -.5ch;
-        padding: 0 .5ch;
-        text-decoration: underline;
-    }
-
-    article :global(a):hover,
-    article :global(a):focus {
-        background-color: var(--secondary);
-        color: var(--white);
-        outline: none;
-        text-decoration: none;
-    }
-
-    article :global(img) {
-        border: .5rem solid var(--white);
-        border-radius: .25rem;
+    article :global(pre) {
+        border-left: 2px solid var(--secondary-light);
+        border-radius: 0 .5rem .5rem 0;
         display: block;
-        margin: .5rem;
+        overflow-x: auto;
+        padding: .75rem;
+        padding-top: 0;
     }
+
+    article :global(code:not([class])) {
+        background-color: var(--grey-light);
+        padding: 0 0.25rem;
+    }
+
     .pub {
-        color: var(--white);
+        color: var(--grey);
     }
     article :global(hr) {
-        border-color: var(--white);
+        border-color: var(--secondary-light);
         border-style: solid;
         border-width: 1px 0 0 0;
     }
 </style>
 
-
 <svelte:head>
-    <title>arzidava {title}</title>
-    <link rel="stylesheet" href="./prism.css">
-    <meta name="description" content="{title}">
+    <link rel="stylesheet" href="/prism.css">
 </svelte:head>
 
-<SocialMediaCard content="article" url="blog/{slug}" title="{title}" description="{title}" />
-
-
-<Section>
+<article class="stack">
     <h1>{title}</h1>
     <span class="pub">Published on {formatDate(date)}</span>
     <hr />
-    <article>
-        <slot></slot>
-    </article>
-</Section>
+    <slot></slot>
+</article>

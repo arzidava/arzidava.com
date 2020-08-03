@@ -1,7 +1,7 @@
-<script>    
-    import { onMount } from 'svelte'
-    import { background, colours, pagetitle } from '../stores.js'
-    import Button from '../components/Button.svelte'
+<script>
+	import { backdropColour, pagetitle } from '../store.js'
+	import Button from '../components/Button.svelte'
+	import Section from '../components/Section.svelte'
     import TextField from '../components/TextField.svelte'
 
     let msgSend = false
@@ -26,11 +26,9 @@
         .then(() => msgSend = true)
         .catch(console.log)
     }
-    
-    onMount(() => {
-        background.set($colours.secondaryLight)
-        pagetitle.set('contact')
-    });
+	
+	backdropColour.set('grey')
+	pagetitle.set('contact')
 </script>
 
 <svelte:head>
@@ -39,25 +37,16 @@
 </svelte:head>
 
 <style>
-    .contacted,
     form {
-        background-color: var(--black);
-        border: 1px solid var(--white);
-        border-radius: .25rem;
-        color: var(--white);
         flex: 1 0 calc(275px);
-        margin: 1rem .5rem 0;
         padding: 1rem;
-    }
-
-    .contacted {
-        background-color: var(--black);
-        display: flex;
-        flex-basis: auto;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
+	}
+	:global(#contacted) {
+		margin: auto;
+		padding: 2rem;
+		text-align: center;
+		width: 25ch;
+	}
     div {
         display: flex;
         justify-content: flex-end;
@@ -71,11 +60,11 @@
         <TextField label="Subject" name="subject" required />
         <TextField label="Your message" name="body" rows="5" required />
         <div>
-            <Button type="submit">Send</Button>
+            <Button type="submit" shadow>Send</Button>
         </div>
     </form>
 {:else}
-    <div class="contacted">
-        <h2>Thank you</h2>
-    </div>
+	<Section id="contacted">
+		<h2>Thank you</h2>
+	</Section>
 {/if}

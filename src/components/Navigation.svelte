@@ -1,85 +1,81 @@
 <script>
     import { stores } from '@sapper/app'
-    import { fade } from 'svelte/transition'
-
-    import { background, colours } from '../stores.js'
+    import { fly } from 'svelte/transition'
 
     import Button from './Button.svelte'
 
     const { page } = stores()
+
+    let nav
     let open = false
 
-    $: secondary = $background == $colours.secondaryLight
+    const attemptClose = ev => nav.contains(ev.target) ? true : (open = false)
 
-    page.subscribe(_ => open = false)
-    page.subscribe(({ path }) => console.log(path))
+    page.subscribe(() => open = false)
 </script>
 
 <style>
     nav {
-        flex-grow: 1;
-        height: 40px;
+        flex: 0 0;
     }
-
+    nav > :global(button) {
+        height: 2.5rem;
+        padding: .25rem;
+        width: 2.5rem;
+    }
     ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        text-align: right;
+        list-style-type: none;
+        position: absolute;
+        right: .5rem;
+        top: 3.5rem;
+        width: 150px;
+        z-index: 100;
     }
-    
-    ul > :global(a + a) {
-        margin-left: .5rem;
-    }
-
-    nav > :global(button) {  
-        display: none;      
-		height: 3rem;
-		padding: .25rem;
-		position: absolute;
-		right: 1rem;
-		stroke: var(--white);
-		top: 1rem;
-		width: 3rem;
-		z-index: 5;
-    }
-
-    @media screen and (max-width: 580px) {
-        nav > :global(button) {
-            display: block;
-        }
-
-        ul {
-            transition: right 500ms linear;
-            display: block;
-            position: absolute;
-            right: -7rem;
-            top: 4.25rem;
-            z-index: 100;
-        }
-
-        ul.open {
-            right: 1rem;
-        }
-
-        ul > :global(a + a) {
-            margin: 0;
-        }
+    li {
+        margin-bottom: .5rem;
     }
 </style>
 
-<nav>
-	<Button on:click="{_ => open = !open}" shadow>
-		<svg viewBox="0 0 10 10" height="100%" width="100%">
-			<path d="M1,2h8M1,5h8,M1,8h8"  stroke-width="1" stroke-linecap="round"/>
+<svelte:window on:click="{attemptClose}"></svelte:window>
+
+<nav bind:this="{nav}">
+    <Button aria-label="Open menu" on:click="{() => open = !open}">
+        <svg viewBox="0 0 10 10" height="100%" width="100%">
+			<path d="M1,2h8M1,5h8,M1,8h8" stroke-width="1" stroke-linecap="round" stroke="currentColor" />
 		</svg>
-	</Button>
-    <ul class:open>
-        <Button href="/" {secondary} shadow>home</Button>
-        <Button href="/about" secondary={$page.path == '/about' != secondary} shadow>about</Button>
-        <Button href="/blog" secondary={$page.path.startsWith('/blog') != secondary} shadow>articles</Button>
-        <Button href="/concepts" secondary={$page.path == '/concepts' != secondary} shadow>concepts</Button>
-        <Button href="/contact" secondary={$page.path == '/contact' != secondary} shadow>contact</Button>
-    <ul>
+    </Button>
+    {#if open}
+        <ul>
+            <li in:fly="{{ x: 300, duration: 250, delay: 0 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 125 }}">
+                <Button href="/" shadow secondary="{$page.path == '/'}">
+                    Home
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 50 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 75 }}">
+                <Button href="/blog" shadow secondary="{$page.path.startsWith('/blog')}">
+                    Articles
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 75 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 50 }}">
+                <Button href="/services" shadow secondary="{$page.path.startsWith('/services')}">
+                    Services
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 100 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 25 }}">
+                <Button href="/about" shadow secondary="{$page.path.startsWith('/about')}">
+                    About
+                </Button>
+            </li>
+            <li in:fly="{{ x: 300, duration: 250, delay: 125 }}"
+                out:fly="{{ x: 300, duration: 250, delay: 0 }}">
+                <Button href="/contact" shadow secondary="{$page.path.startsWith('/contact')}">
+                    Contact
+                </Button>
+            </li>
+        </ul>
+    {/if}
 </nav>

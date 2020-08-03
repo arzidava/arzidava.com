@@ -1,22 +1,18 @@
+<script>
+    export let id;
+    export let stack = false;
+</script>
+
 <style>
     div {
-        background-color: var(--black);
-        color: var(--white);
-        display: flow-root;
+        background-color: var(--white);
+        border: 2px solid var(--black);
+        border-radius: .25rem;
+        color: var(--black);
         padding: 1rem;
-    }
-    div > :global(h2) {
-        font-size: 1.15rem;
-        margin-top: 0;
-    }
-
-    div > :global(* + *) {
-        margin-top: 1rem;
     }
 </style>
 
-<section>
-    <div>
-        <slot></slot>
-    </div>
-</section>
+<div {id} class:stack>
+    <slot></slot>
+</div>

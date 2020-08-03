@@ -1,5 +1,6 @@
 <script>
     export let href;
+    export let inline = false;
     export let type = 'button';
     export let secondary = false;
     export let shadow = false;
@@ -8,9 +9,9 @@
 <style>
     a,
     button {
-        background-color: var(--primary);
+        background-color: var(--secondary-light);
         border: 0;
-        color: var(--white);
+        color: var(--black);
         cursor: pointer;
         display: block;
         font-size: 1.125rem;
@@ -19,9 +20,9 @@
         text-align: center;
     }
 
-    a.shadow,
-    button.shadow {        
-        box-shadow: 4px 4px 4px rgba(0,0,0,.75);
+    a.inline,
+    button.inline {
+        display: inline-block;
     }
 
     a:active,
@@ -30,13 +31,12 @@
     button:active,
     button:focus,
     button:hover {
-        background-color: var(--secondary);
+        background-color: var(--primary-xlight);
     }
     
     a.secondary,
     button.secondary {
-        background-color: var(--secondary);
-        color: var(--white);
+        background-color: var(--primary-xlight);
     }
     a.secondary:active,
     a.secondary:focus,
@@ -44,16 +44,16 @@
     button.secondary:active,
     button.secondary:focus,
     button.secondary:hover {
-        background-color: var(--primary);
+        background-color: var(--secondary-light);
     }
 </style>
 
 {#if href}
-    <a class:secondary class:shadow {href} on:click>
+    <a class:secondary class:inline class:shadow {href} on:click {...$$restProps}>
         <slot></slot>
     </a>
 {:else}
-    <button class:secondary class:shadow {type} on:click>
+    <button class:secondary class:inline class:shadow {type} on:click {...$$restProps}>
         <slot></slot>
     </button>
 {/if}
