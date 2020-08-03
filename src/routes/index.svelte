@@ -63,9 +63,9 @@
 		background-color: var(--primary-light);
 	}
 	.articles > li > a > span {
-		color: var(--white);
+		color: var(--black);
 		display: block;
-		font-size: .875rem;
+		font-size: .75rem;
 		margin-bottom: .25rem;
 		margin-left: .25rem;
 	}

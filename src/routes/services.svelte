@@ -26,7 +26,7 @@
         grid-row: 3 / 4;
     }
     .small {
-        color: var(--grey);
+        color: var(--grey-dark);
         font-size: .875rem;
     }
 
