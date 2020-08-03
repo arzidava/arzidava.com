@@ -19,7 +19,7 @@
 <div class="backdrop" aria-hidden="true">
 	<MultitoneImage
         alt=""
-        src="lyderhorn.png"
+        src="lyderhorn.webp"
         colours="{['#040404', $backdropColour, '#fcfcfc']}"
 		amplitude="1"
 		exponent="1.1"
