@@ -25,7 +25,7 @@
 <Section stack>
     <h2>👋 Hi</h2>
     <p>I am Stéphane Vanraes, a Bergen based frontend developer with a passion for lightweight applications.</p>
-    <p>Currently I am working with React and Typescript on a professional level, but all my personal projects use Svelte and pure honest vanilla JavaScript and CSS which are 100% my favourite technologies to work with at the moment. This entire website is written actually using Svelte/Sapper, JavaScript and CSS without the use of any external library (excepts for libraries I authored myself).</p>
+    <p>Currently I am working with React and Typescript on a professional level, but all my personal projects use Svelte and pure honest vanilla JavaScript and CSS which are 100% my favourite technologies to work with at the moment. This entire website is written actually using Svelte/Sapper, JavaScript and CSS with very limited of external libraries (notably the brilliant <a href="https://mdsvex.com/" target="_blank">mdsvex</a>).</p>
     <p>If I am not programming myself, or helping people with questions on the subject either on Discord, StackOverflow or in person, you can find me hiking in the beautifull nature of Bergen and surroundings. Or alternatively if it rains (like 200 days per year here) I am a big boardgame fanatic 🎲.</p>
     <h2>Obligatory Social Media</h2>
     <ul>
