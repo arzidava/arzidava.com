@@ -29,7 +29,7 @@
 }
 
 body {
-    background-image: url(lyderhorn.webp);
+    background-image: url('/lyderhorn.webp');
     background-attachment: fixed;
     background-size: cover;
     display: block;
