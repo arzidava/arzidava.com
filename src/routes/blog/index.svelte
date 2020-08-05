@@ -7,6 +7,7 @@
 </script>
 
 <script>
+	import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 	import formatDate from '../../utils/formatDate.js'
 	import { backdropColour, pagetitle } from '../../store.js'
 	
@@ -64,6 +65,8 @@
 		}
 	}
 </style>
+
+<SocialMediaCard description="Stephane Vanraes' Blog" title="arzidava - articles" type="website" />
 
 <ul>
 	<li class="filler" aria-hidden="true"></li>

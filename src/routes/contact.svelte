@@ -1,7 +1,8 @@
 <script>
 	import { backdropColour, pagetitle } from '../store.js'
 	import Button from '../components/Button.svelte'
-	import Section from '../components/Section.svelte'
+    import Section from '../components/Section.svelte'
+    import SocialMediaCard from '../components/SocialMediaCard.svelte'
     import TextField from '../components/TextField.svelte'
 
     let msgSend = false
@@ -31,11 +32,6 @@
 	pagetitle.set('contact')
 </script>
 
-<svelte:head>
-    <title>arzidava - contact</title>
-    <meta name="description" content="The contact page for arzidava.com">
-</svelte:head>
-
 <style>
     form {
         flex: 1 0 calc(275px);
@@ -52,6 +48,13 @@
         justify-content: flex-end;
     }
 </style>
+
+<svelte:head>
+    <title>arzidava - contact</title>
+    <meta name="description" content="The contact page for arzidava.com">
+</svelte:head>
+
+<SocialMediaCard description="Contact page" title="arzidava" type="website" />
 
 {#if !msgSend}
     <form class="stack" on:submit|preventDefault="{handleSubmit}">

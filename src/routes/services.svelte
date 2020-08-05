@@ -1,6 +1,7 @@
 <script>
     import Button from '../components/Button.svelte'
     import Section from '../components/Section.svelte'
+    import SocialMediaCard from '../components/SocialMediaCard.svelte'
 	import { backdropColour, pagetitle } from '../store.js'
 
     backdropColour.set('blue')
@@ -39,6 +40,8 @@
         }
     }
 </style>
+
+<SocialMediaCard description="Svelte Training and Services" title="arzidava - services" type="website" />
 
 <div class="wrapper">
     <Section stack>

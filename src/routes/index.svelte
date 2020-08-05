@@ -8,6 +8,7 @@
 
 <script>
 	import Button from '../components/Button.svelte'
+	import SocialMediaCard from '../components/SocialMediaCard.svelte'
 	import formatDate from '../utils/formatDate.js'
 	import { backdropColour, pagetitle } from '../store.js'
 	
@@ -84,6 +85,8 @@
 	}
 
 </style>
+
+<SocialMediaCard title="arzidava" type="website" />
 
 <div class="wrapper">
   <div class="home">

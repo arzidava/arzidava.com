@@ -2,8 +2,10 @@
 	import { backdropColour, pagetitle } from '../../store.js'
 
     import formatDate from '../../utils/formatDate'
+    import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 
     //export let slug
+    export let summary
     export let title
     export let date
 
@@ -47,6 +49,8 @@
 <svelte:head>
     <link rel="stylesheet" href="/prism.css">
 </svelte:head>
+
+<SocialMediaCard description={summary} title={title} type="article" />
 
 <article class="stack">
     <h1>{title}</h1>
