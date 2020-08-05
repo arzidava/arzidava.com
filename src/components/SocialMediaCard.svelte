@@ -4,7 +4,7 @@
     const { page } = stores()
 
     export let description;
-    export let image = "favicon.png"
+    export let image = "arzidava.png"
     export let title
     export let type
 </script>
