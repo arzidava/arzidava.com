@@ -11,7 +11,7 @@
         },
         { 
             title: 'Svelte Multitone Image',
-            body: 'Package to turn images in duotone (or more!).  You can see it in use on this site on the background image that changes colours on selected pages.',
+            body: 'Package to turn images in duotone (or more!).',
             link: 'https://www.npmjs.com/package/svelte-multitoneimage',
             linkText: 'On NPM'
         },
