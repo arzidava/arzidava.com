@@ -9,10 +9,10 @@
 <script>
 	import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 	import formatDate from '../../utils/formatDate.js'
-	import { backdropColour, pagetitle } from '../../store.js'
+	import { pagetitle } from '../../store.js'
 	
 	export let posts = []
-	backdropColour.set('blue')
+
 	pagetitle.set('articles')
 </script>
 

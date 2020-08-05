@@ -19,7 +19,7 @@
         padding: .25rem .5rem;
     }
 
-    header > :global(svg) {
+    header > a > :global(svg) {
         height: 2rem;
         margin-right: 1ch;
     }
@@ -30,7 +30,9 @@
 </style>
 
 <header transition:slide>
-    <Logo />
+    <a href="/" aria-label="Home">
+        <Logo />
+    </a>
     <h1>{$pagetitle}</h1>
     <Navigation />
 </header>

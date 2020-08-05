@@ -1,5 +1,5 @@
 <script>
-	import { backdropColour, pagetitle } from '../store.js'
+	import { pagetitle } from '../store.js'
 	import Button from '../components/Button.svelte'
     import Section from '../components/Section.svelte'
     import SocialMediaCard from '../components/SocialMediaCard.svelte'
@@ -27,8 +27,6 @@
         .then(() => msgSend = true)
         .catch(console.log)
     }
-	
-	backdropColour.set('grey')
 	pagetitle.set('contact')
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-	import { backdropColour, pagetitle } from '../../store.js'
+	import { pagetitle } from '../../store.js'
 
     import formatDate from '../../utils/formatDate'
     import SocialMediaCard from '../../components/SocialMediaCard.svelte'
@@ -9,7 +9,6 @@
     export let title
     export let date
 
-	backdropColour.set('blue')
     pagetitle.set('articles')    
 </script>
 

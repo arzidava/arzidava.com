@@ -1,13 +1,13 @@
 <script>
 	import { TabControl, TabControlItem } from 'renderless-svelte'
-	import { backdropColour, pagetitle } from '../../store.js'
+	import { pagetitle } from '../../store.js'
+    import SocialMediaCard from '../../components/SocialMediaCard.svelte'
 	
 	import Button from '../../components/Button.svelte'
 	import Arzidava from './arzidava.svelte'
 	import OpenSource from './opensource.svelte'
 	import Stephane from './stephane.svelte'
-
-	backdropColour.set('blue')
+	
 	pagetitle.set('about')
 
 	const selectTab = (ev, select) => {
@@ -68,6 +68,8 @@
 		}
 	}
 </style>
+
+<SocialMediaCard description="About Stephane, the project and other things" title="arzidava" type="website" />
 
 <TabControl>
 	<ul slot="tabs" let:tabs>

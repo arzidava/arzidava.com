@@ -10,11 +10,10 @@
 	import Button from '../components/Button.svelte'
 	import SocialMediaCard from '../components/SocialMediaCard.svelte'
 	import formatDate from '../utils/formatDate.js'
-	import { backdropColour, pagetitle } from '../store.js'
+	import { pagetitle } from '../store.js'
 	
 	export let posts = []
-
-	backdropColour.set('blue')
+	
 	pagetitle.set('')
 </script>
 
@@ -86,7 +85,7 @@
 
 </style>
 
-<SocialMediaCard title="arzidava" type="website" />
+<SocialMediaCard description="lightweight, accessible and simple web development" title="arzidava" type="summary" />
 
 <div class="wrapper">
   <div class="home">

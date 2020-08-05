@@ -2,9 +2,8 @@
     import Button from '../components/Button.svelte'
     import Section from '../components/Section.svelte'
     import SocialMediaCard from '../components/SocialMediaCard.svelte'
-	import { backdropColour, pagetitle } from '../store.js'
+	import { pagetitle } from '../store.js'
 
-    backdropColour.set('blue')
     pagetitle.set('services')
 </script>
 

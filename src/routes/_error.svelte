@@ -2,11 +2,7 @@
 	import Button from '../components/Button.svelte'
 	import Section from '../components/Section.svelte'
 
-	import { backdropColour, pagetitle } from '../store.js'
-	
-	const colours = ['green', 'pink','red']
-
-	backdropColour.set(colours[Math.floor(Math.random()*3)])
+	import { pagetitle } from '../store.js'
 	pagetitle.set(404)
 		
 </script>
@@ -34,7 +30,6 @@
 <Section stack>
 	<h2>Oops</h2>
 	<p>This page does not seem to exist!!</p>
-	<p>And because you are not supposed to be here, I can set the ugliest background colours ever 🤪</p>
 	<p>If you got here through a link from me, <a href="/contact" shadow>let me know</a>.</p>
 	<p>Otherwise, you might be interested in simply going to <a href="/" shadow>home</a>.</p>
 </Section>
