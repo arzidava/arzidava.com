@@ -62,7 +62,7 @@
     <Section stack>
         <h2>Mentoring</h2>
         <p>Do you find yourself always getting stuck on your projects ?</p>
-        <p>It can help to talk to somebody for a while, going through the problem and come up together with solutions. With a simple video call and screen sharing this can be easily setup. Send me a message with a short description of your project and what times you normally work on your project.</p>
+        <p>It can help to talk to somebody for a while, going through the problem and come up together with solutions. With a simple video call and screen sharing this can be easily set up. Send me a message with a short description of your project and what times you normally work on your project.</p>
         <Button href="/contact" shadow>Get help</Button>
     </Section>
 </div>
