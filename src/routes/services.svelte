@@ -55,7 +55,7 @@
     <Section stack>
         <h2>Code Reviews</h2>
         <p>Working on a Svelte project ?</p>
-        <p>Do you want to an extra pair of eyes to skim through your code ? Or simply need somebody trash talking your code 😆 I can give thorough, honest feedback for small to medium projects.</p>
+        <p>Do you want to have an extra pair of eyes to skim through your code ? Or simply need somebody trash talking your code 😆 I can give thorough, honest feedback for small to medium projects.</p>
         <Button href="/contact" shadow>Prepare the axes</Button>
         <p class="small">(code wise only, don't ask me about design...)</p>
     </Section>
