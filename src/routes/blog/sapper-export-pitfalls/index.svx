@@ -1,0 +1,69 @@
+---
+slug: sapper-export-pitfalls
+title: Some common pitfalls when exporting Sapper
+date: 20200813
+summary: Let's explore some common mistakes made when exporting Sapper to deploy it on a static server
+tags: svelte sapper
+---
+
+<script>
+	import Note from '../../../components/Note.svelte'
+    import Warning from '../../../components/Warning.svelte'
+</script>
+
+Sapper's export function is an excellent tool for those wanting to publish their page to a static provider.  Getting it to work though can be a pain sometimes because of how the export works, so let's have a look at that first.
+
+When exporting Sapper will start at a specific point, by default just `/` and render that page.  Once rendered it will visit each link `<a>` it can find that points to the same domain and render that page, there it starts the process all over again, eventually going through all your pages rendering a nice exported version of each page.
+
+## 404 pages
+
+Rarely you will have a link to your 404 page ? Unless you refer to it in some article like this: <a href="/404" target="_blank">do not click here</a> there is absolutely no reason to do this.  As a consequence, your 404 page will not be rendered correctly. Luckily the answer to this problem lies in what I mentioned before: _Sapper will start at a specific point_.  What if we can tell Sapper to start at several points ? Of course we can!
+
+```json
+    "export": "sapper export --entry "/ /404"",
+```
+
+That was easy! Now Sapper will start a run at `/` and a run at `/404`
+
+<Warning>
+	This will render a file `index.html` in a folder called `404, you might need to setup your server correctly to handle this.
+</Warning>
+
+## Buttons
+
+Sometimes our design requires us to make links that look very much like a button, so developers take a button, slap an `on:click` event on that does the navigation and everybody is happy!
+
+Except sapper...
+
+Sapper will **not** click any buttons, neither should it, for accessibility reasons, a link should **always** be an `<a>` tag. So the solution to this problem is easy: use `<a>` tags for links and nothing else.
+
+<Note>The same applies for divs, images, or whatever else you want to click to navigate: they have to be <strong>a</strong> tags.</Note>
+
+## Hidden links
+
+Another common mistake is caused by the part where Sapper visits all `<a>` tags on the screen, which mean that if a link is initially hidden but placed on screen by the press of a button, it will not be visited because, as mentioned earlier, Sapper will not click any buttons. This is a common issue whe you rely on so called 'hamburger' menus.
+
+There are two ways to solve this:
+
+The most common way is to include a hidden div with all the links in the navigation, but only visually hidden, that way they will still be part of the DOM and be clicked by the Sapper crawler:
+
+```html
+<!-- showNavigation is toggled somewhere else -->
+{#if showNavigation}
+<nav>
+	<a href="/blog">Blog</a>
+	<a href="/contact">Contact</a>
+</nav>
+{/if}
+
+<!-- a naive and simple way to hide the div -->
+<div style="visibility: none; position: absolute;">
+	<a href="/blog">Blog</a>
+	<a href="/contact">Contact</a>
+</div>
+```
+
+<Note>Where this extra div is placed does not really matter, as long as it can be reached as soon as possible, you can add it your index page, so it is on the very first page the crawler sees, or as part of a navigation component.  The benefit of adding it to the component is that when changing urls it is in the same file, but the disadvantage can be that these links will rendered on each page.</Note>
+
+An alternative way, which for some sites can be better, is to have all those links more prominently on the front page instead of hiding them in a menu, they can act as "Call to action" type of links, where you welcome the visitor to explore more of the site.  At the moment of writing this is the technique I personally use on this website.
+

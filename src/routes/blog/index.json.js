@@ -22,7 +22,7 @@ const posts = fs.readdirSync(route)
 const contents = JSON.stringify(posts.map(post => {
 	return {
 		title: post.title,
-		slug: post.slug,
+		slug: post.slug, 
 		date: post.date,
 		tags: (post.tags || "").split(" ")
 	}
