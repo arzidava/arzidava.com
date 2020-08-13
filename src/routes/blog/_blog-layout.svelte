@@ -27,7 +27,6 @@
         display: block;
         overflow-x: auto;
         padding: .75rem;
-        padding-top: 0;
     }
 
     article :global(code:not([class])) {
