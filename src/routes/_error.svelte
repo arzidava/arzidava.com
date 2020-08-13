@@ -1,14 +1,10 @@
-<script context="module">
-    export function preload() {
-        return this.redirect('404')
-    }
-</script>
 <script>
 	import Button from '../components/Button.svelte'
 	import Section from '../components/Section.svelte'
 
 	import { pagetitle } from '../store.js'
-	pagetitle.set(404)		
+	pagetitle.set(404)
+	
 </script>
 
 <style>
