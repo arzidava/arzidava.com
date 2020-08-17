@@ -4,7 +4,7 @@
 
 	import { pagetitle } from '../store.js'
 	pagetitle.set(404)
-		
+	
 </script>
 
 <style>

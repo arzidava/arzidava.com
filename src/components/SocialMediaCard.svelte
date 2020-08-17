@@ -4,7 +4,7 @@
     const { page } = stores()
 
     export let description;
-    export let image = "lyderhorn.webp"
+    export let image = "arzidava.png"
     export let imageType = "image/png"
     export let imageWidth = "500"
     export let imageHeight = "500"
