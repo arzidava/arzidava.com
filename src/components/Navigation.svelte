@@ -58,12 +58,6 @@
                     Articles
                 </Button>
             </li>
-            <li in:fly="{{ x: 300, duration: 250, delay: 75 }}"
-                out:fly="{{ x: 300, duration: 250, delay: 50 }}">
-                <Button href="/services" shadow secondary="{$page.path.startsWith('/services')}">
-                    Services
-                </Button>
-            </li>
             <li in:fly="{{ x: 300, duration: 250, delay: 100 }}"
                 out:fly="{{ x: 300, duration: 250, delay: 25 }}">
                 <Button href="/about" shadow secondary="{$page.path.startsWith('/about')}">

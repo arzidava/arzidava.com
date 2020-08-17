@@ -101,7 +101,6 @@
 	{/each}
   </ul>
   <ul class="buttons stack">
-    <li><Button href="/services" shadow>Services</Button></li>
     <li><Button href="/blog" shadow>Articles</Button></li>
     <li><Button href="/about" shadow>About</Button></li>
     <li><Button href="/contact" shadow>Contact</Button></li>
