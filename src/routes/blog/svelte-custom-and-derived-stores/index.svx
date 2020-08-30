@@ -3,7 +3,7 @@ slug: svelte-custom-and-derived-stores
 title: Combining custom and derived stores
 date: 20200830
 summary: Using custom and derived stores together in Svelte can be used to create some nice effects.
-tags: svelte sapper
+tags: svelte stores
 ---
 
 ## Custom Stores
