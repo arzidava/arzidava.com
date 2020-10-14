@@ -1,0 +1,69 @@
+---
+slug: why-not-svelte
+title: 6 reasons to NOT choose Svelte for your next project
+date: 20201014
+summary: Svelte is up and coming, but how to convince to stick another framework for their next project? Here are 6 reasons to stay far away from Svelte.
+tags: svelte
+---
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: .5rem 0;
+    }
+    li {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+    li:before {
+        background-color: var(--secondary-light);
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: .5rem;
+        margin-right: 1ch;
+        width: .5rem;
+    }
+</style>
+
+## Svelte has only 37500 stars on Github!
+
+Yes!
+
+React has 157000 and Vue even 174000! Those frameworks are clearly more popular and therefore better. Why would anyone ever use Svelte with such small number of stars ?
+
+Just like the top european cities by visitors are:
+<ul>
+    <li>London, 20 million / year</li>
+    <li>Paris, 16 million / year</li>
+    <li>Rome, 9.5 million / year</li>
+</ul>
+And thus we should all flock to those cities and leave gems like Prague, Amsterdam and Barcelona unvisited and unloved.
+
+## Svelte is only for small projects.
+
+Yes, exactly.
+
+It's not like people write <a href="https://www.stone.com.br/" target="_blank">payment terminal software</a>, entire <a href="https://beyonk.com/uk" target="_blank">online booking applications</a>, massive <a href="https://www.decathlon.fr/" target="_blank">massive online shop</a> or large parts of a <a href="https://itslearning.com/global/" target="_blank">learning management system</a> using Svelte!!
+
+## Svelte is difficult to learn
+
+This is so true, last time I checked the documentation of Svelte was a whopping 11000 words, including examples. Takes at least an hour to read through, horrible.
+
+## Svelte does not support TypeScript
+
+Scratch this, it has native support for TypeScript since July 2020 😞.
+
+## We can't find developers that know Svelte
+
+It is indeed hard to find people that know Svelte or have the desired skillset to quickly learn.  Sadly enough it is currenly very hard to find web developers that know regular JavaScript, CSS and basic HTML. How sad... 😞
+
+## But nobody uses it!! We should simply stick to X which we have been using all the time.
+
+Very valid reason, why start a **new** project using **new** technology if the old stuff works ?
+
+```
+Nobody will ever use React, we should just stick to JQuery
+- developers in 2006
+```
