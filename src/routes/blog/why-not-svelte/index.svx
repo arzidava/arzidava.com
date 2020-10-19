@@ -65,5 +65,5 @@ Very valid reason, why start a **new** project using **new** technology if the o
 
 ```
 Nobody will ever use React, we should just stick to JQuery
-- developers in 2006
+- developers in 2013
 ```
