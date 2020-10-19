@@ -45,7 +45,7 @@ And thus we should all flock to those cities and leave gems like Prague, Amsterd
 
 Yes, exactly.
 
-It's not like people write <a href="https://www.stone.com.br/" target="_blank">payment terminal software</a>, entire <a href="https://beyonk.com/uk" target="_blank">online booking applications</a>, massive <a href="https://www.decathlon.fr/" target="_blank">massive online shop</a> or large parts of a <a href="https://itslearning.com/global/" target="_blank">learning management system</a> using Svelte!!
+It's not like people write <a href="https://www.stone.com.br/" target="_blank">payment terminal software</a>, entire <a href="https://beyonk.com/uk" target="_blank">online booking applications</a> or large parts of a <a href="https://itslearning.com/global/" target="_blank">learning management system</a> using Svelte!!
 
 ## Svelte is difficult to learn
 
