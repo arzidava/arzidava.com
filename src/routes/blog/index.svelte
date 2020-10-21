@@ -26,14 +26,15 @@
 		list-style-type: none;
 	}
 	li {
-		background-color: var(--white);
-		border: 2px solid var(--secondary-light);
 		border-radius: 1rem;
-		color: var(--black);
 		grid-row: span 2;
 		overflow: hidden;
 	}
 	a {		
+		background-color: var(--white);
+		border: 2px solid var(--secondary-light);
+		border-radius: 1rem;
+		color: var(--black);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
