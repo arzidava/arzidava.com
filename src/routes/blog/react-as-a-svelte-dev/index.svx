@@ -1,0 +1,219 @@
+---
+slug: react-as-a-svelte-dev
+title: Going from Svelte to React, a retrospective
+date: 20201102
+summary: How learning React feels if you come from a Svelte background
+tags: svelte react experiences
+---
+
+<script>
+    import Note from '../../../components/Note.svelte'
+    import Warning from '../../../components/Warning.svelte'
+</script>
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: .5rem 0;
+    }
+    li {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+    li:before {
+        background-color: var(--secondary-light);
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: .5rem;
+        margin-right: 1ch;
+        width: .5rem;
+    }
+</style>
+
+Plenty of articles and videos around that introduce Svelte for people coming from a React background, which makes sense considering React has been around for more than 7 years and Svelte is a lot newer, a lot of people don't even know it has been around for so long since svelte kind of _exploded_ on the scene only in it's third incarnation (aptly named v3).  Most of those articles light out the difference you will encounter moving from React to Svelte, and often muse about how the authors are considering (or already have) moving all their applications to Svelte because how good it is.
+
+What I felt missing though was an article giving the author's impression _going the other way_.  Obviously as I said earlier because most people just don't go that way, React > svelte is a one-way-street. Or is it ?
+
+## A bit of background
+
+I more or less became a frontend developer when I joined <a href="http://www.itslearning.com" target="_blank">Itslearning</a>, a Norway based Learning Management System in 2015 and then in 2020 moved on to <a href="http://www.fjordline.com" target="_blank">Fjordline</a> which operates ferries between Norway and Denmark (and Sweden).  Eventually I started at <a href="http://www.bouvet.no">Bouvet</a>, a Consulting Agency here in town (in fact I started there today!).
+
+Itslearning has been around since 1999 and has to be expected to have plenty of legacy in it's code, the frontend was heavily reliant on JQuery (and there was a short stint using <a href="http://www.knockoutjs.com" target="_blank">KnockoutJS</a> which we prefer to not talk about).  From the very first release of Svelte it became our framework of choice, nowadays Svelte can be found in most of the application.  You can safely state I learned Frontend Development at the same time I learned Svelte (first v1, v2 and eventually v3).
+
+When I moved to Fjordline I was enrolled in a modernization project that had started a couple of months prior, and this project uses React.  I was tasked with helping to complete the project and extract components from it to a component library to be used in further projects down the line.
+
+So now, here I am, feeling qualified enough to write a blog about going _from_ Svelte _to_ React.
+
+<Note>Those that know me, know I am hopelessly biased in favour of Svelte, but I am editing and re-editing this article over and over again to write a balanced piece. Really trying my best here people.</Note>
+
+<Warning>Disclaimer: I didn't manage, so I will throw in emojies to make it feel nicer 🙂🙂 🐇.</Warning>
+
+## First Impressions
+
+- Why does it take so long ? 😔 
+- React requires more writing 😔
+- Why can't I write valid HTML 😕
+- React is illogical 😕
+- Why would anyone ever use React 😮
+
+### Waiting waiting waiting 🕑
+
+In Svelte I would often find myself whip up a quick project to try anything more complex than what easily fits in a REPL. A simple `npx degit sveltejs/template rabbits-are-cool` would make me a new folder, scaffold some code, all that is left to do is `npm i` and of I go, less than 30 seconds and I have a fully functional, minimalistic site up and running.
+
+`npx create-react-app squirrels` on the other hand takes around 3 minutes plus, and I am a **very** impatient person.
+
+### So much writing
+
+When I saw this code:
+
+```jsx
+import React from 'react'
+import styled from 'styled-components'
+
+const StyledHeader = styled.h1`
+  color: #f87600;
+  font-size: 2rem;
+`
+
+export default function({ children }) {
+  return <StyledHeader>{children}</StyledHeader>
+}
+```
+
+I was astonished by the amount of code I had to write for a simple header, compared to Svelte:
+
+```svelte
+<h1><slot></slot>
+
+<style>
+    h1 {        
+        color: #f87600;
+        font-size: 2rem;
+    }
+</style>
+```
+
+In number of lines it's not that much, and I later learned I could write this instead, bringing the number of lines to 9 vs Svelte's 8.
+
+```jsx
+export default ({children}) => <StyledHeader>{children}</StyledHeader>
+```
+
+But the sheer amount of _fluff_ concerned with writing React components was still staggering: The simple React component above has 212 characters and the Svelte one has 114. For somebody suffering from RSI that is a **big** difference.  And this _fluffness_ of React was only the beginning. Once components get more complicated the difference only grows bigger.
+
+### Enter States
+
+In full newbie mode I wrote the following code:
+
+```jsx
+  let name = "Stephane"
+  return (
+    <div className="App">
+      <span>{name}</span>
+      <input type="text" value={name} 
+        onChange={ev => name = ev.target.value} />
+    </div>
+  );
+```
+
+All you React experts are laughing your asses' off right now, because you can imagine what happened next: I started to type something else in the UI, expecting the first `{name}` to update, which obviously didn't happen!! Even worse: I could ram my keys as hard as I wanted my app refused to enter my input into the textfield. [I actually changed my keyboard because I thought it broke!].
+
+That's when I remembered that React is very anal-retentive about something: two-way binding is evil!! This is something that bled over into the framework from the world of functional programming where state is a holy object that should not be changed directly or something. In order to be able to change the state you have to explicitely call a specialized function to do so:
+
+```jsx
+const [ name, setName ] = useState('Stephane')
+```
+
+This is a paradigm called _immutability_ that came from functional programming where it ensures your data is safe and cannot be changed at random from anywhere else.  This is great for computation heavy, non dynamic environments.  But after one year working with it, I still feel it has no place or value in the dynamic world of the web.
+
+Just for the record: Svelte has two-way binding, those were simpler times.
+
+
+### JSX vs Svelte Markup
+
+I am old school, I made my first "website" at the tender age of 14 during Summer Camp back in 1996, it used HTML and CSS. It was amazing, it was glorious, it had `<marquee></marquee>` to make it even more dynamic!! Point is: I have always been used to pure HTML and CSS, it's what I grew up 🙄.  React allows me to write HTML directly into my components.  This is something I remembered from Svelte.  So here goes my next component:
+
+```jsx
+import React from 'react'
+
+export default function() {
+
+    const handler = console.log
+
+    return (
+        <div class="apple-pie">
+            <label>
+                <input type="checkbox" onclick={handler}>
+                <span>I like apple pie</span>
+            </label>
+        </div>
+    )
+}
+```
+
+This gave an error 🤷 Who would have expected that ? Isn't this beautiful HTML ? Yes it is ! But I couldn't use it because `<input>` was missing it's closing tag (which by the way is not required).  And then there was this weird part where I shouldn't write `<div class="apple-pie">` but instead should use `className=` instead.  Fair enough this actually works, if you are willing to look past the sea of warnings you get about it.  There was also an issue of `onclick` becoming `onClick` and some others.
+
+But fair enough, this is something you get used to, Svelte claims to be just HTML, but it also changes the syntax slighly for events to `on:click`. So this is something you have to learn and get used to.
+
+## Styled components are **censored**
+
+As I said: I was used to regular CSS, I would happily hand craft an entire website with it.  Once you started working on bigger projects using a preprocessor like Sass is fine, it's still very close to regular CSS, you can happily embrace the cascade and all it's amazing powers.
+
+But in React world, the defacto mood seems to be 'CSS is hard and bad and ...' so we invent something called _CSS in JS_ where you write something that _looks_ like CSS, but directly in your JavaScript! This has so many problems, first of all: I couldn't find a way to get intellisense working for the CSS because it just thought those were regular props. Second of all it was consistently breaking my cascade, and was absolutely horrible to read. 
+
+Why are people so affraid of writing CSS ?
+
+## Frustration kicks in
+
+I will admit, writing React was *very* frustrating.  A bug would come in, I would think to quickly fix it, but instead quickly got stranded in a seemingly endless loop of state violations, undeclared properties (we were using Typescript to make things worse) and whenever I thought something was _'simple'_ it eventually turned out to be complex.
+
+Where a similar bug in Svelte would take 15 minutes to fix, in React it often became half a day to a day.  Progress was extremely slow, a lot of blame fell on me not knowing the framework well enough and on me being used to a next generation framework like Svelte that simply removed a lot of the _fluff_ I kept falling over in React.
+
+## Realization dawns
+
+Eventually I got used to React and could write (relatively) easily components, glue them together, make something more or less decent in a short amount of time.  But the most important thing I learned is to *why* the choice for React was made.
+
+🥁🥁🥁🥁 (drumroll)
+
+**It was easier to find programmers for**
+
+That ☝️ is the and only reason why React was chosen, almost all frontend developers nowadays do React. To the point where I met people claiming to be 'frontend developers' that know absolutely 💩 about JavaScript, 💩 about CSS and even less 💩 about HTML. But they are so freakishly fast and good at React it scares me.
+
+There is a feedback loop going on though
+
+- companies ask for React because they are easier to find
+- developers learn React because that's what companies ask for
+- companies ask for React because they are easier to find
+- ...
+
+It also means that now that I am in consulting, I will most likely be placed in projects involving React (I sincerely hope to get some Svelte thrown my way) because it's so obnoxiously omnipresent. A lot of projects have been made with that all need maintenance and extensions, so knowing React is a sure way to have a job.
+
+## Last impressions
+
+And that brings us to my last impressions:
+
+- React is all in all not that hard
+- React definitely fills a need in frontend development
+- React includes things that _look_ like HTML and _look_ like CSS but are not really either
+
+and
+
+- React projects need to be maintained
+- New React projects should not be started (use Svelte instead 😉)
+- React is for legacy applications
+
+The team and I at Fjordline did make a good looking app that does what is supposed to do, and we made a beautifull component library to be used in future projects, everything (with the exception of some minor bugs obviously) works as it supposed to do. **React does work** it does the job, it's just the way it does this job that is, to me, suboptimal.
+
+That made sound harsh, but this is the conclusion I came to, using React was like stepping back in time to a more complicated world. To a framework that tried but hard did not nail it's _DX_, that is frustrating to work with, it is slow, heavy and past it's due date. 
+
+<Note>I haven't mentioned this before but due to the larger size of React applications they also tend to load slower on slower connections and devices, something that should be a concern to all of us.</Note>
+
+Personally I would never start a new project in React, it is just not worth it.  If I find myself in a position to advice a framework for a customer, I would surely push Svelte (see also: <a href="https://www.arzidava.com/blog/why-not-svelte" target="_blank">6 reasons to NOT choose Svelte for your next project</a>) as I am still convinced it is easier to work with, get's faster results and is simply easier to grasp and learn to newcomers. I personally believe writing a project in Svelte takes half of the time of doing it in React, but that's maybe just due to my experience with both.
+
+As I mentioned at the beginning of this post, a lot of "React to Svelte" blogs talk about how easy it is and how they have decided to move everything over.  I like to see my journey as a cautionary tale: **"Don't walk that path, it only leads to pain and regret."**
+
+## One last thing
+
+I develop in React because I am a living, breathing human being that needs shelter, food and drinks. If I wouldn't have to worry about feeding myself and my family I would of course not write a single line of React 😉 Especially because I would be operating a Spa Resort in the Norwegian mountains, drinking akevitt and eating lutefisk every day. 
