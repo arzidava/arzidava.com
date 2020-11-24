@@ -23,4 +23,5 @@
     <meta property="og:title" content="{title}">
     <meta property="og:type" content="{type}">
     <meta property="og:url" content="http://www.arzidava.com{$page.path}">
+    <meta property="twitter:image" content="http://www.arzidava.com/{image}">
 </svelte:head>
