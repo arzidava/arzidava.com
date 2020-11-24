@@ -24,4 +24,9 @@
     <meta property="og:type" content="{type}">
     <meta property="og:url" content="http://www.arzidava.com{$page.path}">
     <meta property="twitter:image" content="http://www.arzidava.com/{image}">
+    <meta property="twitter:card" content="{type}">
+    <meta property="twitter:description" content="{description}">
+    <meta property="twitter:title" content="{title}">
+    <meta property="twitter:site" content="@StephaneVanraes">
+    <meta property="twitter:creator" content="@StephaneVanraes">
 </svelte:head>
