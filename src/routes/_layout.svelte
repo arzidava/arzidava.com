@@ -1,3 +1,9 @@
+<script context="module">
+	export function preload() {
+
+	}
+</script>
+
 <script>
 	import { stores } from '@sapper/app'
 	import { pagetitle } from '../store.js'

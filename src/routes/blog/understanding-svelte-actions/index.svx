@@ -49,7 +49,7 @@ In this post I would like to try to demystify the three stages of actions: creat
 
 ## Component Lifecycle Methods
 
-Components come with four lifecycle methods: `onMout`, `onDestroy`, `beforeUpdate` and `afterUpdate`.
+Components come with four lifecycle methods: `onMount`, `onDestroy`, `beforeUpdate` and `afterUpdate`.
 
 - onMount fires when the component is added to the dom
 - onDestroy is fired when the component is removed from the dom
