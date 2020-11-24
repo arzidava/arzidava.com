@@ -1,7 +1,7 @@
 <script context="module">
     export function preload() {
         return this.fetch(`../blog.json`).then(r => r.json()).then(posts => {
-            return { posts: posts.slice(0, 10) }
+            return { posts: posts.slice(0, 5) }
         });
     }
 </script>
