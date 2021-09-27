@@ -1,11 +1,17 @@
 <script>
 	export let disabled = false;
+	export let href;
 	export let type = 'button';
 </script>
 
-<button on:click {disabled} {type}><slot /></button>
+{#if href}
+	<a {href}><slot /></a>
+{:else}
+	<button on:click {disabled} {type}><slot /></button>
+{/if}
 
 <style>
+	a,
 	button {
 		background-color: hsl(var(--secondary));
 		border: 4px solid hsl(var(--secondary));
@@ -14,7 +20,7 @@
 		transition: background-color 200ms;
 	}
 
-	button:is(:active, :focus, :hover) {
+	a:is(:active, :focus, :hover) button:is(:active, :focus, :hover) {
 		background-color: white;
 	}
 </style>

@@ -1,16 +1,8 @@
 <script>
-	import { openModalV2 } from 'renderless-svelte';
-	import ContactForm from '$lib/organisms/ContactForm.svelte';
 	import Button from '$lib/components/Button.svelte';
-
-	async function contact() {
-		const res = await openModalV2(ContactForm);
-	}
 </script>
 
 <div class="wrapper">
-	<h1>Stephane Vanraes</h1>
-
 	<div class="img">
 		<img src="/images/stephane.jpg" alt="Stephane Vanraes" />
 	</div>
@@ -26,7 +18,7 @@
 			or playing boardgames.
 		</p>
 
-		<Button on:click={contact}>Contact me</Button>
+		<Button href="mailto:arzidava@gmail.com">arzidava@gmail.com</Button>
 	</div>
 </div>
 
@@ -57,7 +49,7 @@
 		min-width: 400px;
 	}
 
-	.text > :global(button) {
+	.text > :global(a) {
 		margin: auto;
 		max-width: 20ch;
 	}
