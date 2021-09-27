@@ -1,35 +1,10 @@
 ---
-slug: understanding-svelte-actions
 title: Understanding Svelte actions
 date: 20201124
 summary: Comparing actions to full blown components
-tags: svelte actions
 ---
 
-<script>
-    import Note from '../../../components/Note.svelte'
-</script>
-
-<style>
-    ul {
-        list-style-type: none;
-        margin: .5rem 0;
-    }
-    li {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-    }
-    li:before {
-        background-color: var(--secondary-light);
-        border-radius: 50%;
-        content: '';
-        display: inline-block;
-        height: .5rem;
-        margin-right: 1ch;
-        width: .5rem;
-    }
-</style>
+## What are actions
 
 Actions are one of those Svelte concepts that can be a bit hard to grasp initially. They often are offered as solutions to problems (and they can be) but for beginners they feel a bit magical. But there is a _relatively_ easy way to try to understand actions and that is by comparing them to regular components.
 
@@ -41,7 +16,7 @@ That is indeed not always very helpfull. The most basic example on it's self is 
 
 ```js
 function action(node) {
-  console.log('the element has mounted')
+	console.log('the element has mounted');
 }
 ```
 
@@ -60,23 +35,23 @@ Let's say we have an oversimplified component like this:
 
 ```svelte
 <script>
-  import { afterUpdate, onDestroy, onMount } from 'svelte'
+	import { afterUpdate, onDestroy, onMount } from 'svelte';
 
-  export let prop 
+	export let prop;
 
-  afterUpdate(() => console.log('property did update', prop))
-  onDestroy(() => console.log('component did unmount'))
-  onMount(() => console.log('component did mount'))    
+	afterUpdate(() => console.log('property did update', prop));
+	onDestroy(() => console.log('component did unmount'));
+	onMount(() => console.log('component did mount'));
 </script>
 
 <div>
-  <slot></slot>
+	<slot />
 </div>
 ```
 
 **Note that I left _beforeUpdate_ here, that is on purpose**
 
-This component will simply log a message whenever it's mounted, destroyed or updated. It can be used very simply as 
+This component will simply log a message whenever it's mounted, destroyed or updated. It can be used very simply as
 
 ```svelte
 <MyComponent prop="1">Content goes here</MyComponent>
@@ -87,6 +62,8 @@ And whenever `prop` changes it will log out the message.
 ## Reusing the component
 
 Now, if we imagine that we would like to reuse this behaviour but with other properties, actually useful functionalities and more, we cannot easily do this without starting to setup strange construction to pass along arbitrary props, behaviours and creating a complex maze of slots and contexts to encapsulate other functionality.
+
+---
 
 ## Enter Actions
 
@@ -100,7 +77,7 @@ The first thing we would like to mimick is the `onMount`. This is easy, because 
 
 ```js
 function myaction(node) {
-  console.log('element is mounted')
+	console.log('element is mounted');
 }
 ```
 
@@ -108,13 +85,13 @@ We would also like to mimick the `onDestroy` event. To do this we can have the a
 
 ```js
 function myaction(node) {
-  console.log('element is mounted')
+	console.log('element is mounted');
 
-  return {
-    destroy() {
-      console.log('element is unmounted')
-    }
-  }
+	return {
+		destroy() {
+			console.log('element is unmounted');
+		}
+	};
 }
 ```
 
@@ -128,7 +105,7 @@ In the action we can access the parameter given as the second argument of the fu
 
 ```js
 function myaction(node, params) {
-  console.log(params) // params will be the same as 'prop' in our case
+	console.log(params); // params will be the same as 'prop' in our case
 }
 ```
 
@@ -136,16 +113,16 @@ Now in order to react to changes in the params, we can take our return object an
 
 ```js
 function myaction(node, params) {
-  console.log('element is mounted')
+	console.log('element is mounted');
 
-  return {
-    destroy() {
-      console.log('element is unmounted')
-    },
-    update(new_params) {
-      console.log('params have updated', new_params)
-    }
-  }
+	return {
+		destroy() {
+			console.log('element is unmounted');
+		},
+		update(new_params) {
+			console.log('params have updated', new_params);
+		}
+	};
 }
 ```
 
@@ -153,21 +130,21 @@ This update function will run _after_ the markup has been updated. Note that at 
 
 ```js
 function myaction(node, params) {
-    return {
-        update(new_params) {
-            console.log('the old value is', params)
-            console.log('the new values is', new_params)
+	return {
+		update(new_params) {
+			console.log('the old value is', params);
+			console.log('the new values is', new_params);
 
-            params = new_params
-        }
-    }
+			params = new_params;
+		}
+	};
 }
 ```
 
-<Note>As far as I understand there is no equivalent for beforeUpdate using actions</Note>
+**As far as I understand there is no equivalent for beforeUpdate using actions**
 
 ## Conclusion
 
-Actions can be considered as a way to add lifecycle methods to individual _DOM elements_ as opposed to the normal lifecycle events we see in _components_.  This also explains to a degree why you cannot use actions on components: components already have another way to do this.
+Actions can be considered as a way to add lifecycle methods to individual _DOM elements_ as opposed to the normal lifecycle events we see in _components_. This also explains to a degree why you cannot use actions on components: components already have another way to do this.
 
-While there is not a 100% match between component lifecycle events and actions, it is close enough to start to understand what actions are and how to use them.  If you see yourself making a component that is almost empty with just some lifecycle events and a superflat DOM existing of a simple wrapper and a slot, you might have a good candidate for an action!
+While there is not a 100% match between component lifecycle events and actions, it is close enough to start to understand what actions are and how to use them. If you see yourself making a component that is almost empty with just some lifecycle events and a superflat DOM existing of a simple wrapper and a slot, you might have a good candidate for an action!

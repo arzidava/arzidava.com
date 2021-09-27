@@ -1,93 +1,64 @@
 <script>
-	import { TabControl, TabControlItem } from 'renderless-svelte'
-	import { pagetitle } from '../../store.js'
-    import SocialMediaCard from '../../components/SocialMediaCard.svelte'
-	
-	import Button from '../../components/Button.svelte'
-	import Arzidava from './arzidava.svelte'
-	import OpenSource from './opensource.svelte'
-	import Stephane from './stephane.svelte'
-	
-	pagetitle.set('about')
+	import { openModalV2 } from 'renderless-svelte';
+	import ContactForm from '$lib/organisms/ContactForm.svelte';
+	import Button from '$lib/components/Button.svelte';
 
-	const selectTab = (ev, select) => {
-		ev.target.blur()
-		select()
+	async function contact() {
+		const res = await openModalV2(ContactForm);
 	}
 </script>
 
+<div class="wrapper">
+	<h1>Stephane Vanraes</h1>
+
+	<div class="img">
+		<img src="/images/stephane.jpg" alt="Stephane Vanraes" />
+	</div>
+	<div class="text">
+		<p>
+			I am Stephane Vanraes, a frontend developer based in Bergen, Norway. As a JavaScript and CSS
+			enthusiast you will often find me trying out new things or helping others out with their
+			problems, and you will find me active doing just that in several OS communities.
+		</p>
+
+		<p>
+			When I am not coding away at my computer you will find me hiking in the mountains around town
+			or playing boardgames.
+		</p>
+
+		<Button on:click={contact}>Contact me</Button>
+	</div>
+</div>
+
 <style>
-	ul {
+	.wrapper {
+		align-items: flex-end;
 		display: flex;
 		flex-wrap: wrap;
-		height: 60px;
-		list-style-type: none;
-		position: relative;
+		font-size: 1.25rem;
+		gap: 1rem;
+		justify-content: center;
 		margin: auto;
+		max-width: 96ch;
+	}
+	h1 {
+		flex: 1 0 100%;
+		text-align: center;
+	}
+	.img {
+		flex: 1 0 100%;
 		max-width: 400px;
-		transition: height 200ms linear;
-		width: 100%;
 	}
-
-	ul:hover,
-	ul:focus-within {
-		height: 100px;
-	}
-	ul > li {
+	.text {
+		display: flex;
 		flex: 1 0;
-		height: 40px;
-		position: relative;
-		transition: top 200ms linear;
+		flex-direction: column;
+		gap: 1rem;
+		min-width: 400px;
 	}
 
-	ul > li:first-child {
-		flex-basis: 100%;
-		width: 100%;
-		z-index: 2;
-	}
-	ul > li:first-child > :global(button) {
-		height: 100%;
-		width: 100%;
-	}
-
-	ul > li:not(:first-child),
-	ul > li:not(:first-child) {
-		top: -40px;
-		z-index: -1;
-	}
-	
-	ul:hover > li:not(:first-child), 
-	ul:focus-within > li:not(:first-child) {
-		top: 0; 
-		z-index: 0;
-	}
-
-	@media screen and (max-width: 400px) {
-		ul > li > :global(button) {
-			padding: .5rem;
-		}
+	.text > :global(button) {
+		margin: auto;
+		max-width: 20ch;
 	}
 </style>
-
-<SocialMediaCard description="About Stephane, the project and other things" title="arzidava" type="website" />
-
-<TabControl>
-	<ul slot="tabs" let:tabs>
-		{#each tabs.filter(_ => _.active) as { active, payload, select }}
-			<li><Button on:click="{ev => selectTab(ev, select)}" shadow>about {payload}</Button></li>
-		{/each}
-		{#each tabs as { active, payload, select }}
-			<li><Button on:click="{ev => selectTab(ev, select)}" shadow>{payload}</Button></li>
-		{/each}
-	</ul>
-
-	<TabControlItem id="S" payload="Stéphane" active>
-		<Stephane />
-	</TabControlItem>
-	<TabControlItem id="A" payload="Arzidava">
-		<Arzidava />
-	</TabControlItem>
-	<TabControlItem id="O" payload="OpenSource">
-		<OpenSource />
-	</TabControlItem>
-</TabControl>

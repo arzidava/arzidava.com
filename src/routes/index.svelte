@@ -1,108 +1,132 @@
 <script context="module">
-    export function preload() {
-        return this.fetch(`../blog.json`).then(r => r.json()).then(posts => {
-            return { posts: posts.slice(0, 5) }
-        });
-    }
+	export async function load({ fetch }) {
+		const articles = await fetch('/blog.json?limit=5').then((res) => res.json());
+		const snippets = await fetch('/code.json?limit=5').then((res) => res.json());
+
+		return {
+			props: {
+				articles,
+				snippets
+			}
+		};
+	}
 </script>
 
 <script>
-	import Button from '../components/Button.svelte'
-	import SocialMediaCard from '../components/SocialMediaCard.svelte'
-	import formatDate from '../utils/formatDate.js'
-	import { pagetitle } from '../store.js'
-	
-	export let posts = []
-	
-	pagetitle.set('')
+	import Icon from '$lib/components/Icon.svelte';
+	import LinkList from '$lib/components/LinkList.svelte';
+
+	export let articles = [];
+	export let snippets = [];
 </script>
 
+<section id="intro">
+	<Icon name="logo" />
+	<span class="title">arzidava</span>
+	<p>web development</p>
+	<p>lightweight ∣ accessible ∣ simple</p>
+</section>
+
+<div id="links">
+	<a href="/about" class="ltr">About me</a>
+	<a href="/projects" class="rtl">Projects</a>
+</div>
+<div class="wrapper">
+	<section id="articles">
+		<h1>Latest Articles</h1>
+		<LinkList links={articles} />
+		<a href="/blog">All articles</a>
+	</section>
+	<section id="code">
+		<h1>Latest Snippets</h1>
+		<LinkList links={snippets} />
+		<a href="/code">All snippets</a>
+	</section>
+</div>
+
 <style>
+	#intro {
+		align-items: center;
+		background-color: hsl(var(--primary) / 0.2);
+		backdrop-filter: blur(1rem);
+		border-radius: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		padding: 1rem 10%;
+		margin: auto;
+		max-width: max-content;
+	}
+	#intro :global(svg) {
+		font-size: 4rem;
+	}
+	#intro .title {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-top: -0.75rem;
+		text-transform: uppercase;
+	}
+
+	#links {
+		display: flex;
+		margin: 10vh auto;
+		max-width: 400px;
+		width: 100%;
+	}
+
+	#links a {
+		border: 0;
+		flex: 0 0 calc(50% - 0.5rem);
+		font-size: 1.25rem;
+		font-weight: 600;
+		padding: 0.5rem 1rem;
+		text-align: center;
+	}
+
+	#links a:first-child {
+		margin-right: 1rem;
+	}
+
+	#links a:after {
+		background-color: hsl(var(--secondary));
+		content: '';
+		inset: 0;
+		position: absolute;
+		z-index: -2;
+	}
+
 	.wrapper {
 		display: flex;
 		flex-wrap: wrap;
-		min-height: calc(100vh - 3rem);
-		padding: 1rem;
+		gap: 1rem;
+		margin-top: 10vh;
 	}
-	.home {
-		align-items: center;
-		color: var(--black);
-		flex: 0 100%;
-		font-size: 1.125rem;
-		min-height: 200px;
-		text-align: center;
-	}
- 	h1 > span {
-		display: inline-block;
-		height: 40px;
-		margin-right: 1rem;
-		vertical-align: middle;
-		width: 40px;
-    }
 
-  	.articles {
-		align-self: flex-start;
-		background-color: var(--secondary-light);
-		color: var(--black);
-		flex: 1 0 300px;
-		list-style-type: none;
-		margin-bottom: 1rem;
-		text-align: left;
+	.wrapper > * {
+		flex: 1 0 45ch;
+		max-width: 100%;
 	}
-    .articles > li {
-      	display: block;
-    }
-	.articles > li > a {
+
+	.wrapper section {
+		background-color: hsl(var(--secondary));
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+	}
+
+	.wrapper section :global(*:nth-child(2)) {
+		flex: 1 0;
+	}
+
+	h1:after {
+		background-image: paint(curvy-strip);
+		content: '';
 		display: block;
-		padding: .25rem 1rem;
-		width: 100%;
+		height: 1rem;
+		margin: 0 -1rem;
 	}
-	.articles > li > a:active,
-	.articles > li > a:focus,
-	.articles > li > a:hover {
-		background-color: var(--primary-light);
-	}
-	.articles > li > a > span {
-		color: var(--black);
-		display: block;
-		font-size: .75rem;
-		margin-bottom: .25rem;
-		margin-left: .25rem;
-	}
-  	.buttons {
+
+	a {
 		align-self: flex-end;
-		flex: 1 0 300px;
-		list-style-type: none;
 	}
-    .buttons > li {
-		display: block;
-		margin-left: auto;
-		width: 20ch;
-    }
-	.buttons > li > :global(button) {
-		width: 100%;
-	}
-
 </style>
-
-<SocialMediaCard description="lightweight, accessible and simple web development" title="arzidava" type="summary" />
-
-<div class="wrapper">
-  <div class="home">
-    <h1><span class="svelte-ymced8"><svg class="svelte-vl2ttn" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 10 82.5 A 49 49 0 1 1 90 82.5 H 85 A 45 45 0 1 0 15 82.5 Z M 24 82.5 V 55 H 34 V 82.5 Z M 38 82.5 V 39 H 48 V 82.5 Z M 52 82.5 V 39 H 62 V 82.5 Z M 66 82.5 V 55 H 76 V 82.5 Z" fill="currentColor"></path>
-        </svg></span>arzidava</h1>
-    <p>web development</p>
-    <p>lightweight ∣ accessible ∣ simple</p>
-  </div>
-  <ul class="articles shadow">
-	{#each posts as { date, slug, title }}
-		<li><a href="/blog/{slug}"><span>[{formatDate(date)}]</span>{title}</a></li>
-	{/each}
-  </ul>
-  <ul class="buttons stack">
-    <li><Button href="/blog" shadow>Articles</Button></li>
-    <li><Button href="/about" shadow>About</Button></li>
-    <li><Button href="/contact" shadow>Contact</Button></li>
-  </ul>
-</div>

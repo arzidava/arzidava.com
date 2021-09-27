@@ -1,0 +1,19 @@
+---
+title: Conditional actions in Svelte
+date: 20210927
+summary: Applying actions, but conditionally.
+---
+
+If you want to apply an action only under certain conditions, you can simply wrap the action into another action.
+
+```js
+function conditionalAction(node, { action, params, condition }) {
+	if (condition) {
+		return action(node, params);
+	}
+}
+```
+
+```html
+<div use:conditionAlction={{ action: myAction, params: 1, condition: true }} />
+```

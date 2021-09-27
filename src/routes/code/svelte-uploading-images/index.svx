@@ -1,0 +1,26 @@
+---
+title: Uploading images and other files with Svelte
+date: 202210925
+summary: A quick and dirty example of uploading images.
+---
+
+<script>
+    import Demo from './Demo.svelte'
+</script>
+
+```
+<script>
+  let files = []
+  $: file = files[0]
+</script>
+
+<input type="file" bind:files accept="image/*" multiple>
+
+{#each files as file}
+  <div>
+    <img src={URL.createObjectURL(file)} alt="">
+  </div>
+{/each}
+```
+
+<Demo />

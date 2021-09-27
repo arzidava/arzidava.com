@@ -1,0 +1,67 @@
+---
+title: Combining custom and derived stores
+date: 20200830
+summary: Using custom and derived stores together in Svelte can be used to create some nice effects.
+---
+
+## Custom Stores
+
+Svelte comes with three types of stores predefined: _writable_, _readable_ and _derived_. But sometimes we want to have more functionality than just those three. Think of adding extra properties to a store, or some functions like a reset. Luckily anything can be a store in Svelte, the only requirement is that the object has to have a correctly implemented `subscribe` function. As in this example from the official Svelte Tutorial:
+
+```js
+import { writable } from 'svelte/store';
+
+export const count = (() => {
+	const { subscribe, set, update } = writable(0);
+
+	return {
+		subscribe,
+		increment: () => update((n) => n + 1),
+		decrement: () => update((n) => n - 1),
+		reset: () => set(0)
+	};
+})();
+```
+
+The above script will export a simple readonly `count` store that exposes functions to increment, decrement and reset the counter. These functions can then be called directly on the store object:
+
+```html
+<button on:click="{count.increment}">+</button>
+<button on:click="{count.decrement}">-</button>
+<button on:click="{count.reset}">reset</button>
+```
+
+## Derived Stores
+
+A derived store is a readonly store that gets it's value based on another store. The most basic example would be:
+
+```
+const single = writable('1')
+const double = derived(store, $store => $store * 2)
+```
+
+In this example, _double_ will always be double the value of _single_ but only single can be modified.
+
+## Custom Stores + Derived Stores
+
+When making a custom store it is important to remember that the returned _set_ (or _update_) function does not have to refer to the same internal store as the _subscribe_ function, this code is a perfectly valid custom store
+
+```js
+import { derived, writable } from 'svelte/store';
+
+export const state = (() => {
+	const store = writable('Stephane');
+	const store2 = derived(store, ($store) => ({
+		initial: $store,
+		lower: $store.toLowerCase(),
+		upper: $store.toUpperCase()
+	}));
+
+	return {
+		set: store.set,
+		subscribe: store2.subscribe
+	};
+})();
+```
+
+While this store only takes a single string as input, the output has three props giving you the original value, a value in only lowercase and one in uppercase. This is of course a very simple example, but can be easily expanded to do integrate more complex functionality.

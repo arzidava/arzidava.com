@@ -1,34 +1,31 @@
 ---
-slug: svelte-svg
 title: Combining SVG's with Svelte
 date: 20200614
 summary: Combining SVG and Svelte allows to create really great effects
-tags: svelte javascript svg
 ---
 
 <script>
     import ColumnsSample from './ColumnsSample.svelte';
 </script>
 
+## About SVG
+
 SVG allows us, as the full name suggests, scalable vector graphics. Or in other words graphics that smoothly scale together with the user's screen. This can be used for icons, backgrounds or decoration. Because SVG is an XML-like markup it can be easily combined together with HTML to embed these graphics into the browser.
 
-<svg viewBox="0 0 100 100" height="100px" width="100px">
-    <circle cx="50" cy="50" r="34" fill="red" />
-</svg>
-
-The above for instance is a simple red circle, created by using:
+This code for instance is a simple red circle:
 
 ```svelte
 <svg viewBox="0 0 100 100" height="100px" width="100px">
-    <circle cx="50" cy="50" r="34" fill="red" />
+	<circle cx="50" cy="50" r="34" fill="red" />
 </svg>
 ```
 
 This is really great because it means we can treat it as a component in Svelte, all we have to do is create a new file with the SVG as the content, save it as `MyGraphic.svelte` and then import and render as we would do any other component:
 
-
 ```svelte
-<script> import MyGraphic from './MyGraphic.svelte' </script>
+<script>
+	import MyGraphic from './MyGraphic.svelte';
+</script>
 
 <MyGraphic />
 ```
@@ -38,59 +35,63 @@ This is really great because it means we can treat it as a component in Svelte, 
 But now that we have turned our SVG in a full fledged Svelte component it means we can also pass props to it and use them in the generation of our SVG.
 
 ```svelte
-<script> export let color = 'red' </script>
+<script>
+	export let color = 'red';
+</script>
 
 <svg viewBox="0 0 100 100" height="100px" width="100px">
-    <circle cx="50" cy="50" r="34" fill="{color}" />
+	<circle cx="50" cy="50" r="34" fill={color} />
 </svg>
 ```
 
 ```svelte
-<script> import Circle from './Circle.svelte' </script>
+<script>
+	import Circle from './Circle.svelte';
+</script>
 
 <Circle color="red" />
 <Circle color="green" />
 <Circle color="blue" />
 ```
 
+---
+
 ## Generating the SVG using logic
 
-<ColumnsSample />
-
-Nothing stops us now from adding some logic and leveraging more of Svelte's toolbox to actually _generate_ the SVG instead of using some static markup. The above column chart for instance is generated using:
+Nothing stops us now from adding some logic and leveraging more of Svelte's toolbox to actually _generate_ the SVG instead of using some static markup. We can do for instance:
 
 ```svelte
 <script>
-    export let data = []
-    $: xwidth = data.length ? 100 / data.length : 100
-    $: yratio = data.length ? 100 / Math.max(...data) : 100
+	export let data = [];
+	$: xwidth = data.length ? 100 / data.length : 100;
+	$: yratio = data.length ? 100 / Math.max(...data) : 100;
 </script>
 
-<style>
-    /* Using CSS customer properties to match the colours to the site's */
-    rect {
-        fill: var(--primary-light);
-        stroke: var(--primary);
-    }
-    text {
-        fill: var(--white);
-        dominant-baseline: center;
-        font-size: 10px;
-        text-anchor: middle;
-    }
-</style>
-
 <svg viewBox="0 0 100 100">
-    {#each data as value, i}
-        <rect y="{100-(value*yratio)}" width="{xwidth}" x="{i*xwidth}" height="{value*yratio}" />
-    {:else}
-        <text x="50" y="50">No data provided</text>
-    {/each}
+	{#each data as value, i}
+		<rect y={100 - value * yratio} width={xwidth} x={i * xwidth} height={value * yratio} />
+	{:else}
+		<text x="50" y="50">No data provided</text>
+	{/each}
 </svg>
+
+<style>
+	/* Using CSS customer properties to match the colours to the site's */
+	rect {
+		fill: var(--primary-light);
+		stroke: var(--primary);
+	}
+	text {
+		fill: var(--white);
+		dominant-baseline: center;
+		font-size: 10px;
+		text-anchor: middle;
+	}
+</style>
 ```
 
 ## Adding reactivity to the mix
 
-Nothing stops us of course from adding some reactivity to the mix to make the entire experience interactive
+You can of course go further and add
 
 <ColumnsSample interactive="{true}" />

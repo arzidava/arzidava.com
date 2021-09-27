@@ -1,37 +1,20 @@
-import fs from 'fs'
 import path from 'path'
-import grayMatter from 'gray-matter'
 
-function isDir(path) {
-	try {
-		var stat = fs.lstatSync(path)
-		return stat.isDirectory()
-	} catch (e) { return false }
-	// lstatSync throws an error if path doesn't exist
-}
+export async function get({ query }) {
+	const articles = import.meta.glob(`./**/*.svx`);
+    const limit = parseInt(query.get('limit') || Object.keys(articles).length)
 
-const route = 'src/routes/blog'
-const posts = fs.readdirSync(route)
-	.filter(file => isDir(`${route}/${file}`))
-	.map(file => {
-		const post = fs.readFileSync(path.resolve(route, `${file}/index.svx`), 'utf-8')
-		return {...grayMatter(post).data, slug: file}
-	})
-	.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    const posts = (await Promise.all(Object.keys(articles).map(async key => {
+        const { metadata } = await articles[key]()
+        const slug = path.parse(key).dir.substr(2)
+        return {
+            ...metadata,
+            href: '/blog/' + slug
+        }
+    }))).sort((a, b) => b.date - a.date)
 
-const contents = JSON.stringify(posts.map(post => {
-	return {
-		title: post.title,
-		slug: post.slug, 
-		date: post.date,
-		tags: (post.tags || "").split(" ")
-	}
-}))
-
-export function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	})
-
-	res.end(contents)
+    return {
+        status: 200,
+        body: posts.slice(0, limit)
+    }
 }

@@ -1,0 +1,10 @@
+---
+title: Svelte Portable text
+summary: A helper library for Portable Text in Svelte
+---
+
+**Website**: [https://github.com/arzidava/svelte-portable-text](https://github.com/arzidava/svelte-portable-text)
+
+## Description
+
+This library allows you to use [Portable Text](http://www.portabletext.org) Portable Text, an abstraction format for a CMS. It was developed by [Sanity](https://www.sanity.io).

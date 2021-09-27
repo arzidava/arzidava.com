@@ -1,29 +1,26 @@
 ---
-slug: svelte-contextapi-stores
 title: Combining the Context API with Stores in Svelte
 date: 20200710
 summary: How to combine Svelte's Context API with Stores to create some nice effects.
-tags: svelte javascript stores contextapi
 ---
 
-See this <a href="https://svelte.dev/repl/7df82f6174b8408285a1ea0735cf2ff0?version=3.24.0" target="_blank" rel="noopener">Repl</a> for a working example of this code
+See this [Repl](https://svelte.dev/repl/7df82f6174b8408285a1ea0735cf2ff0?version=3.24.0) for a working example of this code
 
---- 
-<script>
-    import Warning from '../../../components/Warning.svelte'
-</script>
+---
 
-Svelte's Context API is a bit of a misunderstood feature that a lot of users struggle with.  The core concept of it however is very simple: it allows you to create a key-value store that is only accessible to the current component and all it's descendants.  This is a very nice feature to have if you work with component composition and the use of slots as I will discuss further down.
+## About Context APIs
 
-## How to use the Context API 
+Svelte's Context API is a bit of a misunderstood feature that a lot of users struggle with. The core concept of it however is very simple: it allows you to create a key-value store that is only accessible to the current component and all it's descendants. This is a very nice feature to have if you work with component composition and the use of slots as I will discuss further down.
+
+## How to use the Context API
 
 This feature comes with two functions: `setContext` and `getContext`, which as their names suggests, _set_ something and _get_ something (preferable the same thing), they are part of the `svelte` package and can be imported from there:
 
 ```svelte
 <script>
-    import { setContext } from 'svelte'
+	import { setContext } from 'svelte';
 
-    setContext('key', value)  // Add the key/value pair
+	setContext('key', value); // Add the key/value pair
 </script>
 ```
 
@@ -31,15 +28,15 @@ And in one of the components that are a descendant of this component
 
 ```svelte
 <script>
-    import { getContext } from 'svelte'
+	import { getContext } from 'svelte';
 
-    const value = getContext('key')  // Gets the value stored as key
+	const value = getContext('key'); // Gets the value stored as key
 </script>
 ```
 
-<Warning>
-    setContext and getContext have to be called during component initialization.  Think of this as being in the top level of your component.
-</Warning>
+**
+setContext and getContext have to be called during component initialization. Think of this as being in the top level of your component.
+**
 
 ## Why use the Context API ?
 
@@ -47,9 +44,11 @@ When dealing with children we can always just pass the values as properties, but
 
 Another place this can be a real saviour is when dealing with component composition and slots where the children are completely unknown to the current component. They key/value pairs of the Context API are however fully available from within the slotted content as they are a descendant of the component.
 
-<Warning>
-    Values in the store are not reactive! Once the value is set it does not change anymore
-</Warning>
+**
+Values in the store are not reactive! Once the value is set it does not change anymore
+**
+
+---
 
 ## Making the Context Reactive
 
@@ -57,11 +56,11 @@ Having the value not change anymore is however not what you always want, luckily
 
 ```svelte
 <script>
-    import { setContext } from 'svelte'
-    import { writable } from 'svelte/store'
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 
-    const value = writable(123)
-    setContext('key', value)
+	const value = writable(123);
+	setContext('key', value);
 </script>
 ```
 
@@ -79,30 +78,31 @@ and somewhere else
 
 Notice here that since it's a store you have to use the `$` notation to get the value.
 
+---
+
 ## Tracking the initial value
 
-We can use this to keep track of the initial values of a component and provide the user with a *Reset* opportunity. Take the following code
+We can use this to keep track of the initial values of a component and provide the user with a _Reset_ opportunity. Take the following code
 
 ```svelte
 <script>
-	import { getContext, setContext } from 'svelte'
-	import { writable } from 'svelte/store'
-	
-	import Child from './Child.svelte'
-	
+	import { getContext, setContext } from 'svelte';
+	import { writable } from 'svelte/store';
+
+	import Child from './Child.svelte';
+
 	let name = 'world';
-	let nameStore = writable(name)
-	
-	$: nameStore.set(name)
-	
-	setContext('initial', name)
-	setContext('name', nameStore)
-	
-	const reset = () => name = getContext('initial')
-	
+	let nameStore = writable(name);
+
+	$: nameStore.set(name);
+
+	setContext('initial', name);
+	setContext('name', nameStore);
+
+	const reset = () => (name = getContext('initial'));
 </script>
 
-<input bind:value={name}>
+<input bind:value={name} />
 
 <Child />
 
@@ -111,10 +111,10 @@ We can use this to keep track of the initial values of a component and provide t
 
 ```svelte /* Child.svelte */
 <script>
-	import { getContext } from 'svelte'
-	
-	const name = getContext('name')
-	const initial = getContext('initial')
+	import { getContext } from 'svelte';
+
+	const name = getContext('name');
+	const initial = getContext('initial');
 </script>
 
 <div>

@@ -1,0 +1,10 @@
+---
+title: Renderless Svelte
+summary: Short about renderless-svelte
+---
+
+**Website**: [http://www.renderless-svelte.dev](http://www.renderless-svelte.dev)
+
+## Description
+
+Renderless Svelte is a library based on the principles outlined in [this article](/blog/renderless-components). It offers a series of abstractions for common design patterns like accordions, carousels, modals and others. It does all of this in a 'renderless' way, which means the library offers no styling whatsoever.
