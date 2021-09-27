@@ -13,9 +13,7 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content="{$page.host}/images/{image}" />
-	<meta property="og:image:width" content="500" />
-	<meta property="og:image:height" content="500" />
+	<meta property="og:image" content="https://{$page.host}/images/{image}" />
 	<meta property="og:title" content={title} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{$page.host}{$page.path}" />
