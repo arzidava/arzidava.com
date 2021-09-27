@@ -1,6 +1,6 @@
 ---
 title: arzidava
-summary: Article about the arzidava website
+summary: About the arzidava website itself
 ---
 
 ## History
