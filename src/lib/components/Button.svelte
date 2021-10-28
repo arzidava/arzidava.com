@@ -20,7 +20,8 @@
 		transition: background-color 200ms;
 	}
 
-	a:is(:active, :focus, :hover) button:is(:active, :focus, :hover) {
+	a:is(:active, :focus, :hover),
+	button:is(:active, :focus, :hover) {
 		background-color: white;
 	}
 </style>
