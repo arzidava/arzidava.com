@@ -1,0 +1,130 @@
+:root {
+	--primary: 200 90% 50%;
+	--primary--200: 200 90% 80%;
+	--secondary: 30 100% 56%;
+	--secondary--200: 30 100% 76%;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1.25;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	text-decoration: inherit;
+}
+
+*:is(:active, :focus, :hover) {
+	outline: 0;
+}
+
+html {
+	font-family: 'Glory', sans-serif;
+	height: 100%;
+}
+
+body {
+	background-color: hsl(var(--primary));
+	color: var(--black);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body.home {            
+    background-attachment: fixed;
+    background-image: url(/img/lyderhorn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    align-items: center;
+    background-color: hsl(var(--secondary));
+    box-shadow: 0 4px 4px #0007;
+    display: flex;
+    flex: 0 0;
+    flex-wrap: wrap;
+    gap: 0.5ch;
+    padding: 1rem;
+}
+
+.logo {
+    all: unset;
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    font-weight: 600;
+    gap: 0.5ch;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.125rem;
+    font-weight: 600;
+    gap: 0.75ch;
+    margin-inline-start: auto;
+}
+
+nav > a {
+    border-bottom: 4px solid hsl(var(--primary));
+    padding: 0.125rem 0.5ch;
+}
+
+a[aria-current~='true'] {
+    background-color: hsl(var(--primary--200));
+}
+
+footer {
+    flex: 0 0;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+main {
+    flex: 1 0;
+    margin: auto;
+    max-width: 96ch;
+    padding: 1rem;
+    width: 100%;
+}
+
+svg.icon {
+    height: 1em;
+    width: 1em;
+}
+
+a {
+	border-bottom: 2px solid hsl(var(--primary));
+	isolation: isolate;
+	padding: 0rem 0.5ch;
+	position: relative;
+}
+a:before {
+	--initialScale: scale(1, 0);
+	background-color: hsl(var(--primary--200));
+	content: '';
+	inset: 0;
+	position: absolute;
+	transform: var(--initialScale);
+	transform-origin: bottom;
+	transition: transform 200ms;
+	z-index: -1;
+}
+
+a:is(:active, :focus, :hover):before {
+	content: '';
+	inset: 0;
+	position: absolute;
+	transform: scale(1, 1);
+	z-index: -1;
+}

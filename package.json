@@ -1,0 +1,19 @@
+{
+  "name": "arzidava.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "watch": "npx @11ty/eleventy --watch",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arzidava/arzidava.com.git"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -13,11 +13,11 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Glory:wght@400;600&display=swap" rel="stylesheet">
 
-        
-            <link rel="stylesheet" href="/css/home.css" />
-        
+        {% if style %}
+            <link rel="stylesheet" href="/css/{{ style }}" />
+        {% endif %}
     </head> 
-    <body class="home">
+    <body {% if page.url == '/' %}class="home"{%endif%}>
         <header>
             <a href="/" class="logo">
                 <svg viewBox="0 0 100 100" class="icon">
@@ -26,16 +26,14 @@
                 <span>arzidava</span>
             </a>
             <nav>
-                <a href="/" aria-current=true>Home</a>
-                <a href="/blog" aria-current=false>Blog</a>
-                <a href="/projects" aria-current=false>Projects</a>
-                <a href="/about" aria-current=false>About</a>
+                <a href="/" aria-current={{ page.url == '/' }}>Home</a>
+                <a href="/blog" aria-current={{ page.url == '/blog/' }}>Blog</a>
+                <a href="/projects" aria-current={{ page.url == '/projects/' }}>Projects</a>
+                <a href="/about" aria-current={{ page.url == '/about/' }}>About</a>
             </nav>
         </header>
         <main>
-            
-This is the front page
-
+            {{ content }}
         </main>
         <footer>
             <span>&copy; 2022 Arzidava</span>
