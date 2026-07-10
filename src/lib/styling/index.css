@@ -6,33 +6,32 @@
 	--large-size: 112ch;
 }
 
-
 @font-face {
 	display: swap;
-  font-family: 'Glory';
-  src: url('/fonts/Glory-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
+	font-family: 'Glory';
+	src: url('/fonts/Glory-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
 }
 
 @font-face {
 	display: swap;
-  font-family: 'Glory';
-  src: url('/fonts/Glory-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
+	font-family: 'Glory';
+	src: url('/fonts/Glory-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
 }
 
 ::view-transition-group(root) {
-  animation: none;
+	animation: none;
 }
 
 @media (prefers-reduced-motion) {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
 }
 
 *,
@@ -58,10 +57,11 @@ html {
 	background-color: var(--primary);
 	font-family: 'Glory', sans-serif;
 	height: 100dvh;
-  scrollbar-gutter: stable;
+	scrollbar-gutter: stable;
 }
 
 body {
+	background-image: linear-gradient(transparent, white 75%);
 	display: flex;
 	flex-direction: column;
 	min-block-size: 100dvh;
@@ -69,12 +69,14 @@ body {
 	main {
 		flex: 1;
 	}
+}
 
-	&.is-home {
-		background-attachment: fixed;
-		background-image: url(/images/lyderhorn.webp);
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
+hr {
+	background-image: paint(curvy-strip);
+	color: black;
+	border: 0;
+	column-span: all;
+	height: 1rem;
+	margin-inline: auto;
+	max-inline-size: var(--main-size);
 }

@@ -6,6 +6,7 @@
 	import { page } from '$app/state';
 	import Icons from '$lib/components/Icons.svelte';
 	import startViewTransition from '$lib/utils/startViewTransition';
+	import { startCssWorklets } from '$lib/worklets';
 
 	let { children } = $props();
 
@@ -14,6 +15,7 @@
 	});
 
 	startViewTransition();
+	startCssWorklets();
 </script>
 
 <svelte:head>
