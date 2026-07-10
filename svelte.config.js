@@ -1,14 +1,24 @@
+import { fileURLToPath } from 'node:url';
 import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-static';
+
+const dirname = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	compilerOptions: {
 		// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
-		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
+		//runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
 	},
 	kit: { adapter: adapter() },
-	preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
+	preprocess: [
+		mdsvex({
+			extensions: ['.svx', '.md'],
+			layout: {
+				blog: `${dirname}src/lib/renderers/Layout.svelte`
+			}
+		})
+	],
 	extensions: ['.svelte', '.svx', '.md']
 };
 

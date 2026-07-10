@@ -1,9 +1,11 @@
 ---
 date: 2024-03-15
-title: First Post
+title: This is my first post
 published: true
 ---
 
-This is my first post
+Starting fresh with a page that gets out of the way. No lined paper, no borders pretending to be a notebook — just type that's comfortable to read.
 
-s
+---
+
+More thoughts on lightweight, accessible software — written the way I'd want to read it.

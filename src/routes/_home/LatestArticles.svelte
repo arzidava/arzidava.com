@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Date from '$lib/components/Date.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import type { Post } from '$lib/types';
 
@@ -17,13 +18,7 @@
 			<div>
 				<Icon name="chevron-right" />
 			</div>
-			<time datetime={post.date}>
-				{new Date(post.date).toLocaleDateString('en-GB', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				})}
-			</time>
+			<Date date={post.date} />
 		</a>
 	</li>
 {/snippet}

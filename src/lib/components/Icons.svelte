@@ -23,6 +23,9 @@
 		}
 	</style>
 	<defs>
+		<g id="svg-chevron-left">
+			<path d="M14,4L4,12L14,20" fill="none" stroke="currentColor" />
+		</g>
 		<g id="svg-chevron-right">
 			<path d="M10,4L20,12L10,20" fill="none" stroke="currentColor" />
 		</g>
