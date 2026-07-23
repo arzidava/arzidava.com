@@ -35,7 +35,8 @@
 
 <style>
 	main {
-		margin: 0 auto;
 		inline-size: min(100%, var(--main-size));
+		margin: 0 auto;
+		padding: 0 1rem;
 	}
 </style>

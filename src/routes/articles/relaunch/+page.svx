@@ -1,12 +1,10 @@
 ---
-date: 2024-03-15
-description: test test, this is just a teaser description
-title: This is my first post
+date: 2026-07-23
+description: A fresh start with a brand new design
+title: Relaunch
 published: true
 tags:
-  - rant
-  - svelte
-  - javascript
+  - life
 ---
 
 Starting fresh with a page that gets out of the way. No lined paper, no borders pretending to be a notebook — just type that's comfortable to read.

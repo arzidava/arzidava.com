@@ -9,10 +9,10 @@
 		children: Snippet;
 	};
 
-	const { title, date, children }: Props = $props();
+	const { title, date, tags, children }: Props = $props();
 </script>
 
-<div>
+<div class="back-link">
 	<a href={resolve('/articles')}>
 		<Icon name="chevron-left" />
 		<span>See all articles</span>
@@ -20,7 +20,12 @@
 </div>
 
 <article>
-	<Date {date} variant="bold" />
+	<div class="tags">
+		{#each tags as tag (tag)}
+			<span>{tag}</span>
+		{/each}
+	</div>
+	<Date {date} />
 	<h1>{title}</h1>
 	{@render children?.()}
 </article>
@@ -39,10 +44,33 @@
 		}
 	}
 
-	div {
-		margin: 2rem auto;
+	.tags {
+		color: var(--secondary);
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 0.75em;
+		font-weight: 600;
+		gap: 1ch;
+		inline-size: 100%;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+
+		> span + span::before {
+			background-color: currentColor;
+			content: '';
+			display: inline-block;
+			height: 4px;
+			margin-inline-end: 1ch;
+			vertical-align: middle;
+			width: 4px;
+		}
+	}
+
+	.back-link {
+		margin: 1rem auto;
 		max-inline-size: var(--large-size);
 	}
+
 	article {
 		background-color: white;
 		box-shadow: 0 6px 24px rgba(20, 60, 90, 0.12);
