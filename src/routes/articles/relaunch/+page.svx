@@ -28,7 +28,7 @@ Those who know me in real life know I am prone to start and never end, the most 
 So here is just a random selection of things you might see updates about:
 
 - _Blood On The Fjords_ a series of short story like format stuff thing like whatever. Loosely based on World of Darkness and set in my lovely home town of Bergen
-- _Suncap Revisited_ this is likely going to be an ongoing series, my former colleagues in Belgium rewrote my C#.NET program in Python, so now I am going to rewrite their Python to, well, Python. But maybe with some surprises on the way, big plans here, stay tuned. (Or not, only tune in if you really have nothing better to do with your life 🙄)
+- _Digisun Revisited_ this is likely going to be an ongoing series, my former colleagues in Belgium rewrote my C#.NET program in Python, so now I am going to rewrite their Python to, well, Python. But maybe with some surprises on the way, big plans here, stay tuned. (Or not, only tune in if you really have nothing better to do with your life 🙄)
 - _a project with no name yet_ but it will be kind of like a web based single player game like thing you know? No you don't? Well, honestly neither do I, but I promise there is something somewhere hidden in a repo.
 - _Baseline_ this has more flesh around it, a personal fitness tracker with rudimentary data analysis embedded in. Started building this while working out.
 
