@@ -57,6 +57,19 @@
 		padding: 1rem;
 		position: relative;
 
+		&::after {
+			background-color: var(--secondary);
+			border-radius: 50%;
+			content: '';
+			display: block;
+			height: 10px;
+			position: absolute;
+			inset-block-end: 2px;
+			inset-inline-start: 2px;
+			transition: inset-block-end linear 500ms;
+			width: 10px;
+		}
+
 		h2 {
 			font-size: 1.5rem;
 			font-weight: 600;
@@ -96,6 +109,10 @@
 		}
 		&:is(:active, :focus, :hover) {
 			background-color: hsl(from var(--secondary) h s calc(l * 0.05));
+
+			&:after {
+				inset-block-end: calc(100% - 1.75rem);
+			}
 
 			h2 {
 				color: var(--secondary);
