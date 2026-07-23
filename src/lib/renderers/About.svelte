@@ -9,6 +9,10 @@
 	const { title, children }: Props = $props();
 </script>
 
+<svelte:head>
+	<title>About | Arzidava</title>
+</svelte:head>
+
 <article>
 	<h1>{title}</h1>
 	{@render children?.()}

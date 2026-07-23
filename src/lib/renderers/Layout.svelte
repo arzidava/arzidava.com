@@ -12,6 +12,10 @@
 	const { title, date, tags, children }: Props = $props();
 </script>
 
+<svelte:head>
+	<title>{title} | Arzidava</title>
+</svelte:head>
+
 <div class="back-link">
 	<a href={resolve('/articles')}>
 		<Icon name="chevron-left" />
@@ -80,6 +84,25 @@
 		margin: auto;
 		max-inline-size: var(--large-size);
 		padding: 1rem;
+
+		:global(h3) {
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+
+		:global(em) {
+			color: var(--secondary);
+			font-weight: 600;
+		}
+
+		:global(strong) {
+			font-weight: 600;
+		}
+
+		:global(ul > li) {
+			list-style-type: square;
+			list-style-position: inside;
+		}
 	}
 
 	h1 {

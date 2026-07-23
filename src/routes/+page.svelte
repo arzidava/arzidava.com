@@ -6,6 +6,10 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Arzidava</title>
+</svelte:head>
+
 <Intro />
 
 <FrontpageNavigation />

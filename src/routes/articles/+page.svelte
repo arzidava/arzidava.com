@@ -6,6 +6,10 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Articles | Arzidava</title>
+</svelte:head>
+
 <h1>Articles</h1>
 
 <ul>

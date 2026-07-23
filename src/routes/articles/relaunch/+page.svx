@@ -1,14 +1,45 @@
 ---
 date: 2026-07-23
 description: A fresh start with a brand new design
-title: Relaunch
+title: New beginnings
 published: true
 tags:
   - life
 ---
 
-Starting fresh with a page that gets out of the way. No lined paper, no borders pretending to be a notebook — just type that's comfortable to read.
+A long long time ago, somewhere in 2022 I dismantled my blog, completely cleared it of all content and just left an empty placeholder page behind. A lot has changed since these days. Moved to a new apartment, started working out, got some therapy, ... And right now it seems a good time as any to start maybe publishing some stuff again. 💯
+
+Currently the site is nice and empty, like a blank canvas waiting to be filled. And of course without darkmode because the world is dark and gloomy enough as it is. So everybody (aka the handful people that will read this) are of course wondering what type of content will fill these empty halls? 🤔
+
+Well good news for those interested in it, it will be my classical "stuff".
 
 ---
 
-More thoughts on lightweight, accessible software — written the way I'd want to read it.
+Okay more serious, there will be basically X **(todo: update X with actual number)** types of entries.
+
+### Technical Web Related Topics
+
+Not that I have any interesting to say about any of those, but like, you know, like, random Svelte and CSS things I thought about? Some neat and nifty tricks I find on the way or read about and remake with my own twist. Probably super inefficient and not worth reading but we all need bad examples right?
+
+### Updates on "Other Projects"
+
+Those who know me in real life know I am prone to start and never end, the most interesting part of any project is the **DREAM**, thinking about how to organize and build things, and imaging how cool it will be once it's finished. The actual work? That's for the plebs...
+
+So here is just a random selection of things you might see updates about:
+
+- _Blood On The Fjords_ a series of short story like format stuff thing like whatever. Loosely based on World of Darkness and set in my lovely home town of Bergen
+- _Suncap Revisited_ this is likely going to be an ongoing series, my former colleagues in Belgium rewrote my C#.NET program in Python, so now I am going to rewrite their Python to, well, Python. But maybe with some surprises on the way, big plans here, stay tuned. (Or not, only tune in if you really have nothing better to do with your life 🙄)
+- _a project with no name yet_ but it will be kind of like a web based single player game like thing you know? No you don't? Well, honestly neither do I, but I promise there is something somewhere hidden in a repo.
+- _Baseline_ this has more flesh around it, a personal fitness tracker with rudimentary data analysis embedded in. Started building this while working out.
+
+### Random Life Stuff
+
+One thing I learned the past years is that it is not good to sit alone with dark thoughts, and not that you should spread and talk loud about the darkest of them (you got professional for that) but that just talking or writing when something troubles or frustrates you is a good way to put things in perspective. Also being open to mental health encourages more people to take your own health serious and yada yada positive effects blablabla.
+
+Seriously: don't sit with problematic feelings, seek help.
+
+### Art
+
+Nobody knows this, until now, congratulations you are among the first ones to know! But I am actually a very artistic person. I mean look at the fabulous design ✨ of this website for proof. And who am I to keep all that from you? So expect once in a while some pictures of my artwork.
+
+(for the record, it's as bad as my coding skills, just ignore those posts, you won't miss anything)

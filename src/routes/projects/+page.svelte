@@ -4,6 +4,10 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Projects | Arzidava</title>
+</svelte:head>
+
 <h1>Projects</h1>
 
 <ul>
