@@ -13,7 +13,7 @@
 
 {#snippet PostItem(post: Post)}
 	<li>
-		<a href={resolve('/blog/[slug]', { slug: post.slug })}>
+		<a href={resolve('/articles/[slug]', { slug: post.slug })}>
 			<h3>{post.title}</h3>
 			<div>
 				<Icon name="chevron-right" />
@@ -31,7 +31,7 @@
 		{/each}
 	</ul>
 
-	<a href={resolve('/blog')}>
+	<a href={resolve('/articles')}>
 		<span>See all articles</span>
 		<Icon name="chevron-right" />
 	</a>

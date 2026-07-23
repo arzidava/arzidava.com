@@ -15,7 +15,8 @@ const config = {
 		mdsvex({
 			extensions: ['.svx', '.md'],
 			layout: {
-				blog: `${dirname}src/lib/renderers/Layout.svelte`
+				articles: `${dirname}src/lib/renderers/Layout.svelte`,
+				about: `${dirname}src/lib/renderers/About.svelte`
 			}
 		})
 	],

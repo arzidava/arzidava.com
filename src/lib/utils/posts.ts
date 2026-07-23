@@ -1,7 +1,7 @@
 import type { Post } from '$lib/types';
 
 export function getPosts(): Post[] {
-	const modules = import.meta.glob('../../routes/blog/**/+page.svx', { eager: true });
+	const modules = import.meta.glob('../../routes/articles/**/+page.svx', { eager: true });
 
 	return Object.entries(modules)
 		.map(

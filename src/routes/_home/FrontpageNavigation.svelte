@@ -5,7 +5,7 @@
 <div>
 	<nav>
 		<a href={resolve('/about')}>About</a>
-		<a href={resolve('/blog')}>Blog</a>
+		<a href={resolve('/articles')}>Articles</a>
 		<a href={resolve('/projects')}>Projects</a>
 	</nav>
 </div>

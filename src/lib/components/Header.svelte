@@ -1,19 +1,32 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import Icon from './Icon.svelte';
 </script>
 
 <header>
-	<a href="/" class="home">
+	<a href={resolve('/')} class="home">
 		<Icon name="logo" />
 		<span>arzidava</span>
 	</a>
 	<nav>
-		<a href="/">Home</a>
-		<a href="/blog" aria-current={page.route.id?.startsWith('/blog') ? 'page' : undefined}>
-			Blog
+		<a href={resolve('/')}>Home</a>
+		<a
+			href={resolve('/articles')}
+			aria-current={page.route.id?.startsWith(resolve('/articles')) ? 'page' : undefined}
+		>
+			Articles
 		</a>
-		<a href="/about" aria-current={page.route.id?.startsWith('/about') ? 'page' : undefined}>
+		<a
+			href={resolve('/projects')}
+			aria-current={page.route.id?.startsWith(resolve('/projects')) ? 'page' : undefined}
+		>
+			Projects
+		</a>
+		<a
+			href={resolve('/about')}
+			aria-current={page.route.id?.startsWith(resolve('/about')) ? 'page' : undefined}
+		>
 			About
 		</a>
 	</nav>
@@ -23,6 +36,7 @@
 	header {
 		align-items: center;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 2ch;
 		inline-size: min(100%, var(--main-size));
 		margin-inline: auto;
@@ -38,7 +52,7 @@
 	nav {
 		align-self: flex-end;
 		display: flex;
-		gap: 1ch;
+		gap: 2ch;
 		margin-inline-start: auto;
 
 		> a {
@@ -51,7 +65,6 @@
 				&::after {
 					background-color: var(--secondary);
 					block-size: 4px;
-					border-radius: 1px;
 					content: '';
 					inline-size: 100%;
 					inset-block-end: -8px;

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	export type IconTypes = 'logo' | 'chevron-right';
+	export type IconTypes = 'logo' | 'chevron-right' | 'chevron-left';
 </script>
 
 <svg viewBox="0 0 100 100" style="display: none" xmlns="http://www.w3.org/2000/svg">

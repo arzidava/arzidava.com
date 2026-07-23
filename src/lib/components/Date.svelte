@@ -19,10 +19,11 @@
 
 <style>
 	time {
+		color: grey;
+		text-transform: uppercase;
 	}
 	time.bold {
 		color: var(--secondary);
 		font-weight: 500;
-		text-transform: uppercase;
 	}
 </style>

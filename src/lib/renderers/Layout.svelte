@@ -13,7 +13,7 @@
 </script>
 
 <div>
-	<a href={resolve('/blog')}>
+	<a href={resolve('/articles')}>
 		<Icon name="chevron-left" />
 		<span>See all articles</span>
 	</a>
@@ -28,7 +28,6 @@
 <style>
 	a {
 		align-items: center;
-		border-radius: 10px;
 		display: flex;
 		font-weight: 600;
 		gap: 1ch;
@@ -46,7 +45,6 @@
 	}
 	article {
 		background-color: white;
-		border-radius: 10px;
 		box-shadow: 0 6px 24px rgba(20, 60, 90, 0.12);
 		display: grid;
 		gap: 1rem;
