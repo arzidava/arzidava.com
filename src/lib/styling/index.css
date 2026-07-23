@@ -1,0 +1,83 @@
+:root {
+	--primary: hsl(200 90% 50%);
+	--secondary: hsl(30 100% 56%);
+
+	--main-size: 96ch;
+	--large-size: 112ch;
+}
+
+@font-face {
+	display: swap;
+	font-family: 'Glory';
+	src: url('/fonts/Glory-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	display: swap;
+	font-family: 'Glory';
+	src: url('/fonts/Glory-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
+}
+
+::view-transition-group(root) {
+	animation: none;
+}
+
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1.25;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	text-decoration: inherit;
+}
+
+*:is(:active, :focus, :hover) {
+	outline: 0;
+}
+
+html {
+	background-color: var(--primary);
+	font-family: 'Glory', sans-serif;
+	height: 100dvh;
+	scrollbar-gutter: stable;
+}
+
+body {
+	background-image: linear-gradient(transparent, white 75%);
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100dvh;
+
+	main {
+		flex: 1;
+	}
+}
+
+hr {
+	background-image: paint(curvy-strip);
+	color: black;
+	border: 0;
+	column-span: all;
+	height: 1rem;
+	inline-size: 100%;
+	margin-inline: auto;
+	max-inline-size: var(--main-size);
+}

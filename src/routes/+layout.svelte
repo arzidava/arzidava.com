@@ -1,0 +1,42 @@
+<script lang="ts">
+	import '$lib/styling/index.css';
+	import favicon from '$lib/assets/favicon.svg';
+	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import { page } from '$app/state';
+	import Icons from '$lib/components/Icons.svelte';
+	import startViewTransition from '$lib/utils/startViewTransition';
+	import { startCssWorklets } from '$lib/worklets';
+
+	let { children } = $props();
+
+	$effect(() => {
+		document.body.classList.toggle('is-home', page.url.pathname === '/');
+	});
+
+	startViewTransition();
+	startCssWorklets();
+</script>
+
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+{#if page.url.pathname !== '/'}
+	<Header />
+{/if}
+
+<main>
+	{@render children()}
+</main>
+
+<Footer />
+<Icons />
+
+<style>
+	main {
+		inline-size: min(100%, var(--main-size));
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+</style>
