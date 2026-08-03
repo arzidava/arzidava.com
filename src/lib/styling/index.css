@@ -2,8 +2,8 @@
 	--primary: hsl(200 90% 50%);
 	--secondary: hsl(30 100% 56%);
 
-	--main-size: 96ch;
-	--large-size: 112ch;
+	--main-size: 150ch;
+	--large-size: 150ch;
 }
 
 @font-face {
@@ -80,4 +80,36 @@ hr {
 	inline-size: 100%;
 	margin-inline: auto;
 	max-inline-size: var(--main-size);
+}
+
+img {
+	display: block;
+}
+
+figure {
+	border: 0.25rem solid var(--primary);
+	inline-size: min(80ch, 100%);
+	img {
+		inline-size: 100%;
+	}
+	figcaption {
+		background-color: var(--primary);
+		display: block;
+		inline-size: 100%;
+		padding: 0.25rem 0.25rem 0;
+	}
+}
+
+a {
+	align-items: center;
+	display: inline-flex;
+	gap: 1ch;
+}
+a[href*='http']:after {
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjEgMTN2MTBoLTIxdi0xOWgxMnYyaC0xMHYxNWgxN3YtOGgyem0zLTEyaC0xMC45ODhsNC4wMzUgNC02Ljk3NyA3LjA3IDIuODI4IDIuODI4IDYuOTc3LTcuMDcgNC4xMjUgNC4xNzJ2LTExeiIvPjwvc3ZnPg==');
+	background-size: 100%;
+	content: '';
+	display: inline-block;
+	height: 1em;
+	width: 1em;
 }

@@ -85,8 +85,11 @@
 		max-inline-size: var(--large-size);
 		padding: 1rem;
 
-		:global(h3) {
+		:global(h2) {
 			font-size: 1.25rem;
+			font-weight: 600;
+		}
+		:global(h3) {
 			font-weight: 600;
 		}
 
@@ -102,6 +105,25 @@
 		:global(ul > li) {
 			list-style-type: square;
 			list-style-position: inside;
+
+			&::marker {
+				color: var(--secondary);
+			}
+		}
+
+		:global(a) {
+			padding: 0.25rem;
+			text-decoration: underline;
+			text-decoration-color: var(--secondary);
+			text-decoration-thickness: 2px;
+
+			&:global(:is(:active, :focus, :hover)) {
+				background-color: var(--secondary);
+			}
+		}
+
+		:global(figure) {
+			margin-inline: auto;
 		}
 	}
 

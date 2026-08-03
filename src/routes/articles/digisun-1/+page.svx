@@ -1,0 +1,61 @@
+---
+date: 2026-08-03
+description: A brief description of the Digisun project
+title: Introduction to Digisun
+published: true
+tags:
+  - digisun
+  - python
+---
+
+<script lang="ts">
+  import dome from './dome.jpg';
+</script>
+
+Years ago from 2007 to 2015, I worked at the Royal Observatory Belgium. More specifically in the Solar Physics Department, and even more precisely the ground based observations team. It was a small team consisting of a head of research, some PhD students, a team of observers; and me as both observer and developer.
+
+## USET - the Uccle Solar Equatorial Table
+
+<figure>
+  <img src={dome} alt="A picture of the dome where I worked">
+  <figcaption>Outside of the USET dome</figcaption>
+</figure>
+
+So what did we actually do ? As I often tell people asking me about it: I made drawings of the sun. That sounds fun and silly, and if taken at face value it is. What we actually mean is that we record so called "sun spots", darker, colder regions on the surface of the sun. This is not new, earliest records span back to the first millenium BCE in China and shortly afterwards in Greece. The first actual drawings however are from around the 12th century CE and soon after the invention of the telescope we get the first telescopic observations in the 16-hundreds.
+
+At the Royal Observatory Belgium this work was done using the Uccle Solar Equatorial Table (USET) where the archive of systematic drawings goes back to 1955 (at least those digitized) and this tradition continues to this day despite having access to digital cameras because in research it is important to have ample overlap between two methods (manual vs digital) in order to be able to compare the two. And as with all things space related, 20 years is just a blip in time.
+
+[Learn more about sunspots on wikipedia](https://en.wikipedia.org/wiki/Sunspot)
+
+[USET website](https://www.sidc.be/uset/)
+
+## Enter Digisun
+
+So, what did I **actually** do there? This is where it gets interesting. I was relatively fresh from school, and as the sole programmer in the team was tasked with developing a series of software applications to assist the team. One of these was **Digisun**, an application to scan the drawings, to basic analysis of said drawing and to archive the data in a database that could then be consumed elsewhere.
+
+Not knowing any better back in the day, this application was written in C#.NET and, to be honest, a complete mess. Everything was deeply entangled, there was no layered architecture, no interfacing for different types of databases. If we wanted to move from SQL to any other system you would need to go change basically every single file of the application. I was still young, innocent, and naive, and without a senior developer nearby learning everything myself.
+
+But most importantly, it worked! And it worked pretty well. So even though I would not want anyone to see the actual codebase I can still look back at it with some pride.
+
+### Short about the functionality
+
+The application was designed for the following tasks:
+
+- the scanning of handmade drawings
+- calibrating the solar disc (user clicks center and north)
+- allowing observers to mark sunspot groups and assign classifications
+- (later) used a fill algorithm to calculate the surface of a group, adjusted for the sun's spherical shape and the location of the group on it's surface.
+
+## Exit Digisun ?
+
+In 2015 I left the cold, wet climate that is Brussels in search of new challenges abroad (for various reasons) and ended up in the admittedly colder, wetter climate that is Bergen on the western coast of Norway. With 200 rain days a year I was safely away from any sun and from my old job studying it. Meanwhile back in Belgium my now former colleagues continued using Digisun, making small adjustments but generally just keeping it as it is.
+
+When I visited the observatory in 2026 for the 200th anniversary of the institute I was delighted to see they finally scrapped my version and had rewritten the application using Python as part of a move away from Windows (my version was Windows only) and in an attempt to modernize it.
+
+## A new Digisun ?
+
+As I am currently working as a consultant in web development I am not super familiar with Python but always eager to learn. And it happens that sadly I do not have any real running contracts going on, so why not check out the code of this Python version ? Lucky for me they open sourced it, and it seemingly is in use by a couple other observatories. As expected, the Python version showed that it was written by physicists and not by professional developers. As such it shared many of the original's architectural challenges like: scanner and db code deeply nested in the code, undocumented functions, leaking types, lack of error handling, ...
+
+So, leaving me with no other choice, I am now embarking on a quest for redemption by rewriting Digisun once more, this time in Python, building on the existing code but trying to cleaning it up, adopting best practices, interfacing and maybe some surprises along the way. Hopefully this work will also make it easier for others to adopt the program, perhaps even amateur astronomers at home.
+
+The plan is to keep it in Python, but to split scanner, database, logic, and UI into separate layers. This should make the application more flexible and allow it to the needs of each observatory. Of course, all of this work (and my thoughts along the way) will be documented here on the blog.
