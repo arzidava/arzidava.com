@@ -11,6 +11,6 @@ export function getPosts(): Post[] {
 					slug: path.split('/').at(-2)
 				}) as Post
 		)
-		.filter((post) => post?.published);
-	//.sort((a, b) => new Date(b.date) - new Date(a.date));
+		.filter((post) => post?.published)
+		.sort((a, b) => new Date(b.date) - new Date(a.date));
 }

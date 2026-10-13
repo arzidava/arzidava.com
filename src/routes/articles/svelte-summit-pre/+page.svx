@@ -1,0 +1,22 @@
+---
+date: 2026-10-13
+description: I will be speaking at Svelte Summit 2026
+title: Svelte Summit 2026
+published: true
+tags:
+  - svelte
+---
+
+Svelte Summit 2026 is coming up! And if you look at the speakers list, one name might pop up because it is mine. So I am currently frantically writing up a presentation and working on examples. Although I have to admit I spend most of my time thinking about which shades of pink and blue to use, but everyone knows that is the most important part anyway.
+
+What am I talking about, you ask? This time I will be going over the use of Web Workers and how to handle reactivity in our apps using Svelte. For those unfamiliar with Workers, it is at its base a technique to offload heavy calculations and work to a separate thread to ensure the main thread does not get blocked. You have probably had this issue at some point, where the entire UI freezes while background work is being done. By passing this work to a Worker you can prevent this.
+
+But Workers, being off the main thread, come with a big pitfall: if you change some values there, Svelte has no way to know they have changed and therefore cannot update the UI. One way you could circumvent this is by using a lot of `postMessage` calls (the standard way of passing data to and from Workers), but this hits limits when dealing with large datasets (all the values are copied), and even for smaller datasets it can be tedious to do by hand. In the talk I will be presenting a convoluted method using some obscure JavaScript features to handle this in a more _inspired way_.
+
+My main issue right now is coming up with an example that reduces it to its most basic form, because of course a full-fledged application is overkill for a simple presentation. And of course use cases, like scientific data, real time monitoring and games.
+
+As a bonus, if I get to it, we will have Worker to Worker communication without passing through the main thread. Something that, especially for those of us making games, could be interesting.
+
+---
+
+Anyway, time to write some more and I hope to see you in Ljubljana!
